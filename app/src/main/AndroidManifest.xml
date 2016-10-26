@@ -15,7 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NewDriver"></activity>
+        <activity android:name=".Driver" />
+        <activity android:name=".Customer" />
+        <activity android:name=".Delivery"></activity>
     </application>
 
 </manifest>
