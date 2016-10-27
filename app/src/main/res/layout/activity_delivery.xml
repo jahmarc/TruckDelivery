@@ -10,4 +10,84 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.marc.truckdelivery.Delivery">
 
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:text="@string/client"
+        android:id="@+id/spinnerClient"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnerClient"
+        android:text="@string/chauffeur"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="14dp"
+        android:id="@+id/spinnerChauffeur" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:text="@string/num_ro_de_course"
+        android:id="@+id/editTextdeNumCourse"
+        android:layout_below="@+id/spinnerChauffeur"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp" />
+
+    <Button
+        android:text="@string/choisir_une_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:id="@+id/buttonDate"
+        android:layout_below="@+id/editTextdeNumCourse"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:text="@string/quantit"
+        android:id="@+id/editTextdeQte"
+        android:layout_below="@+id/buttonDate"
+        android:layout_alignStart="@+id/editTextdeNumCourse"
+        android:layout_marginTop="11dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@string/conditionnement"
+        android:ems="10"
+        android:layout_below="@+id/editTextdeQte"
+        android:layout_alignEnd="@+id/editTextdeQte"
+        android:layout_marginTop="11dp"
+        android:id="@+id/editTextdeCondi" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@string/marchandise"
+        android:ems="10"
+        android:layout_below="@+id/editTextdeCondi"
+        android:layout_alignStart="@+id/editTextdeCondi"
+        android:layout_marginTop="11dp"
+        android:id="@+id/editText4" />
+
+    <Button
+        android:text="@string/sauvegarder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        android:layout_below="@+id/editText4"
+        android:layout_alignStart="@+id/buttonDate"
+        android:layout_marginTop="49dp" />
+
 </RelativeLayout>

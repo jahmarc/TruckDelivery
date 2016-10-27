@@ -10,4 +10,96 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.marc.truckdelivery.Customer">
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@string/soci_t"
+        android:ems="10"
+        android:layout_marginTop="22dp"
+        android:id="@+id/editTextcSociete"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@string/nom"
+        android:ems="10"
+        android:layout_marginTop="13dp"
+        android:id="@+id/editTextcName"
+        android:layout_below="@+id/editTextcSociete"
+        android:layout_alignStart="@+id/editTextcSociete" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@string/pr_nom"
+        android:ems="10"
+        android:id="@+id/editTextcPrenom"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/editTextcName"
+        android:layout_alignStart="@+id/editTextcName" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:text="@string/t_l_phone"
+        android:ems="10"
+        android:id="@+id/editTextcPhone"
+        android:layout_below="@+id/editTextcPrenom"
+        android:layout_alignStart="@+id/editTextcPrenom"
+        android:layout_marginTop="13dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:text="@string/adresse"
+        android:ems="10"
+        android:id="@+id/editTextcAdress"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/editTextcPhone" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:text="@string/npa"
+        android:ems="10"
+        android:id="@+id/editTextcNPA"
+        android:layout_below="@+id/editTextcAdress"
+        android:layout_alignStart="@+id/editTextcAdress"
+        android:layout_marginTop="11dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@string/localit"
+        android:ems="10"
+        android:id="@+id/editTextcLocalite"
+        android:layout_below="@+id/editTextcNPA"
+        android:layout_alignStart="@+id/editTextcNPA"
+        android:layout_marginTop="11dp" />
+
+    <Button
+        android:text="@string/livraisons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="23dp"
+        android:id="@+id/buttoncLivraison"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="@string/sauvegarder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttoncSave"
+        android:layout_above="@+id/buttoncLivraison"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
