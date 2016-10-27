@@ -14,4 +14,6 @@
     <string name="to_do">TO-DO</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dictum mi nec pulvinar lobortis. Suspendisse maximus in elit in tincidunt. Donec et augue eu eros sodales porttitor ac a ligula. Fusce maximus a ante sed malesuada. Ut hendrerit luctus semper. Praesent eget odio nisl. Maecenas eu ipsum sed orci molestie cursus eu eros. Aenean lacus justo, gravida ac tristique luctus, aliquam at est. Duis gravida tortor sit amet lectus vehicula ullamcorper. Proin molestie lectus vel ante posuere pretium quis eget justo. Morbi et felis id mauris vulputate malesuada.</string>
     <string name="livr">Livré</string>
+    <string name="enter_a_name">Enter a name</string>
+    <string name="search">Search</string>
 </resources>
