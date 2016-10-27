@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_driver"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.marc.truckdelivery.Driver">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="N° Camion"
+        android:ems="10"
+        android:id="@+id/editTextCam"
+        android:layout_marginTop="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Nom"
+        android:ems="10"
+        android:id="@+id/editTextNom"
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/editTextCam"
+        android:layout_alignStart="@+id/editTextCam" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Prénom"
+        android:ems="10"
+        android:id="@+id/editTextPrenom"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/editTextNom"
+        android:layout_alignStart="@+id/editTextNom" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Plaque"
+        android:ems="10"
+        android:layout_marginTop="18dp"
+        android:id="@+id/editTextPlaque"
+        android:layout_below="@+id/editTextPhone"
+        android:layout_alignStart="@+id/editTextPhone" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:text="Téléphone"
+        android:ems="10"
+        android:id="@+id/editTextPhone"
+        android:layout_below="@+id/editTextPrenom"
+        android:layout_alignStart="@+id/editTextPrenom"
+        android:layout_marginTop="17dp" />
+
+    <Button
+        android:text="Sauvegarder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonSave"
+        android:layout_marginTop="32dp"
+        android:layout_below="@+id/editTextPlaque"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Livraisons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonDelivery"
+        android:layout_marginTop="34dp"
+        android:layout_below="@+id/buttonSave"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
