@@ -39,11 +39,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Name"
             android:ems="10"
             android:id="@+id/search_d_addText"
             android:layout_weight="1"
-            tools:text="@string/enter_a_name" />
+            tools:text="@string/enter_a_name"
+            tools:ignore="LabelFor" />
 
         <Button
             android:layout_width="wrap_content"
