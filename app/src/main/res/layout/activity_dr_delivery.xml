@@ -12,7 +12,8 @@
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_margin="15dp">
+            android:layout_margin="10dp"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -24,7 +25,8 @@
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_margin="15dp"
+            android:layout_margin="10dp"
+
             >
 
             <TextView
@@ -37,7 +39,8 @@
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_margin="15dp">
+            android:layout_margin="10dp"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -55,7 +58,8 @@
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_margin="15dp">
+            android:layout_margin="10dp"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -63,6 +67,24 @@
                 android:id="@+id/dr_delivery_commodity"
                 android:text="@string/lorem_ipsum"
                 tools:text="@string/lorem_ipsum" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dr_delivery" />
+
+            <CheckBox
+                android:text="CheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBox" />
         </TableRow>
     </TableLayout>
 </LinearLayout>
