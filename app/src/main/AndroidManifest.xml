@@ -17,7 +17,8 @@
         </activity>
         <activity android:name=".Driver" />
         <activity android:name=".Customer" />
-        <activity android:name=".Delivery"></activity>
+        <activity android:name=".Delivery" />
+        <activity android:name=".admin_page"></activity>
     </application>
 
 </manifest>
