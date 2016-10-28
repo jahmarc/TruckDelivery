@@ -15,13 +15,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Driver" />
         <activity android:name=".Customer" />
         <activity android:name=".Delivery" />
         <activity android:name=".admin_page" />
         <activity android:name=".dr_delivery" />
         <activity android:name=".search_driver" />
-        <activity android:name=".driver_page"></activity>
+        <activity android:name=".driver_page" />
+        <activity android:name=".Driver"></activity>
     </application>
 
 </manifest>
