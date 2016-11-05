@@ -36,7 +36,7 @@
             android:parentActivityName=".LoginPage"/>
         <activity
             android:name=".search_driver"
-            android:parentActivityName=".LoginPage"/>
+            android:parentActivityName=".admin_page"/>
         <activity
             android:name=".driver_page"
             android:parentActivityName=".LoginPage"/>

@@ -17,7 +17,8 @@
         android:layout_below="@+id/admin_buttonDriver"
         android:layout_alignStart="@+id/admin_buttonDriver"
         android:layout_marginTop="47dp"
-        android:text="@string/livraisons" />
+        android:text="@string/livraisons"
+        android:onClick="toDelivery"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -26,7 +27,8 @@
         android:id="@+id/admin_buttonClient"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="@string/client" />
+        android:text="@string/client"
+        android:onClick="toClient"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -34,5 +36,6 @@
         android:id="@+id/admin_buttonDriver"
         android:text="@string/chauffeur"
         android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/admin_buttonClient" />
+        android:layout_alignStart="@+id/admin_buttonClient"
+        android:onClick="toDriver"/>
 </RelativeLayout>

@@ -1,12 +1,15 @@
 package com.example.marc.truckdelivery;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.ButtonBarLayout;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -16,7 +19,12 @@ public class admin_page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_page);
-        getSupportActionBar().setIcon(R.drawable.ic_launcher);
+
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.ic_launcher);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
 
     }
@@ -34,5 +42,22 @@ public class admin_page extends AppCompatActivity {
 
         }
         return true;
+    }
+
+    public void toDelivery(View view) {
+        Intent toDelivery = new Intent(this,Delivery.class);
+        startActivity(toDelivery);
+        //plutot search_delivery
+    }
+
+    public void toClient(View view) {
+        Intent toClient = new Intent(this,Customer.class);
+        startActivity(toClient);
+        //plutot search_customer
+    }
+
+    public void toDriver(View view) {
+        Intent toDriver = new Intent(this,search_driver.class);
+        startActivity(toDriver);
     }
 }
