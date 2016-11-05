@@ -7,17 +7,35 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class LoginPage extends AppCompatActivity {
 
+    private Button log_button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
+        setMenubar();
 
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.drawable.ic_launcher);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
+    }
+    public void login(View view) {
+        String admin1="helder";
+        String admin2="marc";
+        String driver="driver";
+        EditText login  =(EditText)findViewById(R.id.Log_on);
+        String log=login.getText().toString();
+
+        if(log.equals(admin1)||log.equals(admin2)){
+            Intent intentAdmin = new Intent(this,admin_page.class);
+            startActivity(intentAdmin);
+
+        }else if(log.equals(driver)){
+            Intent intentDriver = new Intent(this,driver_page.class);
+            startActivity(intentDriver);
+        }
     }
 
     @Override
@@ -39,5 +57,11 @@ public class LoginPage extends AppCompatActivity {
         }
         return true;
         }
+    public void setMenubar(){
+        getSupportActionBar().setIcon(R.drawable.ic_launcher);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
+    }
+
 
 }
+

@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="@string/enter_your_username"
+        android:hint="@string/enter_your_username"
         android:ems="10"
         android:id="@+id/Log_on"
         android:layout_weight="0.04"
@@ -43,7 +43,7 @@
         android:ems="10"
         android:id="@+id/Log_pass"
         android:layout_weight="0.04"
-        android:text="@string/password"
+        android:hint="@string/password"
         android:layout_marginLeft="20dp"
         tools:ignore="LabelFor,RtlHardcoded" />
 
@@ -57,7 +57,7 @@
         android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="100dp"
-
         android:id="@+id/log_button"
+        android:onClick="login"
         tools:ignore="RtlHardcoded" />
 </LinearLayout>
