@@ -44,6 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
         android:id="@+id/buttonDate"
+        android:hint="@string/choisir_une_date"
         android:layout_below="@+id/editTextdeNumCourse"
         android:layout_centerHorizontal="true"
         tools:text="@string/choisir_une_date" />
@@ -85,9 +86,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button2"
-        android:layout_below="@+id/editTextdeMar"
-        android:layout_alignStart="@+id/buttonDate"
-        android:layout_marginTop="49dp"
-        tools:text="@string/sauvegarder" />
+        tools:text="@string/sauvegarder"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="26dp" />
 
 </RelativeLayout>
