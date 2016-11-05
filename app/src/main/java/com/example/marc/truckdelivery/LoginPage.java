@@ -13,12 +13,13 @@ import android.widget.EditText;
 
 public class LoginPage extends AppCompatActivity {
 
-    private Button log_button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
-        setMenubar();
+        getSupportActionBar().setIcon(R.drawable.ic_launcher);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
 
     }
     public void login(View view) {
@@ -48,19 +49,16 @@ public class LoginPage extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
-        Intent intent = getIntent();
+
         switch(item.getItemId()) {
-            case R.id.app_bar_search:
+            //case R.id.app_bar_search:
 
             case R.id.app_bar_language:
 
         }
         return true;
         }
-    public void setMenubar(){
-        getSupportActionBar().setIcon(R.drawable.ic_launcher);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
-    }
+
 
 
 }
