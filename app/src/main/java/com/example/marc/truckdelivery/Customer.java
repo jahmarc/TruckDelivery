@@ -23,7 +23,7 @@ public class Customer extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        getMenuInflater().inflate(R.menu.menu_login_page, menu);
+        getMenuInflater().inflate(R.menu.menu_basic, menu);
         return true;
     }
 }

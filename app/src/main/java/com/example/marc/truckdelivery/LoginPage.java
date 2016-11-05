@@ -6,9 +6,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 
 public class LoginPage extends AppCompatActivity {
@@ -45,8 +45,9 @@ public class LoginPage extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        getMenuInflater().inflate(R.menu.menu_login_page, menu);
-        return true; //prends le style pour le menu de menu_login_page
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_basic, menu);
+        return true; //prends le style pour le menu de menu_basic
     }
 
     @Override
@@ -54,10 +55,12 @@ public class LoginPage extends AppCompatActivity {
     {
 
         switch(item.getItemId()) {
-            //case R.id.app_bar_search:
+            case R.id.id_enFlag:
 
-            case R.id.app_bar_language:
+                break;
+            case R.id.id_frFlag:
 
+                break;
         }
         return true;
         }
