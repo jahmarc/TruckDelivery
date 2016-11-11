@@ -14,17 +14,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="@string/n_camion"
-        android:ems="10"
-        android:id="@+id/editTextdrCam"
-        android:layout_marginTop="35dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
         android:text="@string/nom"
         android:ems="10"
         android:id="@+id/editTextdrNom"
@@ -81,5 +70,16 @@
         android:id="@+id/buttonDelivery"
         android:layout_marginTop="34dp"
         android:layout_below="@+id/drbuttonSave"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@string/n_camion"
+        android:ems="10"
+        android:id="@+id/editTextdrCam"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

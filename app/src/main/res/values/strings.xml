@@ -31,4 +31,7 @@
     <string name="langue">Language</string>
     <string name="frFlag">Français</string>
     <string name="enFlag">English</string>
+    <string name="ibdriver">ImageButton to access to drivers</string>
+    <string name="ibdelivery">ImageButton to access to deliveries</string>
+    <string name="ibcustomer">ImageButton to access to customers</string>
 </resources>

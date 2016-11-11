@@ -32,4 +32,7 @@
     <string name="app_name">Truck Delivery</string>
     <string name="frFlag">Francais</string>
     <string name="enFlag">English</string>
+    <string name="ibdriver">Bouton qui permet d\'accéder aux chauffeurs</string>
+    <string name="ibdelivery">Bouton qui permet d\'accéder aux livraisons</string>
+    <string name="ibcustomer">Bouton qui permet d\'accéder aux Clients</string>
 </resources>
