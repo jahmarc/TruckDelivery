@@ -37,7 +37,8 @@
         android:layout_below="@+id/spinnerChauffeur"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="13dp"
-        tools:text="@string/num_ro_de_course" />
+        tools:text="@string/num_ro_de_course"
+        tools:ignore="LabelFor" />
 
     <Button
         android:layout_width="wrap_content"
@@ -58,7 +59,8 @@
         android:layout_below="@+id/buttonDate"
         android:layout_alignStart="@+id/editTextdeNumCourse"
         android:layout_marginTop="11dp"
-        tools:text="@string/quantit" />
+        tools:text="@string/quantit"
+        tools:ignore="LabelFor" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -69,7 +71,8 @@
         android:layout_alignEnd="@+id/editTextdeQte"
         android:layout_marginTop="11dp"
         android:id="@+id/editTextdeCondi"
-        tools:text="@string/conditionnement" />
+        tools:text="@string/conditionnement"
+        tools:ignore="LabelFor" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -80,7 +83,8 @@
         android:layout_alignStart="@+id/editTextdeCondi"
         android:layout_marginTop="11dp"
         android:id="@+id/editTextdeMar"
-        tools:text="@string/marchandise" />
+        tools:text="@string/marchandise"
+        tools:ignore="LabelFor" />
 
     <Button
         android:layout_width="wrap_content"

@@ -19,7 +19,8 @@
         android:layout_marginTop="22dp"
         android:id="@+id/editTextcSociete"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        tools:ignore="LabelFor" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -30,7 +31,8 @@
         android:layout_marginTop="13dp"
         android:id="@+id/editTextcName"
         android:layout_below="@+id/editTextcSociete"
-        android:layout_alignStart="@+id/editTextcSociete" />
+        android:layout_alignStart="@+id/editTextcSociete"
+        tools:ignore="LabelFor" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -41,7 +43,8 @@
         android:id="@+id/editTextcPrenom"
         android:layout_marginTop="11dp"
         android:layout_below="@+id/editTextcName"
-        android:layout_alignStart="@+id/editTextcName" />
+        android:layout_alignStart="@+id/editTextcName"
+        tools:ignore="LabelFor" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -52,7 +55,8 @@
         android:id="@+id/editTextcPhone"
         android:layout_below="@+id/editTextcPrenom"
         android:layout_alignStart="@+id/editTextcPrenom"
-        android:layout_marginTop="13dp" />
+        android:layout_marginTop="13dp"
+        tools:ignore="LabelFor" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -62,7 +66,8 @@
         android:ems="10"
         android:id="@+id/editTextcAdress"
         android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/editTextcPhone" />
+        android:layout_alignStart="@+id/editTextcPhone"
+        tools:ignore="LabelFor" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -73,7 +78,8 @@
         android:id="@+id/editTextcNPA"
         android:layout_below="@+id/editTextcAdress"
         android:layout_alignStart="@+id/editTextcAdress"
-        android:layout_marginTop="11dp" />
+        android:layout_marginTop="11dp"
+        tools:ignore="LabelFor" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -84,7 +90,8 @@
         android:id="@+id/editTextcLocalite"
         android:layout_below="@+id/editTextcNPA"
         android:layout_alignStart="@+id/editTextcNPA"
-        android:layout_marginTop="11dp" />
+        android:layout_marginTop="11dp"
+        tools:ignore="LabelFor" />
 
     <Button
         android:text="@string/livraisons"

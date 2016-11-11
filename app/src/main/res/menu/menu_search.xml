@@ -14,5 +14,5 @@
         android:id="@+id/app_bar_language"
         android:title="@string/langue"
         android:orderInCategory="0"
-        TruckDelivery:showAsAction="always" />
+        TruckDelivery:showAsAction="never" />
 </menu>

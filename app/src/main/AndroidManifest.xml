@@ -4,7 +4,11 @@
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="19"/>
+        android:targetSdkVersion="19" />
+    <!--
+    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> -->
 
     <application
         android:allowBackup="true"
@@ -17,32 +21,40 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".Customer"
             android:label="@string/client"
-            android:parentActivityName=".LoginPage"/>
+            android:parentActivityName=".LoginPage" />
         <activity
             android:name=".Delivery"
             android:label="@string/livraisons"
-            android:parentActivityName=".LoginPage"/>
+            android:parentActivityName=".LoginPage" />
         <activity
             android:name=".admin_page"
-            android:parentActivityName=".LoginPage"/>
+
+            android:parentActivityName=".LoginPage" />
         <activity
             android:name=".dr_delivery"
-            android:parentActivityName=".LoginPage"/>
+            android:parentActivityName=".LoginPage" />
         <activity
             android:name=".search_driver"
-            android:parentActivityName=".LoginPage"/>
+            android:parentActivityName=".LoginPage" />
         <activity
             android:name=".driver_page"
-            android:parentActivityName=".LoginPage"/>
+            android:parentActivityName=".LoginPage" />
         <activity
             android:name=".Driver"
-            android:parentActivityName=".LoginPage"/>
+            android:parentActivityName=".LoginPage" />
+        <activity
+            android:name=".search_delivery"
+            android:parentActivityName=".LoginPage" />
+        <activity
+            android:name=".search_customer"
+            android:parentActivityName=".LoginPage" />
     </application>
 
 </manifest>

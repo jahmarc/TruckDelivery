@@ -7,7 +7,7 @@
         android:id="@+id/id_frFlag"
         android:title="@string/frFlag"
         android:icon="@drawable/fr_flag"
-        TruckDelivery:showAsAction="ifRoom"></item>
+        TruckDelivery:showAsAction="never"></item>
 
     <item
         android:id="@+id/id_enFlag"

@@ -14,28 +14,9 @@
         tools:text="@string/nom"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
-    <TableLayout
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="21dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="88dp">
+        android:layout_height="match_parent"
+        android:id="@+id/driver_page_livraisons" />
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_margin="10dp"
-            tools:ignore="UselessParent">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/driver_page_button" />
-
-
-        </TableRow>
-
-    </TableLayout>
 </LinearLayout>
