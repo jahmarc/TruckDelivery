@@ -13,6 +13,8 @@ import android.widget.EditText;
 
 public class LoginPage extends AppCompatActivity {
 
+    //stocker la preference de langue serait une bonne idée avec des shared Preferences
+    //on saurait quelle langue charger a chaque page
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

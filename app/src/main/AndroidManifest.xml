@@ -26,35 +26,38 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Customer"
-            android:label="@string/client"
-            android:parentActivityName=".LoginPage" />
-        <activity
-            android:name=".Delivery"
-            android:label="@string/livraisons"
-            android:parentActivityName=".LoginPage" />
-        <activity
             android:name=".admin_page"
 
             android:parentActivityName=".LoginPage" />
         <activity
-            android:name=".dr_delivery"
-            android:parentActivityName=".LoginPage" />
-        <activity
-            android:name=".search_driver"
-            android:parentActivityName=".LoginPage" />
-        <activity
-            android:name=".driver_page"
-            android:parentActivityName=".LoginPage" />
-        <activity
-            android:name=".Driver"
-            android:parentActivityName=".LoginPage" />
-        <activity
             android:name=".search_delivery"
-            android:parentActivityName=".LoginPage" />
+            android:parentActivityName=".admin_page" />
         <activity
             android:name=".search_customer"
-            android:parentActivityName=".LoginPage" />
+            android:parentActivityName=".admin_page" />
+        <activity
+            android:name=".search_driver"
+            android:parentActivityName=".admin_page" />
+        <activity
+            android:name=".Customer"
+            android:label="@string/client"
+            android:parentActivityName=".search_customer" />
+        <activity
+            android:name=".Delivery"
+            android:label="@string/livraisons"
+            android:parentActivityName=".search_delivery" />
+        <activity
+            android:name=".Driver"
+            android:parentActivityName=".search_driver" />
+        <activity
+            android:name=".driver_page"
+            android:parentActivityName=".LoginPage" /><activity
+            android:name=".dr_delivery"
+            android:parentActivityName=".driver_page" />
+
+
+
+
     </application>
 
 </manifest>

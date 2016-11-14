@@ -34,4 +34,34 @@
     <string name="ibdriver">ImageButton to access to drivers</string>
     <string name="ibdelivery">ImageButton to access to deliveries</string>
     <string name="ibcustomer">ImageButton to access to customers</string>
+    <string-array name="Delivery">
+        <item>Delivery A</item>
+        <item>Delivery B</item>
+        <item>Delivery C</item>
+        <item>Delivery D</item>
+        <item>Delivery E</item>
+        <item>Delivery F</item>
+        <item>Delivery G</item>
+        <item>Delivery H</item>
+    </string-array>
+    <string-array name="Customer">
+        <item>Customer A</item>
+        <item>Customer B</item>
+        <item>Customer C</item>
+        <item>Customer D</item>
+        <item>Customer E</item>
+        <item>Customer F</item>
+        <item>Customer G</item>
+        <item>Customer H</item>
+    </string-array>
+    <string-array name="Driver">
+        <item>Driver A</item>
+        <item>Driver B</item>
+        <item>Driver C</item>
+        <item>Driver D</item>
+        <item>Driver E</item>
+        <item>Driver F</item>
+        <item>Driver G</item>
+        <item>Driver H</item>
+    </string-array>
 </resources>
