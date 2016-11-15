@@ -23,6 +23,8 @@ public class DBContract {
         public static final String KEY_FIRSTNAME = "firstname";
         public static final String KEY_PHONE = "phone";
         public static final String KEY_PLATE = "plate";
+        public static final String KEY_USER = "user";
+        public static final String KEY_PASSWORD = "password";
 
         //Table Driver create statement
         public static final String CREATE_TABLE_DRIVER = "CREATE TABLE "
@@ -32,6 +34,8 @@ public class DBContract {
                 + DriverEntry.KEY_FIRSTNAME + " TEXT, "
                 + DriverEntry.KEY_PHONE + " TEXT, "
                 + DriverEntry.KEY_PLATE + " TEXT "
+                + DriverEntry.KEY_USER + " TEXT "
+                + DriverEntry.KEY_PASSWORD + " TEXT "
                 + ");";
     }
 
