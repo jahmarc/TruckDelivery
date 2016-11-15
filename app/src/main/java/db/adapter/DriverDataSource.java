@@ -113,4 +113,62 @@ public class DriverDataSource {
         return this.db.update(DriverEntry.TABLE_DRIVER, values, DriverEntry.KEY_ID + " = ?",
                 new String[]{String.valueOf(driver.getId())});
     }
+
+    /**
+     * Search a Driver by name or firstname
+     */
+    public List<Driver> searchDriver(String query){
+        List<Driver> drivers = new ArrayList<Driver>();
+        String sql = "SELECT * FROM " + DriverEntry.TABLE_DRIVER +
+                " WHERE " + DriverEntry.KEY_NAME + " = " + query
+                + " OR " + DriverEntry.KEY_FIRSTNAME + " = " + query
+                + " ORDER BY " + DriverEntry.KEY_NAME;
+
+        Cursor cursor = this.db.rawQuery(sql, null);
+
+        if(cursor.moveToFirst()){
+            do{
+                Driver driver = new Driver();
+                driver.setId(cursor.getInt(cursor.getColumnIndex(DriverEntry.KEY_ID)));
+                driver.setName(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_NAME)));
+                driver.setFirstname(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_FIRSTNAME)));
+                driver.setPhone(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_PHONE)));
+                driver.setPlate(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_PLATE)));
+                driver.setUser(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_USER)));
+                driver.setPassword(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_PASSWORD)));
+
+                drivers.add(driver);
+            } while(cursor.moveToNext());
+        }
+
+        return drivers;
+    }
+
+    /**
+     * return a driver by his username and password
+     */
+    public Driver getUser(String user, String password)
+    {
+        String sql = "SELECT * FROM " + DriverEntry.TABLE_DRIVER +
+                " WHERE " + DriverEntry.KEY_USER + " = " + user +
+                " AND " + DriverEntry.KEY_PASSWORD + " = " + password;
+
+        Cursor cursor = this.db.rawQuery(sql, null);
+
+        if(cursor != null){
+            cursor.moveToFirst();
+        }
+
+        Driver driver = new Driver();
+        driver.setId(cursor.getInt(cursor.getColumnIndex(DriverEntry.KEY_ID)));
+        driver.setName(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_NAME)));
+        driver.setFirstname(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_FIRSTNAME)));
+        driver.setPhone(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_PHONE)));
+        driver.setPlate(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_PLATE)));
+        driver.setUser(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_USER)));
+        driver.setPassword(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_PASSWORD)));
+
+        return driver;
+    }
+
 }

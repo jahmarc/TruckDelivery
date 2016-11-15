@@ -120,4 +120,37 @@ public class CustomerDataSource {
         return this.db.update(CustomerEntry.TABLE_CUSTOMER, values, CustomerEntry.KEY_ID + " = ?",
                 new String[]{String.valueOf(customer.getId())});
     }
+
+    /**
+     * Search A list of customer with name
+     */
+    public List<Customer> searchCustomer(String query){
+        List<Customer> customers = new ArrayList<Customer>();
+        String sql = "SELECT * FROM " + CustomerEntry.TABLE_CUSTOMER +
+                " WHERE " + CustomerEntry.KEY_SOCIETY + " = " + query
+                + " OR " + CustomerEntry.KEY_NAME + " = " + query
+                + " OR " + CustomerEntry.KEY_FIRSTNAME + " = " + query
+                + " ORDER BY " + CustomerEntry.KEY_NAME;
+
+        Cursor cursor = this.db.rawQuery(sql, null);
+
+        if(cursor.moveToFirst()){
+            do{
+                Customer customer = new Customer();
+
+                customer.setId(cursor.getInt(cursor.getColumnIndex(CustomerEntry.KEY_ID)));
+                customer.setSociety(cursor.getString(cursor.getColumnIndex(CustomerEntry.KEY_SOCIETY)));
+                customer.setName(cursor.getString(cursor.getColumnIndex(CustomerEntry.KEY_NAME)));
+                customer.setFirstname(cursor.getString(cursor.getColumnIndex(CustomerEntry.KEY_FIRSTNAME)));
+                customer.setPhone(cursor.getString(cursor.getColumnIndex(CustomerEntry.KEY_PHONE)));
+                customer.setAdress(cursor.getString(cursor.getColumnIndex(CustomerEntry.KEY_ADRESS)));
+                customer.setPostcode(cursor.getInt(cursor.getColumnIndex(CustomerEntry.KEY_POSTCODE)));
+                customer.setLocality(cursor.getString(cursor.getColumnIndex(CustomerEntry.KEY_LOCALITY)));
+
+                customers.add(customer);
+            } while(cursor.moveToNext());
+        }
+
+        return customers;
+    }
 }
