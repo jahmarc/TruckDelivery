@@ -1,9 +1,9 @@
-package db.object;
+package db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import db.object.DBContract.*;
+import db.DBContract.*;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Locale;

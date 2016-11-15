@@ -1,4 +1,4 @@
-package db.object;
+package db;
 
 import android.provider.BaseColumns;
 
@@ -90,9 +90,11 @@ public class DBContract {
                 + DeliveryEntry.KEY_ID_DRIVER + " INTEGER, "
                 + DeliveryEntry.KEY_ID_CUSTOMER + " INTEGER, "
                 + DeliveryEntry.KEY_DATE + " DATETIME, "
-                + DeliveryEntry.KEY_QUANTITY + " TEXT, "
+                + DeliveryEntry.KEY_QUANTITY + " INTEGER, "
                 + DeliveryEntry.KEY_CONDITIONING + " TEXT, "
-                + DeliveryEntry.KEY_ARTICLE + " TEXT "
+                + DeliveryEntry.KEY_ARTICLE + " TEXT, "
+                + "FOREIGN KEY (" + KEY_ID_DRIVER + ") REFERENCES " + DriverEntry.TABLE_DRIVER + " (" + KEY_ID + "), "
+                + "FOREIGN KEY (" + KEY_ID_CUSTOMER + ") REFERENCES " + CustomerEntry.TABLE_CUSTOMER + " (" + KEY_ID +") "
                 + ");";
 
     }
