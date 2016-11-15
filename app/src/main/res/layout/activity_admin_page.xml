@@ -21,7 +21,8 @@
         android:layout_weight="0.09"
         android:background="@android:color/background_light"
         android:contentDescription="@string/ibdriver"
-        android:layout_height="80dp"/>
+        android:layout_height="80dp"
+        android:onClick="toDriver"/>
 
     <ImageButton
         android:layout_width="match_parent"
@@ -31,7 +32,8 @@
         android:scaleType="fitCenter"
         android:background="@android:color/background_light"
         android:contentDescription="@string/ibdelivery"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="40dp"
+        android:onClick="toDelivery"/>
 
     <ImageButton
         android:layout_width="match_parent"
@@ -42,7 +44,8 @@
         android:background="@android:color/background_light"
         android:scaleType="fitCenter"
         android:contentDescription="@string/ibcustomer"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="40dp"
+        android:onClick="toClient"/>
 
 
 </LinearLayout>

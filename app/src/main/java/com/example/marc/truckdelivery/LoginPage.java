@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class LoginPage extends AppCompatActivity {
 
@@ -37,10 +38,13 @@ public class LoginPage extends AppCompatActivity {
         if(log.equals(admin1)||log.equals(admin2)){
             Intent intentAdmin = new Intent(this,admin_page.class);
             startActivity(intentAdmin);
-
+            Toast.makeText(getApplicationContext(),"Welcome "+log+" to the Admin Page.",Toast.LENGTH_SHORT).show();
         }else if(log.equals(driver)){
             Intent intentDriver = new Intent(this,driver_page.class);
             startActivity(intentDriver);
+            Toast.makeText(getApplicationContext(),"Welcome "+log+" to your Driver Page.",Toast.LENGTH_SHORT).show();
+        }else{
+                Toast.makeText(getApplicationContext(), "Your Username or Password is not correct!", Toast.LENGTH_SHORT).show();
         }
     }
 

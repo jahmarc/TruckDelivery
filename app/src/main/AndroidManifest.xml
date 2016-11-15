@@ -27,7 +27,6 @@
         </activity>
         <activity
             android:name=".admin_page"
-
             android:parentActivityName=".LoginPage" />
         <activity
             android:name=".search_delivery"
@@ -49,9 +48,11 @@
         <activity
             android:name=".Driver"
             android:parentActivityName=".search_driver" />
+
         <activity
             android:name=".driver_page"
-            android:parentActivityName=".LoginPage" /><activity
+            android:parentActivityName=".LoginPage" />
+        <activity
             android:name=".dr_delivery"
             android:parentActivityName=".driver_page" />
 
