@@ -24,12 +24,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="@string/enter_your_username"
         android:ems="10"
         android:id="@+id/Log_on"
         android:layout_weight="0.04"
         android:layout_marginLeft="20dp"
-        tools:ignore="LabelFor,RtlHardcoded" />
+        tools:ignore="LabelFor,RtlHardcoded"
+        android:hint="@string/enter_a_name" />
 
     <Space
         android:layout_width="match_parent"

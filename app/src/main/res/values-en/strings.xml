@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Truck Delivery</string>
+    <string name="action_back">Back</string>
+    <string name="add_a_driver">Add a Driver</string>
+    <string name="adresse">Adress</string>
+    <string name="chauffeur">Driver</string>
+    <string name="choisir_une_date">Choisir une date</string>
+    <string name="client">Customer</string>
+    <string name="conditionnement">Conditioning</string>
+    <string name="enFlag">English</string>
+    <string name="enter_a_name">Enter a name</string>
+    <string name="enter_your_username">Enter your Username</string>
+    <string name="frFlag">French</string>
+    <string name="ibcustomer">ImageButton to access to customers</string>
+    <string name="ibdelivery">ImageButton to access to deliveries</string>
+    <string name="ibdriver">ImageButton to access to drivers</string>
+    <string name="langue">Language</string>
+    <string name="livr">Delivered</string>
+    <string name="livraisons">Delivery</string>
+    <string name="localit">Locality</string>
+    <string name="login">Login</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dictum mi nec pulvinar lobortis. Suspendisse maximus in elit in tincidunt. Donec et augue eu eros sodales porttitor ac a ligula. Fusce maximus a ante sed malesuada. Ut hendrerit luctus semper. Praesent eget odio nisl. Maecenas eu ipsum sed orci molestie cursus eu eros. Aenean lacus justo, gravida ac tristique luctus, aliquam at est. Duis gravida tortor sit amet lectus vehicula ullamcorper. Proin molestie lectus vel ante posuere pretium quis eget justo. Morbi et felis id mauris vulputate malesuada.</string>
+    <string name="marchandise">Article</string>
+    <string name="n_camion">Num Truck</string>
+    <string name="nom">Name</string>
+    <string name="npa">Post Code</string>
+    <string name="num_ro_de_course">Num Delivery</string>
+    <string name="password">Password</string>
+    <string name="plaque">Numberplate</string>
+    <string name="pr_nom">Firstname</string>
+    <string name="quantit">Quantity</string>
+    <string name="sauvegarder">Save</string>
+    <string name="search">Search</string>
+    <string name="soci_t">Society</string>
+    <string name="t_l_phone">Phone</string>
+    <string name="to_do">TO-DO</string>
+</resources>
