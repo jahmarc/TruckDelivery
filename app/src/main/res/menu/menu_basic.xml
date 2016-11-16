@@ -14,11 +14,5 @@
         android:title="@string/enFlag"
         android:icon="@drawable/en_flag"
         TruckDelivery:showAsAction="never"></item>
-<!--
-    <item
-        android:id="@+id/app_bar_language"
-        android:title="@string/langue"
-        android:orderInCategory="0"
-        android:showAsAction="always" />
--->
+
 </menu>

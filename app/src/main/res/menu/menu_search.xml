@@ -11,8 +11,14 @@
         android:title="@string/search" />
 
     <item
-        android:id="@+id/app_bar_language"
-        android:title="@string/langue"
-        android:orderInCategory="0"
-        TruckDelivery:showAsAction="never" />
+        android:id="@+id/id_frFlag"
+        android:title="@string/frFlag"
+        android:icon="@drawable/fr_flag"
+        TruckDelivery:showAsAction="never"></item>
+
+    <item
+        android:id="@+id/id_enFlag"
+        android:title="@string/enFlag"
+        android:icon="@drawable/en_flag"
+        TruckDelivery:showAsAction="never"></item>
 </menu>
