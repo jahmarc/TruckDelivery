@@ -6,6 +6,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 public class Delivery extends AppCompatActivity {
 
@@ -42,6 +45,22 @@ public class Delivery extends AppCompatActivity {
     private void updateViews() {
         Resources resources = getResources();
 
+        Spinner spinnerClient =(Spinner)findViewById(R.id.spinnerClient);
+        Spinner spinnerChauffeur =(Spinner)findViewById(R.id.spinnerChauffeur);
+        EditText editTextdeNumCourse=(EditText)findViewById(R.id.editTextdeNumCourse);
+        Button buttonDate = (Button)findViewById(R.id.buttonDate);
+        EditText editTextdeQte=(EditText)findViewById(R.id.editTextdeQte);
+        EditText editTextdeCondi=(EditText)findViewById(R.id.editTextdeCondi);
+        EditText editTextdeMar=(EditText)findViewById(R.id.editTextdeMar);
+        Button button2 = (Button)findViewById(R.id.button2);
+
+        editTextdeNumCourse.setText(resources.getString(R.string.num_ro_de_course));
+        buttonDate.setText(resources.getString(R.string.choisir_une_date));
+        buttonDate.setHint(resources.getString(R.string.choisir_une_date));
+        editTextdeQte.setText(resources.getString(R.string.quantit));
+        editTextdeCondi.setText(resources.getString(R.string.conditionnement));
+        editTextdeMar.setText(resources.getString(R.string.marchandise));
+        button2.setText(resources.getString(R.string.sauvegarder));
 
     }
 }

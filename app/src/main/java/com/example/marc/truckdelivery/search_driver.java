@@ -1,5 +1,6 @@
 package com.example.marc.truckdelivery;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -23,6 +24,7 @@ public class search_driver extends AppCompatActivity {
 
     ListView lv;
     ArrayAdapter<String>adapter;
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +35,7 @@ public class search_driver extends AppCompatActivity {
         getSupportActionBar().setLogo(R.drawable.ic_launcher);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
-
+        context=this;
 
         String[] drivers = getResources().getStringArray(R.array.Driver);
         lv = (ListView) findViewById(R.id.search_driver);
@@ -42,7 +44,9 @@ public class search_driver extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getBaseContext(),parent.getItemAtPosition(position)+" selected",Toast.LENGTH_SHORT).show();
+                if(LocaleHelper.getLanguage(context)=="en"){
+                Toast.makeText(getBaseContext(),parent.getItemAtPosition(position)+" selected",Toast.LENGTH_SHORT).show();}
+                else{Toast.makeText(getBaseContext(),parent.getItemAtPosition(position)+" selectionné",Toast.LENGTH_SHORT).show();}
             }
         });
 }

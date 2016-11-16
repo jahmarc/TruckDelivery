@@ -29,7 +29,7 @@
         android:layout_weight="0.04"
         android:layout_marginLeft="20dp"
         tools:ignore="LabelFor,RtlHardcoded"
-        android:hint="@string/enter_a_name" />
+        android:hint="@string/enter_your_username" />
 
     <Space
         android:layout_width="match_parent"

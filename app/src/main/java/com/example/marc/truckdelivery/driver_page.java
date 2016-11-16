@@ -6,6 +6,10 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class driver_page extends AppCompatActivity {
 
@@ -42,6 +46,9 @@ public class driver_page extends AppCompatActivity {
     private void updateViews() {
         Resources resources = getResources();
 
+        TextView driver_page_name =(TextView) findViewById(R.id.driver_page_name);
+
+        driver_page_name.setText(resources.getString(R.string.nom));
 
     }
 }
