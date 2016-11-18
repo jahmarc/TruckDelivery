@@ -13,6 +13,18 @@ public class Driver {
     private String user;
     private String password;
 
+    public Driver(String name, String firstname, String phone, String plate, String user, String password){
+        this.name = name;
+        this.firstname = firstname;
+        this.phone = phone;
+        this.plate = plate;
+        this.user = user;
+        this.password = password;
+    }
+    public Driver(){
+
+    }
+
     public int getId(){return id;}
     public void setId(int id){this.id = id;}
 
