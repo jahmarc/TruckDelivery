@@ -29,12 +29,12 @@ public class DBContract {
         //Table Driver create statement
         public static final String CREATE_TABLE_DRIVER = "CREATE TABLE "
                 + TABLE_DRIVER + "("
-                + DriverEntry.KEY_ID + " INTEGER PRIMARY KEY, "
+                + DriverEntry.KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + DriverEntry.KEY_NAME + " TEXT, "
                 + DriverEntry.KEY_FIRSTNAME + " TEXT, "
                 + DriverEntry.KEY_PHONE + " TEXT, "
-                + DriverEntry.KEY_PLATE + " TEXT "
-                + DriverEntry.KEY_USER + " TEXT "
+                + DriverEntry.KEY_PLATE + " TEXT, "
+                + DriverEntry.KEY_USER + " TEXT, "
                 + DriverEntry.KEY_PASSWORD + " TEXT "
                 + ");";
     }

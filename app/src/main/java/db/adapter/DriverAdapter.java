@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.marc.truckdelivery.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import db.object.Driver;
 
@@ -21,8 +22,8 @@ import db.object.Driver;
 
 public class DriverAdapter extends ArrayAdapter<Driver>{
 
-    public DriverAdapter(Context context, ArrayList<Driver> drivers) {
-        super(context,0, drivers);
+    public DriverAdapter(Context context,int ressource, List<Driver> drivers) {
+        super(context,ressource, drivers);
     }
 
     @Override
@@ -32,17 +33,17 @@ public class DriverAdapter extends ArrayAdapter<Driver>{
         if(convertView==null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_driver,parent,false);
         }
-        EditText editTextdrNom = (EditText)convertView.findViewById(R.id.editTextdrNom);
-        EditText editTextdrPrenom = (EditText)convertView.findViewById(R.id.editTextdrPrenom);
-        EditText editTextdrPlaque = (EditText)convertView.findViewById(R.id.editTextdrPlaque);
-        EditText editTextdrPhone = (EditText)convertView.findViewById(R.id.editTextdrPhone);
-        EditText editTextdrCam = (EditText)convertView.findViewById(R.id.editTextdrCam);
+        TextView editTextdrNom = (TextView) convertView.findViewById(R.id.tv_name);
+       // EditText editTextdrPrenom = (EditText)convertView.findViewById(R.id.editTextdrPrenom);
+        //EditText editTextdrPlaque = (EditText)convertView.findViewById(R.id.editTextdrPlaque);
+        //EditText editTextdrPhone = (EditText)convertView.findViewById(R.id.editTextdrPhone);
+        //EditText editTextdrCam = (EditText)convertView.findViewById(R.id.editTextdrCam);
 
-        editTextdrCam.setText(driver.getId());
+        //editTextdrCam.setText(driver.getId());
         editTextdrNom.setText(driver.getName());
-        editTextdrPrenom.setText(driver.getFirstname());
+        /*editTextdrPrenom.setText(driver.getFirstname());
         editTextdrPlaque.setText(driver.getPlate());
-        editTextdrPhone.setText(driver.getPhone());
+        editTextdrPhone.setText(driver.getPhone());*/
 
         return convertView;
         }catch (Exception ex){

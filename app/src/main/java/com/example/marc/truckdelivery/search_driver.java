@@ -33,18 +33,22 @@ public class search_driver extends AppCompatActivity {
 
     ListView lv;
     Context context;
-    ArrayList<Driver> drivers = new ArrayList<Driver>();
-    DriverDataSource dts = new DriverDataSource(this);
+    List<Driver> drivers ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        context = this;
 try {
+
+    DriverDataSource dts = new DriverDataSource(this);
     Driver driver1 = new Driver("Jean", "Paul", "0273066565", "VS259", "JP", "1234");
     Driver driver2 = new Driver("John", "Doe", "007", "VS007", "JD", "007");
     dts.createDriver(driver1);
     dts.createDriver(driver2);
 
-    super.onCreate(savedInstanceState);
+
     setContentView(R.layout.activity_search_driver);
     getSupportActionBar().setHomeButtonEnabled(true);
     getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -52,11 +56,11 @@ try {
     getSupportActionBar().setLogo(R.drawable.ic_launcher);
     getSupportActionBar().setDisplayShowTitleEnabled(true);
     getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
-    context = this;
 
-    drivers = (ArrayList<Driver>) dts.getAllDrivers();
 
-    DriverAdapter adapter = new DriverAdapter(this, drivers);
+    drivers = dts.getAllDrivers();
+
+    DriverAdapter adapter = new DriverAdapter(this,R.layout.driver_row, drivers);
     lv = (ListView) findViewById(R.id.search_driver);
 
     lv.setAdapter(adapter);
