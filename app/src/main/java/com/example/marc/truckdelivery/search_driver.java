@@ -37,6 +37,7 @@ public class search_driver extends AppCompatActivity {
         DriverDataSource dts = new DriverDataSource(this);
         helper.getInstance(context);
 
+        dts.createDriver(new DriverObject("Bond","James","007-007","Bond007","Bond","pass007"));
 
         /**
          * Add additional functions to actionbar
