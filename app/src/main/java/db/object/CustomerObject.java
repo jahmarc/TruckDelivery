@@ -4,7 +4,7 @@ package db.object;
  * Created by Marc on 15/11/2016.
  */
 
-public class Customer {
+public class CustomerObject {
     private int id;
     private String society;
     private String name;

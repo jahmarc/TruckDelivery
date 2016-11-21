@@ -1,54 +1,46 @@
 package db.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
+
+import db.object.DriverObject;
+import android.support.design.internal.*;
 import android.widget.TextView;
+
 
 import com.example.marc.truckdelivery.R;
 
-import java.util.ArrayList;
+import org.w3c.dom.Text;
+
 import java.util.List;
 
-import db.object.Driver;
+
 
 /**
- * Created by Helder on 18.11.2016.
+ * Created by Helder on 21.11.2016.
  */
 
-public class DriverAdapter extends ArrayAdapter<Driver>{
+public class DriverAdapter extends ArrayAdapter<DriverObject>{
 
-    public DriverAdapter(Context context,int ressource, List<Driver> drivers) {
-        super(context,ressource, drivers);
+    private final Context context;
+    private final List<DriverObject> drivers;
+
+    public DriverAdapter(Context context, List<DriverObject> drivers) {
+        super(context,-1, drivers);
+        this.context = context;
+        this.drivers = drivers;
     }
-
     @Override
-    public View getView(int position, View convertView,ViewGroup parent) {
-        try{
-        Driver driver = getItem(position);
-        if(convertView==null){
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_driver,parent,false);
-        }
-        TextView editTextdrNom = (TextView) convertView.findViewById(R.id.tv_name);
-       // EditText editTextdrPrenom = (EditText)convertView.findViewById(R.id.editTextdrPrenom);
-        //EditText editTextdrPlaque = (EditText)convertView.findViewById(R.id.editTextdrPlaque);
-        //EditText editTextdrPhone = (EditText)convertView.findViewById(R.id.editTextdrPhone);
-        //EditText editTextdrCam = (EditText)convertView.findViewById(R.id.editTextdrCam);
+    public View getView(int position, View convertView, ViewGroup parent){
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        //editTextdrCam.setText(driver.getId());
-        editTextdrNom.setText(driver.getName());
-        /*editTextdrPrenom.setText(driver.getFirstname());
-        editTextdrPlaque.setText(driver.getPlate());
-        editTextdrPhone.setText(driver.getPhone());*/
+        View rowView = inflater.inflate(R.layout.driver_row,parent,false);
+        TextView textView = (TextView)rowView.findViewById(R.id.label);
+        textView.setText(drivers.get(position).getName()+" "+ drivers.get(position).getFirstname());
 
-        return convertView;
-        }catch (Exception ex){
-            Log.e("adapter","error",ex);
-            return null;
-        }
+        return rowView;
     }
 }

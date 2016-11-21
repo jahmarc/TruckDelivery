@@ -57,7 +57,7 @@ public class LoginPage extends AppCompatActivity {
             Intent intentDriver = new Intent(this,driver_page.class);
             startActivity(intentDriver);
             if(LocaleHelper.getLanguage(context)!="fr"){
-                Toast.makeText(getApplicationContext(),"Welcome "+log+" to your Driver Page.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Welcome "+log+" to your DriverObject Page.",Toast.LENGTH_SHORT).show();
                 }
             else{Toast.makeText(getApplicationContext(),"Bienvenue "+log+" a votre page chauffeur.",Toast.LENGTH_SHORT).show();}
         }else{

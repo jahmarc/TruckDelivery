@@ -12,7 +12,7 @@ import java.util.List;
 import db.DBContract;
 import db.DBContract.DriverEntry;
 import db.SQLiteHelper;
-import db.object.Driver;
+import db.object.DriverObject;
 
 /**
  * Created by Marc on 15/11/2016.
@@ -33,7 +33,7 @@ public class DriverDataSource {
     /**
      * Insert a new driver
      */
-    public long createDriver(Driver driver){
+    public long createDriver(DriverObject driver){
         long id;
         db = sqldb.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -50,9 +50,9 @@ public class DriverDataSource {
     }
 
     /**
-     * Find one Driver by Id
+     * Find one DriverObject by Id
      */
-    public Driver getDriverById(long id){
+    public DriverObject getDriverById(long id){
         String sql = "SELECT * FROM " + DriverEntry.TABLE_DRIVER +
                 " WHERE " + DriverEntry.KEY_ID + " = " + id;
 
@@ -62,7 +62,7 @@ public class DriverDataSource {
             cursor.moveToFirst();
         }
 
-        Driver driver = new Driver();
+        DriverObject driver = new DriverObject();
         driver.setId(cursor.getInt(cursor.getColumnIndex(DriverEntry.KEY_ID)));
         driver.setName(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_NAME)));
         driver.setFirstname(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_FIRSTNAME)));
@@ -77,16 +77,16 @@ public class DriverDataSource {
     /**
      * Get all Drivers
      */
-    public List<Driver> getAllDrivers(){
+    public List<DriverObject> getAllDrivers(){
         db = sqldb.getReadableDatabase();
-        List<Driver> drivers = new ArrayList<Driver>();
+        List<DriverObject> drivers = new ArrayList<DriverObject>();
         String sql = "SELECT * FROM " + DriverEntry.TABLE_DRIVER + " ORDER BY " + DriverEntry.KEY_NAME;
 
         Cursor cursor = this.db.rawQuery(sql, null);
 
         if(cursor.moveToFirst()){
             do{
-                Driver driver = new Driver();
+                DriverObject driver = new DriverObject();
                 driver.setId(cursor.getInt(cursor.getColumnIndex(DriverEntry.KEY_ID)));
                 driver.setName(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_NAME)));
                 driver.setFirstname(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_FIRSTNAME)));
@@ -103,9 +103,9 @@ public class DriverDataSource {
     }
 
     /**
-     *  Update a Driver
+     *  Update a DriverObject
      */
-    public int updateDriver(Driver driver){
+    public int updateDriver(DriverObject driver){
         ContentValues values = new ContentValues();
         values.put(DriverEntry.KEY_NAME, driver.getName());
         values.put(DriverEntry.KEY_FIRSTNAME, driver.getFirstname());
@@ -119,10 +119,10 @@ public class DriverDataSource {
     }
 
     /**
-     * Search a Driver by name or firstname
+     * Search a DriverObject by name or firstname
      */
-    public List<Driver> searchDriver(String query){
-        List<Driver> drivers = new ArrayList<Driver>();
+    public List<DriverObject> searchDriver(String query){
+        List<DriverObject> drivers = new ArrayList<DriverObject>();
         String sql = "SELECT * FROM " + DriverEntry.TABLE_DRIVER +
                 " WHERE " + DriverEntry.KEY_NAME + " = " + query
                 + " OR " + DriverEntry.KEY_FIRSTNAME + " = " + query
@@ -132,7 +132,7 @@ public class DriverDataSource {
 
         if(cursor.moveToFirst()){
             do{
-                Driver driver = new Driver();
+                DriverObject driver = new DriverObject();
                 driver.setId(cursor.getInt(cursor.getColumnIndex(DriverEntry.KEY_ID)));
                 driver.setName(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_NAME)));
                 driver.setFirstname(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_FIRSTNAME)));
@@ -151,7 +151,7 @@ public class DriverDataSource {
     /**
      * return a driver by his username and password
      */
-    public Driver getUser(String user, String password)
+    public DriverObject getUser(String user, String password)
     {
         String sql = "SELECT * FROM " + DriverEntry.TABLE_DRIVER +
                 " WHERE " + DriverEntry.KEY_USER + " = " + user +
@@ -163,7 +163,7 @@ public class DriverDataSource {
             cursor.moveToFirst();
         }
 
-        Driver driver = new Driver();
+        DriverObject driver = new DriverObject();
         driver.setId(cursor.getInt(cursor.getColumnIndex(DriverEntry.KEY_ID)));
         driver.setName(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_NAME)));
         driver.setFirstname(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_FIRSTNAME)));

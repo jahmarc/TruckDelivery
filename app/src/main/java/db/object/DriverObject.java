@@ -4,7 +4,7 @@ package db.object;
  * Created by Marc on 15/11/2016.
  */
 
-public class Driver {
+public class DriverObject {
     private int id;
     private String name;
     private String firstname;
@@ -13,7 +13,7 @@ public class Driver {
     private String user;
     private String password;
 
-    public Driver(String name, String firstname, String phone, String plate, String user, String password){
+    public DriverObject(String name, String firstname, String phone, String plate, String user, String password){
         this.name = name;
         this.firstname = firstname;
         this.phone = phone;
@@ -21,7 +21,7 @@ public class Driver {
         this.user = user;
         this.password = password;
     }
-    public Driver(){
+    public DriverObject(){
 
     }
 

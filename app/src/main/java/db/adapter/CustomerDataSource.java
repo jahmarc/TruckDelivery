@@ -11,7 +11,8 @@ import java.util.List;
 
 import db.DBContract.CustomerEntry;
 import db.SQLiteHelper;
-import db.object.Customer;
+import db.object.CustomerObject;
+
 /**
  * Created by Marc on 15/11/2016.
  */
@@ -30,7 +31,7 @@ public class CustomerDataSource {
     /**
      * Insert a new customer
      */
-    public long createCustomer(Customer customer){
+    public long createCustomer(CustomerObject customer){
         long id;
         ContentValues values = new ContentValues();
         values.put(CustomerEntry.KEY_SOCIETY, customer.getSociety());
@@ -47,9 +48,9 @@ public class CustomerDataSource {
     }
 
     /**
-     * Find one Customer by Id
+     * Find one CustomerObject by Id
      */
-    public Customer getCustomerById(long id){
+    public CustomerObject getCustomerById(long id){
         String sql = "SELECT * FROM " + CustomerEntry.TABLE_CUSTOMER +
                 " WHERE " + CustomerEntry.KEY_ID + " = " + id;
 
@@ -59,7 +60,7 @@ public class CustomerDataSource {
             cursor.moveToFirst();
         }
 
-        Customer customer = new Customer();
+        CustomerObject customer = new CustomerObject();
 
         customer.setId(cursor.getInt(cursor.getColumnIndex(CustomerEntry.KEY_ID)));
         customer.setSociety(cursor.getString(cursor.getColumnIndex(CustomerEntry.KEY_SOCIETY)));
@@ -76,15 +77,15 @@ public class CustomerDataSource {
     /**
      * Get all Customers
      */
-    public List<Customer> getAllCustomers(){
-        List<Customer> customers = new ArrayList<Customer>();
+    public List<CustomerObject> getAllCustomers(){
+        List<CustomerObject> customers = new ArrayList<CustomerObject>();
         String sql = "SELECT * FROM " + CustomerEntry.TABLE_CUSTOMER + " ORDER BY " + CustomerEntry.KEY_NAME;
 
         Cursor cursor = this.db.rawQuery(sql, null);
 
         if(cursor.moveToFirst()){
             do{
-                Customer customer = new Customer();
+                CustomerObject customer = new CustomerObject();
 
                 customer.setId(cursor.getInt(cursor.getColumnIndex(CustomerEntry.KEY_ID)));
                 customer.setSociety(cursor.getString(cursor.getColumnIndex(CustomerEntry.KEY_SOCIETY)));
@@ -103,9 +104,9 @@ public class CustomerDataSource {
     }
 
     /**
-     *  Update a Customer
+     *  Update a CustomerObject
      */
-    public int updateCustomer(Customer customer){
+    public int updateCustomer(CustomerObject customer){
         ContentValues values = new ContentValues();
         values.put(CustomerEntry.KEY_SOCIETY, customer.getSociety());
         values.put(CustomerEntry.KEY_NAME, customer.getName());
@@ -124,8 +125,8 @@ public class CustomerDataSource {
     /**
      * Search A list of customer with name
      */
-    public List<Customer> searchCustomer(String query){
-        List<Customer> customers = new ArrayList<Customer>();
+    public List<CustomerObject> searchCustomer(String query){
+        List<CustomerObject> customers = new ArrayList<CustomerObject>();
         String sql = "SELECT * FROM " + CustomerEntry.TABLE_CUSTOMER +
                 " WHERE " + CustomerEntry.KEY_SOCIETY + " = " + query
                 + " OR " + CustomerEntry.KEY_NAME + " = " + query
@@ -136,7 +137,7 @@ public class CustomerDataSource {
 
         if(cursor.moveToFirst()){
             do{
-                Customer customer = new Customer();
+                CustomerObject customer = new CustomerObject();
 
                 customer.setId(cursor.getInt(cursor.getColumnIndex(CustomerEntry.KEY_ID)));
                 customer.setSociety(cursor.getString(cursor.getColumnIndex(CustomerEntry.KEY_SOCIETY)));

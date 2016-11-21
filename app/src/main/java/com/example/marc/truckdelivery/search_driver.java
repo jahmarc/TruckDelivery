@@ -6,25 +6,17 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import db.adapter.DriverAdapter;
 import db.adapter.DriverDataSource;
-import db.object.*;
-import db.object.Driver;
-
-import org.w3c.dom.Text;
+import db.object.DriverObject;
+import db.SQLiteHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,39 +25,39 @@ public class search_driver extends AppCompatActivity {
 
     ListView lv;
     Context context;
-    List<Driver> drivers ;
+    List<DriverObject> drivers ;
+    SQLiteHelper helper ;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_search_driver);
         context = this;
-try {
-
-    DriverDataSource dts = new DriverDataSource(this);
-    Driver driver1 = new Driver("Jean", "Paul", "0273066565", "VS259", "JP", "1234");
-    Driver driver2 = new Driver("John", "Doe", "007", "VS007", "JD", "007");
-    dts.createDriver(driver1);
-    dts.createDriver(driver2);
+        DriverDataSource dts = new DriverDataSource(this);
+        helper.getInstance(context);
 
 
-    setContentView(R.layout.activity_search_driver);
-    getSupportActionBar().setHomeButtonEnabled(true);
-    getSupportActionBar().setDisplayShowHomeEnabled(true);
-    getSupportActionBar().setDisplayUseLogoEnabled(true);
-    getSupportActionBar().setLogo(R.drawable.ic_launcher);
-    getSupportActionBar().setDisplayShowTitleEnabled(true);
-    getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
+        /**
+         * Add additional functions to actionbar
+         */
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.ic_launcher);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
 
+        lv = (ListView) findViewById(R.id.search_driver);
 
-    drivers = dts.getAllDrivers();
+        drivers = new ArrayList<DriverObject>();
 
-    DriverAdapter adapter = new DriverAdapter(this,R.layout.driver_row, drivers);
-    lv = (ListView) findViewById(R.id.search_driver);
+        drivers=dts.getAllDrivers();
 
-    lv.setAdapter(adapter);
+        DriverAdapter adapter = new DriverAdapter(context,drivers);
+        lv.setAdapter(adapter);
 
-    lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             if (LocaleHelper.getLanguage(context) == "en") {
@@ -76,10 +68,8 @@ try {
         }
     });
 }
-catch(Exception e){
-    Log.e("CREATE", "error", e);
-}
-}
+
+
 
     public boolean onCreateOptionsMenu(Menu menu)
     {

@@ -10,7 +10,7 @@ import java.util.List;
 
 import db.DBContract.DeliveryEntry;
 import db.SQLiteHelper;
-import db.object.Delivery;
+import db.object.DeliveryObject;
 
 /**
  * Created by Marc on 15/11/2016.
@@ -27,9 +27,9 @@ public class DeliveryDataSource {
     }
 
     /**
-     * Insert a new Delivery
+     * Insert a new DeliveryObject
      */
-    public long createDelivery(Delivery delivery){
+    public long createDelivery(DeliveryObject delivery){
         long id;
         ContentValues values = new ContentValues();
         values.put(DeliveryEntry.KEY_ID_DRIVER, delivery.getDriverid());
@@ -47,7 +47,7 @@ public class DeliveryDataSource {
     /**
      * Fin one delivery with id
      */
-    public Delivery getDeliveryById(long id){
+    public DeliveryObject getDeliveryById(long id){
         String sql = "SELECT * FROM " + DeliveryEntry.TABLE_DELIVERY +
                 " WHERE " + DeliveryEntry.KEY_ID + " = " + id;
 
@@ -57,7 +57,7 @@ public class DeliveryDataSource {
             cursor.moveToFirst();
         }
 
-        Delivery delivery = new Delivery();
+        DeliveryObject delivery = new DeliveryObject();
 
         delivery.setId(cursor.getInt(cursor.getColumnIndex(DeliveryEntry.KEY_ID)));
         delivery.setDriverid(cursor.getInt(cursor.getColumnIndex(DeliveryEntry.KEY_ID_DRIVER)));
@@ -74,15 +74,15 @@ public class DeliveryDataSource {
     /**
      * Get all deliveries
      */
-    public List<Delivery> getAllDeliveries(){
-        List<Delivery> deliveries = new ArrayList<Delivery>();
+    public List<DeliveryObject> getAllDeliveries(){
+        List<DeliveryObject> deliveries = new ArrayList<DeliveryObject>();
         String sql = "SELECT * FROM " + DeliveryEntry.TABLE_DELIVERY + " ORDER BY " + DeliveryEntry.KEY_DATE;
 
         Cursor cursor = this.db.rawQuery(sql, null);
 
         if(cursor.moveToFirst()){
             do{
-                Delivery delivery = new Delivery();
+                DeliveryObject delivery = new DeliveryObject();
 
                 delivery.setId(cursor.getInt(cursor.getColumnIndex(DeliveryEntry.KEY_ID)));
                 delivery.setDriverid(cursor.getInt(cursor.getColumnIndex(DeliveryEntry.KEY_ID_DRIVER)));
@@ -102,7 +102,7 @@ public class DeliveryDataSource {
     /**
      * Update a delivery
      */
-    public int updateDelivery(Delivery delivery){
+    public int updateDelivery(DeliveryObject delivery){
         ContentValues values = new ContentValues();
         values.put(DeliveryEntry.KEY_ID_DRIVER, delivery.getDriverid());
         values.put(DeliveryEntry.KEY_ID_CUSTOMER, delivery.getCustomerid());
@@ -116,10 +116,10 @@ public class DeliveryDataSource {
     }
 
     /**
-     * Search a Delivery by date
+     * Search a DeliveryObject by date
      */
-    public List<Delivery> searchDeliveries(String date){
-        List<Delivery> deliveries = new ArrayList<Delivery>();
+    public List<DeliveryObject> searchDeliveries(String date){
+        List<DeliveryObject> deliveries = new ArrayList<DeliveryObject>();
         String sql = "SELECT * FROM " + DeliveryEntry.TABLE_DELIVERY +
                 " WHERE " + DeliveryEntry.KEY_DATE + " = " + date
                 + " ORDER BY " + DeliveryEntry.KEY_DATE;
@@ -128,7 +128,7 @@ public class DeliveryDataSource {
 
         if(cursor.moveToFirst()){
             do{
-                Delivery delivery = new Delivery();
+                DeliveryObject delivery = new DeliveryObject();
 
                 delivery.setId(cursor.getInt(cursor.getColumnIndex(DeliveryEntry.KEY_ID)));
                 delivery.setDriverid(cursor.getInt(cursor.getColumnIndex(DeliveryEntry.KEY_ID_DRIVER)));
@@ -148,8 +148,8 @@ public class DeliveryDataSource {
     /**
      * Search deliveries by CustomerID
      */
-    public List<Delivery> getDeliveriesByCustomerId(long id){
-        List<Delivery> deliveries = new ArrayList<Delivery>();
+    public List<DeliveryObject> getDeliveriesByCustomerId(long id){
+        List<DeliveryObject> deliveries = new ArrayList<DeliveryObject>();
         String sql = "SELECT * FROM " + DeliveryEntry.TABLE_DELIVERY +
                 " WHERE " + DeliveryEntry.KEY_ID_CUSTOMER + " = " + id
                 + " ORDER BY " + DeliveryEntry.KEY_DATE;
@@ -158,7 +158,7 @@ public class DeliveryDataSource {
 
         if(cursor.moveToFirst()){
             do{
-                Delivery delivery = new Delivery();
+                DeliveryObject delivery = new DeliveryObject();
 
                 delivery.setId(cursor.getInt(cursor.getColumnIndex(DeliveryEntry.KEY_ID)));
                 delivery.setDriverid(cursor.getInt(cursor.getColumnIndex(DeliveryEntry.KEY_ID_DRIVER)));
@@ -178,8 +178,8 @@ public class DeliveryDataSource {
     /**
      * Search deliveries by DriverID
      */
-    public List<Delivery> getDeliveriesByDriverId(long id){
-        List<Delivery> deliveries = new ArrayList<Delivery>();
+    public List<DeliveryObject> getDeliveriesByDriverId(long id){
+        List<DeliveryObject> deliveries = new ArrayList<DeliveryObject>();
         String sql = "SELECT * FROM " + DeliveryEntry.TABLE_DELIVERY +
                 " WHERE " + DeliveryEntry.KEY_ID_DRIVER + " = " + id
                 + " ORDER BY " + DeliveryEntry.KEY_DATE;
@@ -188,7 +188,7 @@ public class DeliveryDataSource {
 
         if(cursor.moveToFirst()){
             do{
-                Delivery delivery = new Delivery();
+                DeliveryObject delivery = new DeliveryObject();
 
                 delivery.setId(cursor.getInt(cursor.getColumnIndex(DeliveryEntry.KEY_ID)));
                 delivery.setDriverid(cursor.getInt(cursor.getColumnIndex(DeliveryEntry.KEY_ID_DRIVER)));

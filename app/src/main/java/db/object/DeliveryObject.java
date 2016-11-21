@@ -4,7 +4,7 @@ package db.object;
  * Created by Marc on 15/11/2016.
  */
 
-public class Delivery {
+public class DeliveryObject {
     private int id;
     private int driverid;
     private int customerid;

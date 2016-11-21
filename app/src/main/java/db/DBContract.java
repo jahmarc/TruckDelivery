@@ -17,7 +17,7 @@ public class DBContract {
         //Table name
         public static final String TABLE_DRIVER = "driver";
 
-        //Driver Column names
+        //DriverObject Column names
         public static final String KEY_ID = "id";
         public static final String KEY_NAME = "name";
         public static final String KEY_FIRSTNAME = "firstname";
@@ -26,10 +26,10 @@ public class DBContract {
         public static final String KEY_USER = "user";
         public static final String KEY_PASSWORD = "password";
 
-        //Table Driver create statement
+        //Table DriverObject create statement
         public static final String CREATE_TABLE_DRIVER = "CREATE TABLE "
                 + TABLE_DRIVER + "("
-                + DriverEntry.KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + DriverEntry.KEY_ID + " INTEGER PRIMARY KEY, "
                 + DriverEntry.KEY_NAME + " TEXT, "
                 + DriverEntry.KEY_FIRSTNAME + " TEXT, "
                 + DriverEntry.KEY_PHONE + " TEXT, "
@@ -43,7 +43,7 @@ public class DBContract {
         //Table name
         public static final  String TABLE_CUSTOMER = "customer";
 
-        //Customer Column names
+        //CustomerObject Column names
         public static final String KEY_ID = "id";
         public static final String KEY_SOCIETY = "society";
         public static final String KEY_NAME = "name";
@@ -54,7 +54,7 @@ public class DBContract {
         public static final String KEY_LOCALITY = "locality";
 
 
-        //Table Customer create statement
+        //Table CustomerObject create statement
         public static final String CREATE_TABLE_CUSTOMER = "CREATE TABLE "
                 + TABLE_CUSTOMER + "("
                 + CustomerEntry.KEY_ID + " INTEGER PRIMARY KEY, "
@@ -73,7 +73,7 @@ public class DBContract {
         //Table name
         public static final  String TABLE_DELIVERY = "delivery";
 
-        //Customer Column names
+        //CustomerObject Column names
         public static final String KEY_ID = "id";
         public static final String KEY_ID_DRIVER = "driverid";
         public static final String KEY_ID_CUSTOMER = "customerid";
@@ -83,7 +83,7 @@ public class DBContract {
         public static final String KEY_ARTICLE = "article";
 
 
-        //Table Delivery create statement
+        //Table DeliveryObject create statement
         public static final String CREATE_TABLE_DELIVERY = "CREATE TABLE "
                 + TABLE_DELIVERY + "("
                 + DeliveryEntry.KEY_ID + " INTEGER PRIMARY KEY, "
