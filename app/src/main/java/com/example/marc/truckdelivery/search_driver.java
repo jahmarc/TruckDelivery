@@ -59,16 +59,16 @@ public class search_driver extends AppCompatActivity {
         lv.setAdapter(adapter);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            if (LocaleHelper.getLanguage(context) == "en") {
-                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " selected", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " selectionné", Toast.LENGTH_SHORT).show();
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (LocaleHelper.getLanguage(context) == "en") {
+                    Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " selected", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " selectionné", Toast.LENGTH_SHORT).show();
+                }
             }
-        }
-    });
-}
+        });
+    }
 
 
 
