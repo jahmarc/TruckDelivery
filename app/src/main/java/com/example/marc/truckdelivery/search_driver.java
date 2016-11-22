@@ -69,14 +69,13 @@ public class search_driver extends AppCompatActivity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             if (LocaleHelper.getLanguage(context) == "en") {
-                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " selected", Toast.LENGTH_SHORT).show();
+
                 driverSelected = (DriverObject) parent.getItemAtPosition(position);
                 String editTextdrNom=driverSelected.getName();
                 String editTextdrPrenom= driverSelected.getFirstname();
                 String editTextdrPlaque=driverSelected.getPlate();
                 String editTextdrPhone= driverSelected.getPhone();
                 String editTextdrCam=driverSelected.getNumTruck();
-
 
                 Intent toDriver = new Intent(search_driver.this,Driver.class);
                 toDriver.putExtra("name",editTextdrNom);
@@ -85,11 +84,26 @@ public class search_driver extends AppCompatActivity {
                 toDriver.putExtra("phone",editTextdrPhone);
                 toDriver.putExtra("user",editTextdrCam);
 
+                Toast.makeText(getBaseContext(), driverSelected.getName() + " selected", Toast.LENGTH_SHORT).show();
 
                 startActivity(toDriver);
             } else {
-                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " selectionné", Toast.LENGTH_SHORT).show();
-                Intent toDriver = new Intent(context,Driver.class);
+
+                driverSelected = (DriverObject) parent.getItemAtPosition(position);
+                String editTextdrNom=driverSelected.getName();
+                String editTextdrPrenom= driverSelected.getFirstname();
+                String editTextdrPlaque=driverSelected.getPlate();
+                String editTextdrPhone= driverSelected.getPhone();
+                String editTextdrCam=driverSelected.getNumTruck();
+
+                Intent toDriver = new Intent(search_driver.this,Driver.class);
+                toDriver.putExtra("name",editTextdrNom);
+                toDriver.putExtra("firstname",editTextdrPrenom);
+                toDriver.putExtra("plate",editTextdrPlaque);
+                toDriver.putExtra("phone",editTextdrPhone);
+                toDriver.putExtra("user",editTextdrCam);
+
+                Toast.makeText(getBaseContext(), driverSelected.getName() + " selectionné", Toast.LENGTH_SHORT).show();
 
                 startActivity(toDriver);
             }
