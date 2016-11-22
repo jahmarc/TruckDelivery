@@ -16,22 +16,12 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editTextdrNom"
-        android:layout_marginTop="17dp"
-        android:layout_below="@+id/editTextdrCam"
-        android:layout_alignStart="@+id/editTextdrCam"
-        tools:ignore="LabelFor" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/editTextdrPrenom"
+        android:id="@+id/editTextdr_sPrenom"
         android:layout_marginTop="12dp"
-        android:layout_below="@+id/editTextdrNom"
-        android:layout_alignStart="@+id/editTextdrNom"
-        tools:ignore="LabelFor" />
+        android:layout_below="@+id/editTextdr_sNom"
+        android:layout_alignStart="@+id/editTextdr_sNom"
+        tools:ignore="LabelFor"
+        android:hint="@string/pr_nom" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -39,42 +29,67 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:layout_marginTop="18dp"
-        android:id="@+id/editTextdrPlaque"
-        android:layout_below="@+id/editTextdrPhone"
-        android:layout_alignStart="@+id/editTextdrPhone"
-        tools:ignore="LabelFor" />
+        android:id="@+id/editTextdr_sPlaque"
+        android:layout_below="@+id/editTextdr_sPhone"
+        android:layout_alignStart="@+id/editTextdr_sPhone"
+        tools:ignore="LabelFor"
+        android:hint="@string/plaque" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="phone"
         android:ems="10"
-        android:id="@+id/editTextdrPhone"
-        android:layout_below="@+id/editTextdrPrenom"
-        android:layout_alignStart="@+id/editTextdrPrenom"
+        android:id="@+id/editTextdr_sPhone"
+        android:layout_below="@+id/editTextdr_sPrenom"
+        android:layout_alignStart="@+id/editTextdr_sPrenom"
         android:layout_marginTop="17dp"
-        tools:ignore="LabelFor" />
-
-    <Button
-        android:text="@string/sauvegarder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/drbuttonSave"
-        android:layout_marginTop="32dp"
-        android:layout_below="@+id/editTextdrPlaque"
-        android:layout_centerHorizontal="true" />
+        tools:ignore="LabelFor"
+        android:hint="@string/t_l_phone" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="@string/n_camion"
         android:ems="10"
-        android:id="@+id/editTextdrCam"
-        android:layout_marginTop="35dp"
+        android:id="@+id/editTextdr_sCam"
+        android:layout_marginTop="30dp"
         tools:ignore="LabelFor"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="51dp" />
+        android:layout_centerHorizontal="true"
+        android:hint="@string/n_camion" />
+
+    <Button
+        android:text="@string/sauvegarder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/drbutton_sSave"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTextdr_sPassword"
+        android:layout_below="@+id/editTextdr_sPlaque"
+        android:layout_alignStart="@+id/editTextdr_sPlaque"
+        android:layout_marginTop="11dp"
+        tools:ignore="LabelFor,TextFields"
+        android:hint="@string/password" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTextdr_sNom"
+        android:layout_marginTop="17dp"
+        tools:ignore="LabelFor"
+        android:layout_below="@+id/editTextdr_sCam"
+        android:layout_alignStart="@+id/editTextdr_sCam"
+        android:hint="@string/nom" />
 
 </RelativeLayout>
