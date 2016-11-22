@@ -10,15 +10,15 @@ public class DriverObject {
     private String firstname;
     private String phone;
     private String plate;
-    private String user;
+    private String numTruck;
     private String password;
 
-    public DriverObject(String name, String firstname, String phone, String plate, String user, String password){
+    public DriverObject(String name, String firstname, String phone, String plate, String numTruck, String password){
         this.name = name;
         this.firstname = firstname;
         this.phone = phone;
         this.plate = plate;
-        this.user = user;
+        this.numTruck = numTruck;
         this.password = password;
     }
     public DriverObject(){
@@ -40,8 +40,8 @@ public class DriverObject {
     public String getPlate(){return plate;}
     public void setPlate(String plate){this.plate = plate;}
 
-    public String getUser(){return user;}
-    public void setUser(String user){this.user = user;}
+    public String getNumTruck() {return numTruck;}
+    public void setNumTruck(String numTruck) {this.numTruck = numTruck;}
 
     public String getPassword(){return password;}
     public void setPassword(String password){this.password = password;}

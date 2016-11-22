@@ -41,7 +41,7 @@ public class DriverDataSource {
         values.put(DBContract.DriverEntry.KEY_FIRSTNAME, driver.getFirstname());
         values.put(DBContract.DriverEntry.KEY_PHONE, driver.getPhone());
         values.put(DBContract.DriverEntry.KEY_PLATE, driver.getPlate());
-        values.put(DBContract.DriverEntry.KEY_USER, driver.getUser());
+        values.put(DBContract.DriverEntry.KEY_USER, driver.getNumTruck());
         values.put(DBContract.DriverEntry.KEY_PASSWORD, driver.getPassword());
 
         id = db.insert(DBContract.DriverEntry.TABLE_DRIVER, null, values);
@@ -68,7 +68,7 @@ public class DriverDataSource {
         driver.setFirstname(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_FIRSTNAME)));
         driver.setPhone(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_PHONE)));
         driver.setPlate(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_PLATE)));
-        driver.setUser(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_USER)));
+        driver.setNumTruck(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_USER)));
         driver.setPassword(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_PASSWORD)));
 
         return driver;
@@ -92,7 +92,7 @@ public class DriverDataSource {
                 driver.setFirstname(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_FIRSTNAME)));
                 driver.setPhone(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_PHONE)));
                 driver.setPlate(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_PLATE)));
-                driver.setUser(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_USER)));
+                driver.setNumTruck(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_USER)));
                 driver.setPassword(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_PASSWORD)));
 
                 drivers.add(driver);
@@ -111,7 +111,7 @@ public class DriverDataSource {
         values.put(DriverEntry.KEY_FIRSTNAME, driver.getFirstname());
         values.put(DriverEntry.KEY_PHONE, driver.getPhone());
         values.put(DriverEntry.KEY_PLATE, driver.getPlate());
-        values.put(DriverEntry.KEY_USER, driver.getUser());
+        values.put(DriverEntry.KEY_USER, driver.getNumTruck());
         values.put(DriverEntry.KEY_PASSWORD, driver.getPassword());
 
         return this.db.update(DriverEntry.TABLE_DRIVER, values, DriverEntry.KEY_ID + " = ?",
@@ -138,7 +138,7 @@ public class DriverDataSource {
                 driver.setFirstname(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_FIRSTNAME)));
                 driver.setPhone(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_PHONE)));
                 driver.setPlate(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_PLATE)));
-                driver.setUser(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_USER)));
+                driver.setNumTruck(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_USER)));
                 driver.setPassword(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_PASSWORD)));
 
                 drivers.add(driver);
@@ -169,7 +169,7 @@ public class DriverDataSource {
         driver.setFirstname(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_FIRSTNAME)));
         driver.setPhone(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_PHONE)));
         driver.setPlate(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_PLATE)));
-        driver.setUser(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_USER)));
+        driver.setNumTruck(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_USER)));
         driver.setPassword(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_PASSWORD)));
 
         return driver;

@@ -80,8 +80,59 @@
         android:text="@string/n_camion"
         android:ems="10"
         android:id="@+id/editTextdrCam"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
+        tools:ignore="LabelFor"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        tools:ignore="LabelFor" />
+        android:layout_alignStart="@+id/drbuttonSave" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editTextdrCam"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textViewCam"
+        android:layout_above="@+id/editTextdrNom"
+        android:layout_toStartOf="@+id/editTextdrCam"
+        tools:text="@string/n_camion" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editTextdrNom"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textViewNom"
+        android:layout_above="@+id/editTextdrPrenom"
+        android:layout_toStartOf="@+id/editTextdrNom"
+        tools:text="@string/nom" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editTextdrPrenom"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textViewPrenom"
+        android:layout_above="@+id/editTextdrPhone"
+        android:layout_toStartOf="@+id/editTextdrPrenom"
+        tools:text="@string/pr_nom" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editTextdrPhone"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textViewPhone"
+        android:layout_above="@+id/editTextdrPlaque"
+        android:layout_toStartOf="@+id/editTextdrPhone"
+        tools:text="@string/t_l_phone" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editTextdrPlaque"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textViewPlaque"
+        android:layout_above="@+id/drbuttonSave"
+        android:layout_toStartOf="@+id/editTextdrPlaque"
+        tools:text="@string/n_camion" />
+
 </RelativeLayout>

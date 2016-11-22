@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import db.object.DriverObject;
 
@@ -31,7 +32,7 @@ public class Driver extends AppCompatActivity {
         getSupportActionBar().setLogo(R.drawable.ic_launcher);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
-
+        updateViews();
 
         /*
         *Recuperation des valeurs en toute sécurité
@@ -59,19 +60,12 @@ public class Driver extends AppCompatActivity {
             ReditTextdrCam = (String)savedInstanceState.getSerializable("user");
             }
 
-/*
-        String ReditTextdrNom = (String) bundle.get("name");
-        String ReditTextdrPrenom = bundle.getString("firstname");
-        String ReditTextdrPlaque = bundle.getString("plate");
-        String ReditTextdrPhone = bundle.getString("phone");
-        String ReditTextdrCam = bundle.getString("user");
-*/
+
         EditText editTextdrNom=(EditText)findViewById(R.id.editTextdrNom) ;
         EditText editTextdrPrenom=(EditText)findViewById(R.id.editTextdrPrenom) ;
         EditText editTextdrPlaque=(EditText)findViewById(R.id.editTextdrPlaque) ;
         EditText editTextdrPhone=(EditText)findViewById(R.id.editTextdrPhone) ;
-        //Button drbuttonSave =(Button)findViewById(R.id.drbuttonSave);
-        //Button buttonDelivery =(Button)findViewById(R.id.buttonDelivery);
+
         EditText editTextdrCam=(EditText)findViewById(R.id.editTextdrCam) ;
 
         editTextdrNom.setText(ReditTextdrNom);
@@ -110,21 +104,21 @@ public class Driver extends AppCompatActivity {
     private void updateViews() {
         Resources resources = getResources();
 
-        EditText editTextdrNom=(EditText)findViewById(R.id.editTextdrNom) ;
-        EditText editTextdrPrenom=(EditText)findViewById(R.id.editTextdrPrenom) ;
-        EditText editTextdrPlaque=(EditText)findViewById(R.id.editTextdrPlaque) ;
-        EditText editTextdrPhone=(EditText)findViewById(R.id.editTextdrPhone) ;
+        TextView TextViewdrNom=(TextView)findViewById(R.id.textViewNom) ;
+        TextView TextViewPrenom=(TextView)findViewById(R.id.textViewPrenom) ;
+        TextView TextViewPlaque=(TextView)findViewById(R.id.textViewPlaque) ;
+        TextView TextViewPhone=(TextView)findViewById(R.id.textViewPhone) ;
         Button drbuttonSave =(Button)findViewById(R.id.drbuttonSave);
         Button buttonDelivery =(Button)findViewById(R.id.buttonDelivery);
-        EditText editTextdrCam=(EditText)findViewById(R.id.editTextdrCam) ;
+        TextView TextViewCam=(TextView)findViewById(R.id.textViewCam) ;
 
-        editTextdrNom.setHint(resources.getString(R.string.nom));
-        editTextdrPrenom.setHint(resources.getString(R.string.pr_nom));
-        editTextdrPlaque.setHint(resources.getString(R.string.plaque));
-        editTextdrPhone.setHint(resources.getString(R.string.t_l_phone));
+        TextViewdrNom.setText(resources.getString(R.string.nom));
+        TextViewPrenom.setText(resources.getString(R.string.pr_nom));
+        TextViewPlaque.setText(resources.getString(R.string.plaque));
+        TextViewPhone.setText(resources.getString(R.string.t_l_phone));
         drbuttonSave.setHint(resources.getString(R.string.sauvegarder));
         buttonDelivery.setHint(resources.getString(R.string.livraisons));
-        editTextdrCam.setHint(resources.getString(R.string.n_camion));
+        TextViewCam.setText(resources.getString(R.string.n_camion));
 
 
     }
