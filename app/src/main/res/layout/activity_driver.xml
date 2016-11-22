@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_driver"
     android:layout_width="match_parent"
@@ -14,45 +15,45 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="@string/nom"
         android:ems="10"
         android:id="@+id/editTextdrNom"
         android:layout_marginTop="17dp"
         android:layout_below="@+id/editTextdrCam"
-        android:layout_alignStart="@+id/editTextdrCam" />
+        android:layout_alignStart="@+id/editTextdrCam"
+        tools:ignore="LabelFor" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="@string/pr_nom"
         android:ems="10"
         android:id="@+id/editTextdrPrenom"
         android:layout_marginTop="12dp"
         android:layout_below="@+id/editTextdrNom"
-        android:layout_alignStart="@+id/editTextdrNom" />
+        android:layout_alignStart="@+id/editTextdrNom"
+        tools:ignore="LabelFor" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="@string/plaque"
         android:ems="10"
         android:layout_marginTop="18dp"
         android:id="@+id/editTextdrPlaque"
         android:layout_below="@+id/editTextdrPhone"
-        android:layout_alignStart="@+id/editTextdrPhone" />
+        android:layout_alignStart="@+id/editTextdrPhone"
+        tools:ignore="LabelFor" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="phone"
-        android:text="@string/t_l_phone"
         android:ems="10"
         android:id="@+id/editTextdrPhone"
         android:layout_below="@+id/editTextdrPrenom"
         android:layout_alignStart="@+id/editTextdrPrenom"
-        android:layout_marginTop="17dp" />
+        android:layout_marginTop="17dp"
+        tools:ignore="LabelFor" />
 
     <Button
         android:text="@string/sauvegarder"
@@ -81,5 +82,6 @@
         android:id="@+id/editTextdrCam"
         android:layout_marginTop="16dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        tools:ignore="LabelFor" />
 </RelativeLayout>

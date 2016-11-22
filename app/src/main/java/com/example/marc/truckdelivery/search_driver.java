@@ -1,6 +1,7 @@
 package com.example.marc.truckdelivery;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -27,6 +28,7 @@ public class search_driver extends AppCompatActivity {
     Context context;
     List<DriverObject> drivers ;
     SQLiteHelper helper ;
+    DriverObject driverSelected;
 
 
     @Override
@@ -34,9 +36,10 @@ public class search_driver extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_driver);
         context = this;
-        DriverDataSource dts = new DriverDataSource(this);
+        final DriverDataSource dts = new DriverDataSource(this);
         helper.getInstance(context);
 
+        //testing
         dts.createDriver(new DriverObject("Bond","James","007-007","Bond007","Bond","pass007"));
 
         /**
@@ -53,22 +56,44 @@ public class search_driver extends AppCompatActivity {
 
         drivers = new ArrayList<DriverObject>();
 
+
+
         drivers=dts.getAllDrivers();
 
         DriverAdapter adapter = new DriverAdapter(context,drivers);
         lv.setAdapter(adapter);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (LocaleHelper.getLanguage(context) == "en") {
-                    Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " selected", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " selectionné", Toast.LENGTH_SHORT).show();
-                }
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            if (LocaleHelper.getLanguage(context) == "en") {
+                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " selected", Toast.LENGTH_SHORT).show();
+                driverSelected = (DriverObject) parent.getItemAtPosition(position);
+                String editTextdrNom=driverSelected.getName();
+                String editTextdrPrenom= driverSelected.getFirstname();
+                String editTextdrPlaque=driverSelected.getPlate();
+                String editTextdrPhone= driverSelected.getPhone();
+                String editTextdrCam=driverSelected.getUser();
+
+
+                Intent toDriver = new Intent(search_driver.this,Driver.class);
+                toDriver.putExtra("name",editTextdrNom);
+                toDriver.putExtra("firstname",editTextdrPrenom);
+                toDriver.putExtra("plate",editTextdrPlaque);
+                toDriver.putExtra("phone",editTextdrPhone);
+                toDriver.putExtra("user",editTextdrCam);
+
+
+                startActivity(toDriver);
+            } else {
+                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " selectionné", Toast.LENGTH_SHORT).show();
+                Intent toDriver = new Intent(context,Driver.class);
+
+                startActivity(toDriver);
             }
-        });
-    }
+        }
+    });
+}
 
 
 
