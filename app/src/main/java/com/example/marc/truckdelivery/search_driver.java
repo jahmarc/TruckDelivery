@@ -124,4 +124,9 @@ public class search_driver extends AppCompatActivity {
 
 
     }
+
+    public void newDriver(View view) {
+        Intent newDriver=new Intent(this,DriverAdd.class);
+        startActivity(newDriver);
+    }
 }
