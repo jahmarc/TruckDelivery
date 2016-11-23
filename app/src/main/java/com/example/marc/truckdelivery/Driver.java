@@ -7,9 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import db.adapter.DriverDataSource;
+import db.object.DriverObject;
 
 public class Driver extends AppCompatActivity {
 
@@ -19,6 +23,14 @@ public class Driver extends AppCompatActivity {
     String ReditTextdrPlaque ;
     String ReditTextdrPhone ;
     String ReditTextdrCam ;
+    String ReditTextdrPass;
+    EditText editTextdrCam;
+    EditText editTextdrNom;
+    EditText editTextdrPrenom;
+    EditText editTextdrPlaque;
+    EditText editTextdrPhone;
+    EditText editTextdrPass;
+    DriverDataSource dts;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +43,7 @@ public class Driver extends AppCompatActivity {
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
         updateViews();
 
+        dts = new DriverDataSource(this);
         /*
         *Recuperation des valeurs en toute sécurité
          */
@@ -42,12 +55,14 @@ public class Driver extends AppCompatActivity {
                 ReditTextdrPlaque = null  ;
                 ReditTextdrPhone = null  ;
                 ReditTextdrCam = null  ;
+                ReditTextdrPass = null ;
             } else {
                 ReditTextdrNom = bundle.getString("name") ;
                 ReditTextdrPrenom = bundle.getString("firstname");
                 ReditTextdrPlaque = bundle.getString("plate");
                 ReditTextdrPhone = bundle.getString("phone");
                 ReditTextdrCam = bundle.getString("user");
+                ReditTextdrPass = bundle.getString("pass");
             }
         }else{
             ReditTextdrNom = (String)savedInstanceState.getSerializable("name");
@@ -55,21 +70,23 @@ public class Driver extends AppCompatActivity {
             ReditTextdrPlaque = (String)savedInstanceState.getSerializable("plate");
             ReditTextdrPhone = (String)savedInstanceState.getSerializable("phone");
             ReditTextdrCam = (String)savedInstanceState.getSerializable("user");
+            ReditTextdrPass = (String)savedInstanceState.getSerializable("pass");
             }
 
 
-        EditText editTextdrNom=(EditText)findViewById(R.id.editTextdrNom) ;
-        EditText editTextdrPrenom=(EditText)findViewById(R.id.editTextdrPrenom) ;
-        EditText editTextdrPlaque=(EditText)findViewById(R.id.editTextdrPlaque) ;
-        EditText editTextdrPhone=(EditText)findViewById(R.id.editTextdrPhone) ;
-
-        EditText editTextdrCam=(EditText)findViewById(R.id.editTextdrCam) ;
+        editTextdrNom=(EditText)findViewById(R.id.editTextdrNom) ;
+        editTextdrPrenom=(EditText)findViewById(R.id.editTextdrPrenom) ;
+        editTextdrPlaque=(EditText)findViewById(R.id.editTextdrPlaque) ;
+        editTextdrPhone=(EditText)findViewById(R.id.editTextdrPhone) ;
+        editTextdrCam=(EditText)findViewById(R.id.editTextdrCam) ;
+        editTextdrPass=(EditText)findViewById(R.id.editTextdrPass);
 
         editTextdrNom.setText(ReditTextdrNom);
         editTextdrPrenom.setText(ReditTextdrPrenom);
         editTextdrPlaque.setText(ReditTextdrPlaque);
         editTextdrPhone.setText(ReditTextdrPhone);
         editTextdrCam.setText(ReditTextdrCam);
+
 
 
 
@@ -108,6 +125,7 @@ public class Driver extends AppCompatActivity {
         Button drbuttonSave =(Button)findViewById(R.id.drbuttonSave);
         Button buttonDelivery =(Button)findViewById(R.id.buttonDelivery);
         TextView TextViewCam=(TextView)findViewById(R.id.textViewCam) ;
+        TextView TextViewPass=(TextView)findViewById(R.id.textViewPass);
 
         TextViewdrNom.setText(resources.getString(R.string.nom));
         TextViewPrenom.setText(resources.getString(R.string.pr_nom));
@@ -116,7 +134,23 @@ public class Driver extends AppCompatActivity {
         drbuttonSave.setHint(resources.getString(R.string.sauvegarder));
         buttonDelivery.setHint(resources.getString(R.string.livraisons));
         TextViewCam.setText(resources.getString(R.string.n_camion));
+        TextViewPass.setText(resources.getString(R.string.password));
+        TextViewPass.setHint(resources.getString(R.string.enter_a_newPass));
 
+
+
+    }
+
+    public void updateDriver(View view) {
+        String Truck = editTextdrCam.getText().toString();
+        String Nom = editTextdrNom.getText().toString() ;
+        String Prenom = editTextdrPrenom.getText().toString();
+        String Plaque = editTextdrPlaque.getText().toString();
+        String Phone = editTextdrPhone.getText().toString();
+        String Pass = editTextdrPass.getText().toString();
+
+        DriverObject driverUpdated=new DriverObject(Nom,Prenom,Phone,Plaque,Truck,Pass);
+        dts.updateDriver(driverUpdated);
 
     }
 }

@@ -41,8 +41,8 @@
         android:layout_marginTop="18dp"
         android:id="@+id/editTextdrPlaque"
         android:layout_below="@+id/editTextdrPhone"
-        android:layout_alignStart="@+id/editTextdrPhone"
-        tools:ignore="LabelFor" />
+        tools:ignore="LabelFor"
+        android:layout_toEndOf="@+id/textViewPhone" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -54,36 +54,6 @@
         android:layout_alignStart="@+id/editTextdrPrenom"
         android:layout_marginTop="17dp"
         tools:ignore="LabelFor" />
-
-    <Button
-        android:text="@string/sauvegarder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/drbuttonSave"
-        android:layout_marginTop="32dp"
-        android:layout_below="@+id/editTextdrPlaque"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:text="@string/livraisons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonDelivery"
-        android:layout_marginTop="34dp"
-        android:layout_below="@+id/drbuttonSave"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="@string/n_camion"
-        android:ems="10"
-        android:id="@+id/editTextdrCam"
-        android:layout_marginTop="20dp"
-        tools:ignore="LabelFor"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/drbuttonSave" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -126,13 +96,67 @@
         tools:text="@string/t_l_phone" />
 
     <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignTop="@+id/editTextdrPlaque"
+    android:layout_alignParentStart="true"
+    android:id="@+id/textViewPlaque"
+    android:layout_toStartOf="@+id/editTextdrPlaque"
+    tools:text="@string/n_camion"
+    android:layout_alignBottom="@+id/editTextdrPlaque" />
+
+    <Button
+        android:text="@string/sauvegarder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/editTextdrPlaque"
+        android:id="@+id/drbuttonSave"
+        android:onClick="updateDriver"
+        android:layout_marginEnd="82dp"
+        android:layout_alignBaseline="@+id/buttonDelivery"
+        android:layout_alignBottom="@+id/buttonDelivery"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="@string/livraisons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonDelivery"
+        android:layout_marginBottom="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/drbuttonSave"
+        android:layout_marginEnd="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewPass"
+        tools:text="@string/password"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/editTextdrPlaque"
         android:layout_alignParentStart="true"
-        android:id="@+id/textViewPlaque"
-        android:layout_above="@+id/drbuttonSave"
-        android:layout_toStartOf="@+id/editTextdrPlaque"
-        tools:text="@string/n_camion" />
+        android:layout_toStartOf="@+id/editTextdrPass" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTextdrPass"
+        tools:ignore="LabelFor"
+        android:layout_alignTop="@+id/textViewPass"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textViewPlaque" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@string/n_camion"
+        android:ems="10"
+        android:id="@+id/editTextdrCam"
+        android:layout_marginTop="18dp"
+        tools:ignore="LabelFor"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

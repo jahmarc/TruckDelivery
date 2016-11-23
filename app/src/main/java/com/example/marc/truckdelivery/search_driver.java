@@ -40,8 +40,10 @@ public class search_driver extends AppCompatActivity {
         helper.getInstance(context);
 
         //testing
+        dts.createDriver(new DriverObject("Bond","James","007-007","Bond007","Bond","pass007"));
+        dts.createDriver(new DriverObject("Name","Firstname","phone","plate","numTruck","password"));
         for(int i=0;i<10;i++){
-            dts.createDriver(new DriverObject("Nom"+i,"Prenom"+i,"phone"+i,"plate"+i,"password"+i));
+            dts.createDriver(new DriverObject("Name"+i,"Firstname"+i,"phone"+i,"plate"+i,"numTruck"+i,"password"+i));
         }
 
         /**

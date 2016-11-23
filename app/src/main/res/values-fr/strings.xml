@@ -35,4 +35,5 @@
     <string name="ibdriver">Bouton qui permet d\'accéder aux chauffeurs</string>
     <string name="ibdelivery">Bouton qui permet d\'accéder aux livraisons</string>
     <string name="ibcustomer">Bouton qui permet d\'accéder aux Clients</string>
+    <string name="enter_a_newPass">Entrez un nouveau mot de passe</string>
 </resources>

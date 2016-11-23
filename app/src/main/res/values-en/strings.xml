@@ -35,4 +35,5 @@
     <string name="soci_t">Society</string>
     <string name="t_l_phone">Phone</string>
     <string name="to_do">TO-DO</string>
+    <string name="enter_a_newPass">Enter a new Password</string>
 </resources>

@@ -7,13 +7,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import db.object.DriverObject;
-import android.support.design.internal.*;
+
 import android.widget.TextView;
 
 
 import com.example.marc.truckdelivery.R;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -37,7 +35,7 @@ public class DriverAdapter extends ArrayAdapter<DriverObject>{
     public View getView(int position, View convertView, ViewGroup parent){
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View rowView = inflater.inflate(R.layout.driver_row,parent,false);
+        View rowView = inflater.inflate(R.layout._row,parent,false);
         TextView textView = (TextView)rowView.findViewById(R.id.label);
         textView.setText(drivers.get(position).getName()+" "+ drivers.get(position).getFirstname());
 
