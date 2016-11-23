@@ -17,12 +17,12 @@ import db.object.DeliveryObject;
  */
 
 public class DeliveryDataSource {
+    private SQLiteHelper sqldb;
     private SQLiteDatabase db;
     Context context;
 
     public DeliveryDataSource(Context context){
-        SQLiteHelper sqliteHelper = SQLiteHelper.getInstance(context);
-        db = sqliteHelper.getWritableDatabase();
+        sqldb = SQLiteHelper.getInstance(context);
         this.context = context;
     }
 
@@ -31,6 +31,7 @@ public class DeliveryDataSource {
      */
     public long createDelivery(DeliveryObject delivery){
         long id;
+        db = sqldb.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DeliveryEntry.KEY_ID_DRIVER, delivery.getDriverid());
         values.put(DeliveryEntry.KEY_ID_CUSTOMER, delivery.getCustomerid());
@@ -39,7 +40,7 @@ public class DeliveryDataSource {
         values.put(DeliveryEntry.KEY_CONDITIONING, delivery.getConditioning());
         values.put(DeliveryEntry.KEY_ARTICLE, delivery.getArticle());
 
-        id = this.db.insert(DeliveryEntry.TABLE_DELIVERY, null, values);
+        id = db.insert(DeliveryEntry.TABLE_DELIVERY, null, values);
 
         return id;
     }
@@ -75,6 +76,7 @@ public class DeliveryDataSource {
      * Get all deliveries
      */
     public List<DeliveryObject> getAllDeliveries(){
+        db = sqldb.getReadableDatabase();
         List<DeliveryObject> deliveries = new ArrayList<DeliveryObject>();
         String sql = "SELECT * FROM " + DeliveryEntry.TABLE_DELIVERY + " ORDER BY " + DeliveryEntry.KEY_DATE;
 

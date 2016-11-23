@@ -24,9 +24,8 @@ public class DriverDataSource {
     private Context context;
 
     public DriverDataSource(Context context){
-        this.context = context;
         sqldb = SQLiteHelper.getInstance(context);
-
+        this.context = context;
 
     }
 
