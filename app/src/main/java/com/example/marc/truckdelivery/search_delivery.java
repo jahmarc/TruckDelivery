@@ -16,15 +16,29 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import db.SQLiteHelper;
+import db.adapter.DeliveryAdapter;
+import db.adapter.DeliveryDataSource;
+import db.object.DeliveryObject;
+
 public class search_delivery extends AppCompatActivity {
 
     ListView lv;
-    ArrayAdapter<String>adapter;
     Context context;
+    List<DeliveryObject> deliveries;
+    SQLiteHelper helper;
+    DeliveryObject deliverySelected;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_delivery);
+        context = this;
+        final DeliveryDataSource dts = new DeliveryDataSource(this);
+        helper.getInstance(context);
 
         /**
          * Add additional functions to actionbar
@@ -37,18 +51,28 @@ public class search_delivery extends AppCompatActivity {
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
 
-        context=this;
-
-        String[] deliveries = getResources().getStringArray(R.array.Delivery);
         lv = (ListView) findViewById(R.id.search_delivery);
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,deliveries);
+
+        deliveries = new ArrayList<DeliveryObject>();
+
+        deliveries = dts.getAllDeliveries();
+
+        DeliveryAdapter adapter = new DeliveryAdapter(context,deliveries);
         lv.setAdapter(adapter);
+
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                deliverySelected = (DeliveryObject)parent.getItemAtPosition(position);
+                int deliverySelectedId = deliverySelected.getId();
+                Intent toDelivery = new Intent(search_delivery.this,Delivery.class);
+                toDelivery.putExtra("idDelivery",deliverySelectedId);
                 if(LocaleHelper.getLanguage(context)=="en"){
-                    Toast.makeText(getBaseContext(),parent.getItemAtPosition(position)+" selected",Toast.LENGTH_SHORT).show();}
-                else{Toast.makeText(getBaseContext(),parent.getItemAtPosition(position)+" selectionné",Toast.LENGTH_SHORT).show();}
+                    Toast.makeText(getBaseContext(),deliverySelected.getArticle()+" selected",Toast.LENGTH_SHORT).show();
+                    startActivity(toDelivery);
+                } else{
+                    Toast.makeText(getBaseContext(),deliverySelected.getArticle()+" selectionné",Toast.LENGTH_SHORT).show();}
+                    startActivity(toDelivery);
             }
         });
     }
@@ -86,5 +110,10 @@ public class search_delivery extends AppCompatActivity {
         Resources resources = getResources();
 
 
+    }
+
+    public void newDelivery(View view) {
+        Intent newDelivery = new Intent(this,DeliveryAdd.class);
+        startActivity(newDelivery);
     }
 }
