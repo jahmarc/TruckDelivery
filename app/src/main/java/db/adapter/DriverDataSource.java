@@ -52,6 +52,7 @@ public class DriverDataSource {
      * Find one DriverObject by Id
      */
     public DriverObject getDriverById(long id){
+        db = sqldb.getWritableDatabase();
         String sql = "SELECT * FROM " + DriverEntry.TABLE_DRIVER +
                 " WHERE " + DriverEntry.KEY_ID + " = " + id;
 
@@ -105,6 +106,7 @@ public class DriverDataSource {
      *  Update a DriverObject
      */
     public int updateDriver(DriverObject driver){
+        db = sqldb.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DriverEntry.KEY_NAME, driver.getName());
         values.put(DriverEntry.KEY_FIRSTNAME, driver.getFirstname());
@@ -121,6 +123,7 @@ public class DriverDataSource {
      * Search a DriverObject by name or firstname
      */
     public List<DriverObject> searchDriver(String query){
+        db = sqldb.getWritableDatabase();
         List<DriverObject> drivers = new ArrayList<DriverObject>();
         String sql = "SELECT * FROM " + DriverEntry.TABLE_DRIVER +
                 " WHERE " + DriverEntry.KEY_NAME + " = " + query
@@ -152,6 +155,7 @@ public class DriverDataSource {
      */
     public DriverObject getUser(String user, String password)
     {
+        db = sqldb.getWritableDatabase();
         String sql = "SELECT * FROM " + DriverEntry.TABLE_DRIVER +
                 " WHERE " + DriverEntry.KEY_USER + " = " + user +
                 " AND " + DriverEntry.KEY_PASSWORD + " = " + password;

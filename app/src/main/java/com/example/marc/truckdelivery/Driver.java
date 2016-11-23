@@ -20,12 +20,7 @@ import db.object.DriverObject;
 public class Driver extends AppCompatActivity {
 
     Bundle bundle;
-    String ReditTextdrNom ;
-    String ReditTextdrPrenom ;
-    String ReditTextdrPlaque ;
-    String ReditTextdrPhone ;
-    String ReditTextdrCam ;
-    String ReditTextdrPass;
+    Integer RDriverId ;
     EditText editTextdrCam;
     EditText editTextdrNom;
     EditText editTextdrPrenom;
@@ -33,6 +28,7 @@ public class Driver extends AppCompatActivity {
     EditText editTextdrPhone;
     EditText editTextdrPass;
     DriverDataSource dts;
+    DriverObject driver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,33 +48,18 @@ public class Driver extends AppCompatActivity {
 
         dts = new DriverDataSource(this);
         /*
-        *Recuperation des valeurs en toute sécurité
+         *Recuperation des valeurs en sécurité
          */
         if(savedInstanceState==null) {
             bundle = getIntent().getExtras();
             if (bundle == null) {
-                ReditTextdrNom = null ;
-                ReditTextdrPrenom = null  ;
-                ReditTextdrPlaque = null  ;
-                ReditTextdrPhone = null  ;
-                ReditTextdrCam = null  ;
-                ReditTextdrPass = null ;
+                RDriverId = null ;
             } else {
-                ReditTextdrNom = bundle.getString("name") ;
-                ReditTextdrPrenom = bundle.getString("firstname");
-                ReditTextdrPlaque = bundle.getString("plate");
-                ReditTextdrPhone = bundle.getString("phone");
-                ReditTextdrCam = bundle.getString("user");
-                ReditTextdrPass = bundle.getString("pass");
+                RDriverId = bundle.getInt("id") ;
             }
         }else{
-            ReditTextdrNom = (String)savedInstanceState.getSerializable("name");
-            ReditTextdrPrenom = (String)savedInstanceState.getSerializable("firstname");
-            ReditTextdrPlaque = (String)savedInstanceState.getSerializable("plate");
-            ReditTextdrPhone = (String)savedInstanceState.getSerializable("phone");
-            ReditTextdrCam = (String)savedInstanceState.getSerializable("user");
-            ReditTextdrPass = (String)savedInstanceState.getSerializable("pass");
-            }
+            RDriverId = (int)savedInstanceState.getSerializable("id");
+           }
 
 
         editTextdrNom=(EditText)findViewById(R.id.editTextdrNom) ;
@@ -88,14 +69,12 @@ public class Driver extends AppCompatActivity {
         editTextdrCam=(EditText)findViewById(R.id.editTextdrCam) ;
         editTextdrPass=(EditText)findViewById(R.id.editTextdrPass);
 
-        editTextdrNom.setText(ReditTextdrNom);
-        editTextdrPrenom.setText(ReditTextdrPrenom);
-        editTextdrPlaque.setText(ReditTextdrPlaque);
-        editTextdrPhone.setText(ReditTextdrPhone);
-        editTextdrCam.setText(ReditTextdrCam);
-
-
-
+        driver= dts.getDriverById(RDriverId);
+        editTextdrCam.setText(driver.getNumTruck());
+        editTextdrNom.setText(driver.getName());
+        editTextdrPrenom.setText(driver.getFirstname());
+        editTextdrPhone.setText(driver.getPhone());
+        editTextdrPlaque.setText(driver.getPlate());
 
     }
     public boolean onCreateOptionsMenu(Menu menu)
@@ -137,6 +116,7 @@ public class Driver extends AppCompatActivity {
         Button buttonDelivery =(Button)findViewById(R.id.buttonDelivery);
         TextView TextViewCam=(TextView)findViewById(R.id.textViewCam) ;
         TextView TextViewPass=(TextView)findViewById(R.id.textViewPass);
+        editTextdrPass=(EditText)findViewById(R.id.editTextdrPass);
 
         TextViewdrNom.setText(resources.getString(R.string.nom));
         TextViewPrenom.setText(resources.getString(R.string.pr_nom));
@@ -145,14 +125,13 @@ public class Driver extends AppCompatActivity {
         drbuttonSave.setHint(resources.getString(R.string.sauvegarder));
         buttonDelivery.setHint(resources.getString(R.string.livraisons));
         TextViewCam.setText(resources.getString(R.string.n_camion));
-        TextViewPass.setText(resources.getString(R.string.password));
-        TextViewPass.setHint(resources.getString(R.string.enter_a_newPass));
-
-
+        TextViewPass.setHint(resources.getString(R.string.password));
+        editTextdrPass.setHint(resources.getString(R.string.enter_a_newPass));
 
     }
 
     public void updateDriver(View view) {
+        int id = driver.getId();
         String Truck = editTextdrCam.getText().toString();
         String Nom = editTextdrNom.getText().toString() ;
         String Prenom = editTextdrPrenom.getText().toString();
@@ -160,8 +139,11 @@ public class Driver extends AppCompatActivity {
         String Phone = editTextdrPhone.getText().toString();
         String Pass = editTextdrPass.getText().toString();
 
-        DriverObject driverUpdated=new DriverObject(Nom,Prenom,Phone,Plaque,Truck,Pass);
+        DriverObject driverUpdated=new DriverObject(id,Nom,Prenom,Phone,Plaque,Truck,Pass);
         dts.updateDriver(driverUpdated);
+
+        Intent intent = new Intent(this,search_driver.class);
+        startActivity(intent);
 
     }
 }

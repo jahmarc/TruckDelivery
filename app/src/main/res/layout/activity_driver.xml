@@ -140,17 +140,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/editTextdrPass"
-        tools:ignore="LabelFor"
-        android:layout_alignTop="@+id/textViewPass"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/textViewPlaque" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
         android:text="@string/n_camion"
         android:ems="10"
         android:id="@+id/editTextdrCam"
@@ -158,5 +147,16 @@
         tools:ignore="LabelFor"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTextdrPass"
+        tools:ignore="LabelFor"
+        android:layout_alignTop="@+id/textViewPass"
+        android:layout_alignParentEnd="true"
+        android:hint="@string/enter_a_newPass" />
 
 </RelativeLayout>

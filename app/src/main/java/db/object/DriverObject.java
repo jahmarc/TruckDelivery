@@ -24,6 +24,15 @@ public class DriverObject {
     public DriverObject(){
 
     }
+    public DriverObject(int id, String name, String firstname, String phone, String plate, String numTruck, String password){
+        this.id = id;
+        this.name = name;
+        this.firstname = firstname;
+        this.phone = phone;
+        this.plate = plate;
+        this.numTruck = numTruck;
+        this.password = password;
+    }
 
     public int getId(){return id;}
     public void setId(int id){this.id = id;}

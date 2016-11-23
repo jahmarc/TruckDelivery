@@ -40,12 +40,14 @@ public class search_driver extends AppCompatActivity {
         final DriverDataSource dts = new DriverDataSource(this);
         helper.getInstance(context);
 
+        /*
         //testing
         dts.createDriver(new DriverObject("Bond","James","007-007","Bond007","Bond","pass007"));
         dts.createDriver(new DriverObject("Name","Firstname","phone","plate","numTruck","password"));
         for(int i=0;i<10;i++){
             dts.createDriver(new DriverObject("Name"+i,"Firstname"+i,"phone"+i,"plate"+i,"numTruck"+i,"password"+i));
         }
+        */
 
         /**
          * Add additional functions to actionbar
@@ -57,6 +59,7 @@ public class search_driver extends AppCompatActivity {
         actionBar.setLogo(R.drawable.ic_launcher);
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
+
         lv = (ListView) findViewById(R.id.search_driver);
 
         drivers = new ArrayList<DriverObject>();
@@ -69,43 +72,15 @@ public class search_driver extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            driverSelected = (DriverObject) parent.getItemAtPosition(position);
+            int driverSelectedId=driverSelected.getId();
+            Intent toDriver = new Intent(search_driver.this,Driver.class);
+            toDriver.putExtra("id",driverSelectedId);
             if (LocaleHelper.getLanguage(context) == "en") {
-
-                driverSelected = (DriverObject) parent.getItemAtPosition(position);
-                String editTextdrNom=driverSelected.getName();
-                String editTextdrPrenom= driverSelected.getFirstname();
-                String editTextdrPlaque=driverSelected.getPlate();
-                String editTextdrPhone= driverSelected.getPhone();
-                String editTextdrCam=driverSelected.getNumTruck();
-
-                Intent toDriver = new Intent(search_driver.this,Driver.class);
-                toDriver.putExtra("name",editTextdrNom);
-                toDriver.putExtra("firstname",editTextdrPrenom);
-                toDriver.putExtra("plate",editTextdrPlaque);
-                toDriver.putExtra("phone",editTextdrPhone);
-                toDriver.putExtra("user",editTextdrCam);
-
                 Toast.makeText(getBaseContext(), driverSelected.getName() + " selected", Toast.LENGTH_SHORT).show();
-
                 startActivity(toDriver);
             } else {
-
-                driverSelected = (DriverObject) parent.getItemAtPosition(position);
-                String editTextdrNom=driverSelected.getName();
-                String editTextdrPrenom= driverSelected.getFirstname();
-                String editTextdrPlaque=driverSelected.getPlate();
-                String editTextdrPhone= driverSelected.getPhone();
-                String editTextdrCam=driverSelected.getNumTruck();
-
-                Intent toDriver = new Intent(search_driver.this,Driver.class);
-                toDriver.putExtra("name",editTextdrNom);
-                toDriver.putExtra("firstname",editTextdrPrenom);
-                toDriver.putExtra("plate",editTextdrPlaque);
-                toDriver.putExtra("phone",editTextdrPhone);
-                toDriver.putExtra("user",editTextdrCam);
-
                 Toast.makeText(getBaseContext(), driverSelected.getName() + " selectionné", Toast.LENGTH_SHORT).show();
-
                 startActivity(toDriver);
             }
         }
