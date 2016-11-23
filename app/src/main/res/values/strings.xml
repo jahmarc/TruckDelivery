@@ -35,6 +35,13 @@
     <string name="ibdriver">ImageButton to access to drivers</string>
     <string name="ibdelivery">ImageButton to access to deliveries</string>
     <string name="ibcustomer">ImageButton to access to customers</string>
+    <string name="search_driver" />
+    <string name="search_delivery">string/search_delivery</string>
+    <string name="Driver" />
+    <string name="driver_page" />
+    <string name="dr_delivery" />
+    <string name="DriverAdd" />
+    <string name="admin_page" />
     <string-array name="Delivery">
         <item>Delivery A</item>
         <item>Delivery B</item>

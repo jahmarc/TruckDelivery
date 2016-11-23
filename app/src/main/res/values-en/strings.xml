@@ -36,4 +36,10 @@
     <string name="t_l_phone">Phone</string>
     <string name="to_do">TO-DO</string>
     <string name="enter_a_newPass">Enter a new Password</string>
+    <string name="search_driver" />
+    <string name="Driver" />
+    <string name="driver_page" />
+    <string name="dr_delivery" />
+    <string name="DriverAdd" />
+    <string name="admin_page" />
 </resources>

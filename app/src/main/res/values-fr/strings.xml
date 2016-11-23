@@ -36,4 +36,10 @@
     <string name="ibdelivery">Bouton qui permet d\'accéder aux livraisons</string>
     <string name="ibcustomer">Bouton qui permet d\'accéder aux Clients</string>
     <string name="enter_a_newPass">Entrez un nouveau mot de passe</string>
+    <string name="search_driver" />
+    <string name="Driver" />
+    <string name="driver_page" />
+    <string name="dr_delivery" />
+    <string name="DriverAdd" />
+    <string name="admin_page" />
 </resources>

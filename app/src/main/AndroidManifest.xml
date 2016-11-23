@@ -9,11 +9,7 @@
     <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <!--
-    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    -->
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -21,44 +17,94 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
         <activity
-            android:name=".LoginPage"
+            android:name="com.example.marc.truckdelivery.LoginPage"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".admin_page"
-            android:parentActivityName=".LoginPage" />
+            android:name="com.example.marc.truckdelivery.admin_page"
+            android:label="@string/admin_page"
+            android:parentActivityName="com.example.marc.truckdelivery.LoginPage"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.marc.truckdelivery.LoginPage"/>
+        </activity>
         <activity
             android:name=".search_delivery"
-            android:parentActivityName=".admin_page" />
+            android:label="@string/search_delivery"
+            android:parentActivityName="com.example.marc.truckdelivery.LoginPage"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.marc.truckdelivery.LoginPage"/>
+        </activity>
         <activity
             android:name=".search_customer"
-            android:parentActivityName=".admin_page" />
+            android:parentActivityName="com.example.marc.truckdelivery.LoginPage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.marc.truckdelivery.LoginPage"/>
+        </activity>
         <activity
             android:name=".search_driver"
-            android:parentActivityName=".admin_page" />
+            android:label="@string/search_driver"
+            android:parentActivityName="com.example.marc.truckdelivery.LoginPage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.marc.truckdelivery.LoginPage"/>
+        </activity>
         <activity
             android:name=".Customer"
             android:label="@string/client"
-            android:parentActivityName=".search_customer" />
+            android:parentActivityName="com.example.marc.truckdelivery.LoginPage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.marc.truckdelivery.LoginPage"/>
+        </activity>
         <activity
             android:name=".Delivery"
             android:label="@string/livraisons"
-            android:parentActivityName=".search_delivery" />
+            android:parentActivityName="com.example.marc.truckdelivery.LoginPage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.marc.truckdelivery.LoginPage"/>
+        </activity>
         <activity
             android:name=".Driver"
-            android:parentActivityName=".search_driver" />
+            android:label="@string/Driver"
+            android:parentActivityName="com.example.marc.truckdelivery.LoginPage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.marc.truckdelivery.LoginPage"/>
+        </activity>
         <activity
             android:name=".driver_page"
-            android:parentActivityName=".LoginPage" />
+            android:label="@string/driver_page"
+            android:parentActivityName="com.example.marc.truckdelivery.LoginPage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.marc.truckdelivery.LoginPage"/>
+        </activity>
         <activity
             android:name=".dr_delivery"
-            android:parentActivityName=".driver_page" />
-        <activity android:name=".DriverAdd"></activity>
+            android:label="@string/dr_delivery"
+            android:parentActivityName="com.example.marc.truckdelivery.LoginPage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.marc.truckdelivery.LoginPage"/>
+        </activity>
+        <activity
+            android:name=".DriverAdd"
+            android:label="@string/DriverAdd"
+            android:parentActivityName="com.example.marc.truckdelivery.LoginPage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.marc.truckdelivery.LoginPage"/>
+        </activity>
     </application>
 
 </manifest>
