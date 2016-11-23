@@ -48,6 +48,7 @@
         android:hint="@string/choisir_une_date"
         android:layout_below="@+id/editTextdeNumCourse"
         android:layout_centerHorizontal="true"
+        android:onClick="showDatePickerDialog"
         tools:text="@string/choisir_une_date" />
 
     <EditText

@@ -29,7 +29,7 @@ public class DBContract {
         //Table DriverObject create statement
         public static final String CREATE_TABLE_DRIVER = "CREATE TABLE "
                 + TABLE_DRIVER + "("
-                + DriverEntry.KEY_ID + " INTEGER PRIMARY KEY, "
+                + DriverEntry.KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + DriverEntry.KEY_NAME + " TEXT, "
                 + DriverEntry.KEY_FIRSTNAME + " TEXT, "
                 + DriverEntry.KEY_PHONE + " TEXT, "
@@ -57,7 +57,7 @@ public class DBContract {
         //Table CustomerObject create statement
         public static final String CREATE_TABLE_CUSTOMER = "CREATE TABLE "
                 + TABLE_CUSTOMER + "("
-                + CustomerEntry.KEY_ID + " INTEGER PRIMARY KEY, "
+                + CustomerEntry.KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + CustomerEntry.KEY_SOCIETY + " TEXT, "
                 + CustomerEntry.KEY_NAME + " TEXT, "
                 + CustomerEntry.KEY_FIRSTNAME + " TEXT, "
@@ -86,7 +86,7 @@ public class DBContract {
         //Table DeliveryObject create statement
         public static final String CREATE_TABLE_DELIVERY = "CREATE TABLE "
                 + TABLE_DELIVERY + "("
-                + DeliveryEntry.KEY_ID + " INTEGER PRIMARY KEY, "
+                + DeliveryEntry.KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + DeliveryEntry.KEY_ID_DRIVER + " INTEGER, "
                 + DeliveryEntry.KEY_ID_CUSTOMER + " INTEGER, "
                 + DeliveryEntry.KEY_DATE + " DATETIME, "
