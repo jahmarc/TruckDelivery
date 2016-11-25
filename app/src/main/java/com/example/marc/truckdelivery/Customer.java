@@ -71,7 +71,7 @@ public class Customer extends AppCompatActivity {
         EditText editTextcAdress =(EditText)findViewById(R.id.editTextcAdress);
         EditText editTextcNPA =(EditText)findViewById(R.id.editTextcNPA);
         EditText editTextcLocalite =(EditText)findViewById(R.id.editTextcLocalite);
-        Button buttoncLivraison = (Button)findViewById(R.id.buttoncLivraison);
+        Button buttoncLivraison = (Button)findViewById(R.id.buttoncLivraisonDelete);
         Button buttoncSave = (Button)findViewById(R.id.buttoncSave);
 
         editTextcSociete.setText(resources.getString(R.string.soci_t));

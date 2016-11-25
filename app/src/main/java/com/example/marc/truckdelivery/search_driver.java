@@ -100,8 +100,7 @@ public class search_driver extends AppCompatActivity {
 
         //Get the SearchView  and set the searchable configuration
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        MenuItem searchActionBarItem = menu.findItem(R.id.app_bar_search);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchActionBarItem);
+        SearchView searchView = (SearchView) menu.findItem(R.id.app_bar_search).getActionView();
         // Assumes current activity is the searchable activity
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         searchView.setIconifiedByDefault(true); // Do not iconify the widget; expand it by default
