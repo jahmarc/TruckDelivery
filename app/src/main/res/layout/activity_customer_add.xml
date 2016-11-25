@@ -8,6 +8,100 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.marc.truckdelivery.CustomerAdd">
+    tools:context="com.example.marc.truckdelivery.Customer">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="@string/soci_t"
+        android:ems="10"
+        android:layout_marginTop="22dp"
+        android:id="@+id/editTextcSociete_add"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="@string/nom"
+        android:ems="10"
+        android:layout_marginTop="13dp"
+        android:id="@+id/editTextcName_add"
+        android:layout_below="@+id/editTextcSociete_add"
+        android:layout_alignStart="@+id/editTextcSociete_add"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="@string/pr_nom"
+        android:ems="10"
+        android:id="@+id/editTextcPrenom_add"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/editTextcName_add"
+        android:layout_alignStart="@+id/editTextcName_add"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:hint="@string/t_l_phone"
+        android:ems="10"
+        android:id="@+id/editTextcPhone_add"
+        android:layout_below="@+id/editTextcPrenom_add"
+        android:layout_alignStart="@+id/editTextcPrenom_add"
+        android:layout_marginTop="13dp"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="@string/npa"
+        android:ems="10"
+        android:id="@+id/editTextcNPA_add"
+        android:layout_below="@+id/editTextcAdress_add"
+        android:layout_alignStart="@+id/editTextcAdress_add"
+        android:layout_marginTop="11dp"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="@string/localit"
+        android:ems="10"
+        android:id="@+id/editTextcLocalite_add"
+        android:layout_below="@+id/editTextcNPA_add"
+        android:layout_alignStart="@+id/editTextcNPA_add"
+        android:layout_marginTop="11dp"
+        tools:ignore="LabelFor" />
+
+    <Button
+        android:hint="@string/sauvegarder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttoncSave_add"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/editTextcLocalite_add"
+        android:layout_centerHorizontal="true"
+        android:onClick="Save_Customer"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:hint="@string/adresse"
+        android:ems="10"
+        android:id="@+id/editTextcAdress_add"
+        tools:ignore="LabelFor"
+        android:layout_below="@+id/editTextcPhone_add"
+        android:layout_alignStart="@+id/editTextcPhone_add"
+        android:layout_marginTop="10dp" />
 
 </RelativeLayout>

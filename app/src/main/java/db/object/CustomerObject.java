@@ -14,6 +14,26 @@ public class CustomerObject {
     private int postcode;
     private String locality;
 
+    public CustomerObject(){}
+    public CustomerObject(int id, String society, String name, String firstname, String phone, String adress, int postcode, String locality){
+        this.id = id;
+        this.society = society;
+        this.name = name;
+        this.firstname = firstname;
+        this.phone = phone;
+        this.adress = adress;
+        this.postcode = postcode;
+        this.locality = locality;
+    }
+    public CustomerObject(String society, String name, String firstname, String phone, String adress, int postcode, String locality){
+        this.society = society;
+        this.name = name;
+        this.firstname = firstname;
+        this.phone = phone;
+        this.adress = adress;
+        this.postcode = postcode;
+        this.locality = locality;
+    }
     public int getId(){return id;}
     public void setId(int id){this.id = id;}
 

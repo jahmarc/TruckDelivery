@@ -13,6 +13,7 @@ public class DriverObject {
     private String numTruck;
     private String password;
 
+    public DriverObject(){}
     public DriverObject(String name, String firstname, String phone, String plate, String numTruck, String password){
         this.name = name;
         this.firstname = firstname;
@@ -20,9 +21,6 @@ public class DriverObject {
         this.plate = plate;
         this.numTruck = numTruck;
         this.password = password;
-    }
-    public DriverObject(){
-
     }
     public DriverObject(int id, String name, String firstname, String phone, String plate, String numTruck, String password){
         this.id = id;

@@ -13,6 +13,25 @@ public class DeliveryObject {
     private String conditioning;
     private String article;
 
+    public DeliveryObject(){}
+    public DeliveryObject(int id, int driverid, int customerid, String date, int quantity, String conditioning, String article){
+        this.id = id;
+        this.driverid = driverid;
+        this.customerid = customerid;
+        this.date = date;
+        this.quantity = quantity;
+        this.conditioning = conditioning;
+        this.article = article;
+    }
+    public DeliveryObject(int driverid, int customerid, String date, int quantity, String conditioning, String article){
+        this.driverid = driverid;
+        this.customerid = customerid;
+        this.date = date;
+        this.quantity = quantity;
+        this.conditioning = conditioning;
+        this.article = article;
+    }
+
     public int getId(){return id;}
     public void setId(int id){this.id = id;}
 
