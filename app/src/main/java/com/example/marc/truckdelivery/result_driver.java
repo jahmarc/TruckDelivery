@@ -1,6 +1,5 @@
 package com.example.marc.truckdelivery;
 
-import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -9,24 +8,23 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import db.adapter.DriverAdapter;
-import db.adapter.DriverDataSource;
-import db.object.DriverObject;
-import db.SQLiteHelper;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class search_driver extends AppCompatActivity {
+import db.SQLiteHelper;
+import db.adapter.DriverAdapter;
+import db.adapter.DriverDataSource;
+import db.object.DriverObject;
+
+public class result_driver extends AppCompatActivity {
+
 
     ListView lv;
     Context context;
@@ -34,16 +32,15 @@ public class search_driver extends AppCompatActivity {
     SQLiteHelper helper ;
     DriverObject driverSelected;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_driver);
+        setContentView(R.layout.activity_result_driver);
         context = this;
         final DriverDataSource dts = new DriverDataSource(this);
         helper.getInstance(context);
 
-        /*
+             /*
         //testing
         dts.createDriver(new DriverObject("Bond","James","007-007","Bond007","Bond","pass007"));
         dts.createDriver(new DriverObject("Name","Firstname","phone","plate","numTruck","password"));
@@ -67,44 +64,35 @@ public class search_driver extends AppCompatActivity {
 
         drivers = new ArrayList<DriverObject>();
 
-        drivers=dts.getAllDrivers();
+       // drivers=dts.getAllDrivers();
+
 
         DriverAdapter adapter = new DriverAdapter(context,drivers);
         lv.setAdapter(adapter);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            driverSelected = (DriverObject) parent.getItemAtPosition(position);
-            int driverSelectedId=driverSelected.getId();
-            Intent toDriver = new Intent(search_driver.this,Driver.class);
-            toDriver.putExtra("idDriver",driverSelectedId);
-            if (LocaleHelper.getLanguage(context) == "en") {
-                Toast.makeText(getBaseContext(), driverSelected.getName() + " selected", Toast.LENGTH_SHORT).show();
-                startActivity(toDriver);
-            } else {
-                Toast.makeText(getBaseContext(), driverSelected.getName() + " selectionné", Toast.LENGTH_SHORT).show();
-                startActivity(toDriver);
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                driverSelected = (DriverObject) parent.getItemAtPosition(position);
+                int driverSelectedId=driverSelected.getId();
+                Intent toDriver = new Intent(result_driver.this,Driver.class);
+                toDriver.putExtra("idDriver",driverSelectedId);
+                if (LocaleHelper.getLanguage(context) == "en") {
+                    Toast.makeText(getBaseContext(), driverSelected.getName() + " selected", Toast.LENGTH_SHORT).show();
+                    startActivity(toDriver);
+                } else {
+                    Toast.makeText(getBaseContext(), driverSelected.getName() + " selectionné", Toast.LENGTH_SHORT).show();
+                    startActivity(toDriver);
+                }
             }
-        }
-    });
-}
+        });
+    }
 
 
 
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_search, menu);
-
-        //Get the SearchView  and set the searchable configuration
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView = (SearchView) menu.findItem(R.menu.menu_search).getActionView();
-        // Assumes current activity is the searchable activity
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
-
-
+        getMenuInflater().inflate(R.menu.menu_basic, menu);
         return true; //prends le style pour le menu de menu_search
     }
 
@@ -126,8 +114,6 @@ public class search_driver extends AppCompatActivity {
                 startActivity(back);
                 finish();
                 break;
-            case R.id.app_bar_search:
-
             default:
                 LocaleHelper.setLocale(this,"en");
                 updateViews();

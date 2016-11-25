@@ -105,7 +105,23 @@
                 android:value="com.example.marc.truckdelivery.LoginPage" />
         </activity>
         <activity android:name=".DeliveryAdd" />
-        <activity android:name=".CustomerAdd"></activity>
+        <activity
+            android:name=".SearchableActivity"
+            android:label="@string/search">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity android:name=".result_driver"
+            android:label="@string/Results"
+            android:parentActivityName=".search_driver">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.marc.truckdelivery.search_driver" />></activity>
     </application>
 
 </manifest>

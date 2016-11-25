@@ -42,6 +42,9 @@
     <string name="dr_delivery" />
     <string name="DriverAdd" />
     <string name="admin_page" />
+    <string name="app_label" />
+    <string name="search_hint" />
+    <string name="Results">Results</string>
     <string-array name="Delivery">
         <item>Delivery A</item>
         <item>Delivery B</item>
