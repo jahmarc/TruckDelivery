@@ -104,7 +104,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.marc.truckdelivery.LoginPage" />
         </activity>
-        <activity android:name=".DeliveryAdd"></activity>
+        <activity android:name=".DeliveryAdd" />
+        <activity android:name=".CustomerAdd"></activity>
     </application>
 
 </manifest>

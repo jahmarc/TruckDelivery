@@ -16,15 +16,30 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import db.SQLiteHelper;
+import db.adapter.CustomerAdapter;
+import db.adapter.CustomerDataSource;
+import db.object.CustomerObject;
+import db.object.DriverObject;
+
 public class search_customer extends AppCompatActivity {
 
     ListView lv;
-    ArrayAdapter<String> adapter;
     Context context;
+    List<CustomerObject> customers;
+    SQLiteHelper helper;
+    CustomerObject customerSelected;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_customer);
+        context = this;
+        final CustomerDataSource dts = new CustomerDataSource(this);
+
 
         /**
          * Add additional functions to actionbar
@@ -37,18 +52,24 @@ public class search_customer extends AppCompatActivity {
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
 
-        context=this;
-
-        String[] customers = getResources().getStringArray(R.array.Customer);
         lv = (ListView) findViewById(R.id.search_customer);
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,customers);
+
+        customers = new ArrayList<CustomerObject>();
+
+        CustomerAdapter adapter = new CustomerAdapter(context,customers);
         lv.setAdapter(adapter);
+
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                customerSelected = (CustomerObject) parent.getItemAtPosition(position);
+                int customerSelectedID = customerSelected.getId();
+                Intent toCustomer = new Intent(search_customer.this,Customer.class);
+                toCustomer.putExtra("id",customerSelectedID);
                 if(LocaleHelper.getLanguage(context)=="en"){
-                    Toast.makeText(getBaseContext(),parent.getItemAtPosition(position)+" selected",Toast.LENGTH_SHORT).show();}
-                else{Toast.makeText(getBaseContext(),parent.getItemAtPosition(position)+" selectionné",Toast.LENGTH_SHORT).show();}
+                    Toast.makeText(getBaseContext(),"Customer at "+customerSelected.getLocality()+" selected",Toast.LENGTH_SHORT).show();}
+                else{
+                    Toast.makeText(getBaseContext(),"Client a "+customerSelected.getLocality()+" selectionné",Toast.LENGTH_SHORT).show();}
             }
         });
 
@@ -87,5 +108,10 @@ public class search_customer extends AppCompatActivity {
         Resources resources = getResources();
 
 
+    }
+
+    public void newCustomer(View view) {
+        Intent newCustomer = new Intent(this,CustomerAdd.class);
+        startActivity(newCustomer);
     }
 }
