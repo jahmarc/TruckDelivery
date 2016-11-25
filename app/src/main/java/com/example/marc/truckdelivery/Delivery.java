@@ -8,16 +8,71 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
-public class Delivery extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+import db.adapter.CustomerDataSource;
+import db.adapter.DriverDataSource;
+import db.object.CustomerObject;
+import db.object.DriverObject;
+
+public class Delivery extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery);
+
+        // Spinner element
+        Spinner spinnerd = (Spinner) findViewById(R.id.spinnerChauffeur);
+        Spinner spinnerc = (Spinner) findViewById(R.id.spinnerClient);
+
+        // Spinner click listener
+        spinnerd.setOnItemSelectedListener(this);
+        spinnerc.setOnItemSelectedListener(this);
+
+        //Fill the Spinners
+            //Spinner Driver
+        DriverDataSource dts = new DriverDataSource(this);
+        List<DriverObject> drivers = new ArrayList<DriverObject>();
+
+        drivers = dts.getAllDrivers();
+        List<String> spinnerdriver =new ArrayList<String>();
+
+        for(DriverObject driver : drivers){
+            spinnerdriver.add(driver.getId(), driver.getFirstname()+ " " + driver.getName());
+        }
+
+            //Spinner Customer
+        CustomerDataSource cds = new CustomerDataSource(this);
+        List<CustomerObject> customers = new ArrayList<CustomerObject>();
+
+        customers = cds.getAllCustomers();
+        List<String> spinnercustomer =new ArrayList<String>();
+
+        for(CustomerObject customer : customers){
+            spinnercustomer.add(customer.getId(),customer.getSociety() + " " + customer.getFirstname()+ " " + customer.getName());
+        }
+
+        // Creating adapter for spinner
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerdriver);
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnercustomer);
+
+        // Drop down layout style - list view with radio button
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // attaching data adapter to spinner
+        spinnerd.setAdapter(dataAdapter);
+        spinnerc.setAdapter(dataAdapter2);
 
         /**
          * Add additional functions to actionbar
@@ -63,7 +118,8 @@ public class Delivery extends AppCompatActivity {
         EditText editTextdeQte=(EditText)findViewById(R.id.editTextdeQte);
         EditText editTextdeCondi=(EditText)findViewById(R.id.editTextdeCondi);
         EditText editTextdeMar=(EditText)findViewById(R.id.editTextdeMar);
-        Button button2 = (Button)findViewById(R.id.button2);
+        Button buttondSave = (Button)findViewById(R.id.buttondSave);
+        Button buttondDelete = (Button)findViewById(R.id.buttondDelete);
 
         editTextdeNumCourse.setText(resources.getString(R.string.num_ro_de_course));
         buttonDate.setText(resources.getString(R.string.choisir_une_date));
@@ -71,7 +127,24 @@ public class Delivery extends AppCompatActivity {
         editTextdeQte.setText(resources.getString(R.string.quantit));
         editTextdeCondi.setText(resources.getString(R.string.conditionnement));
         editTextdeMar.setText(resources.getString(R.string.marchandise));
-        button2.setText(resources.getString(R.string.sauvegarder));
+        buttondSave.setText(resources.getString(R.string.sauvegarder));
+        buttondDelete.setText(resources.getString(R.string.delete));
 
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+        // On selecting a spinner item
+        String item = adapterView.getItemAtPosition(i).toString();
+
+        // Showing selected spinner item
+        Toast.makeText(adapterView.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
     }
 }

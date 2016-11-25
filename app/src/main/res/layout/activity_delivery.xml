@@ -90,10 +90,18 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button2"
+        android:id="@+id/buttondSave"
         tools:text="@string/sauvegarder"
+        android:layout_below="@+id/editTextdeMar"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttondDelete"
+        tools:text="@string/delete"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="26dp" />
+        android:layout_alignStart="@+id/buttondSave"
+        android:layout_marginBottom="11dp" />
 
 </RelativeLayout>

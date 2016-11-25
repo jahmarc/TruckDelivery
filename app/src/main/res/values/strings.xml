@@ -45,6 +45,7 @@
     <string name="app_label" />
     <string name="search_hint" />
     <string name="Results">Results</string>
+    <string name="delete">Delete</string>
     <string-array name="Delivery">
         <item>Delivery A</item>
         <item>Delivery B</item>
