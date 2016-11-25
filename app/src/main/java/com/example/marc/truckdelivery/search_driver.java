@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.NavUtils;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
@@ -99,10 +100,11 @@ public class search_driver extends AppCompatActivity {
 
         //Get the SearchView  and set the searchable configuration
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView = (SearchView) menu.findItem(R.menu.menu_search).getActionView();
+        MenuItem searchActionBarItem = menu.findItem(R.id.app_bar_search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchActionBarItem);
         // Assumes current activity is the searchable activity
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
+        searchView.setIconifiedByDefault(true); // Do not iconify the widget; expand it by default
 
 
         return true; //prends le style pour le menu de menu_search
@@ -127,7 +129,8 @@ public class search_driver extends AppCompatActivity {
                 finish();
                 break;
             case R.id.app_bar_search:
-
+                onSearchRequested();
+                return true;
             default:
                 LocaleHelper.setLocale(this,"en");
                 updateViews();
