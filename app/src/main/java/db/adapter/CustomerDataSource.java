@@ -20,12 +20,12 @@ import db.object.DeliveryObject;
 
 public class CustomerDataSource {
 
+    private SQLiteHelper sqldb;
     private SQLiteDatabase db;
     private Context context;
 
     public CustomerDataSource(Context context){
-        SQLiteHelper sqliteHelper = SQLiteHelper.getInstance(context);
-        db = sqliteHelper.getWritableDatabase();
+        sqldb = SQLiteHelper.getInstance(context);
         this.context = context;
     }
 
@@ -34,6 +34,7 @@ public class CustomerDataSource {
      */
     public long createCustomer(CustomerObject customer){
         long id;
+        db = sqldb.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(CustomerEntry.KEY_SOCIETY, customer.getSociety());
         values.put(CustomerEntry.KEY_NAME, customer.getName());
@@ -52,6 +53,7 @@ public class CustomerDataSource {
      * Find one CustomerObject by Id
      */
     public CustomerObject getCustomerById(long id){
+        db = sqldb.getWritableDatabase();
         String sql = "SELECT * FROM " + CustomerEntry.TABLE_CUSTOMER +
                 " WHERE " + CustomerEntry.KEY_ID + " = " + id;
 
@@ -79,6 +81,7 @@ public class CustomerDataSource {
      * Get all Customers
      */
     public List<CustomerObject> getAllCustomers(){
+        db = sqldb.getWritableDatabase();
         List<CustomerObject> customers = new ArrayList<CustomerObject>();
         String sql = "SELECT * FROM " + CustomerEntry.TABLE_CUSTOMER + " ORDER BY " + CustomerEntry.KEY_NAME;
 
@@ -108,6 +111,7 @@ public class CustomerDataSource {
      *  Update a CustomerObject
      */
     public int updateCustomer(CustomerObject customer){
+        db = sqldb.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(CustomerEntry.KEY_SOCIETY, customer.getSociety());
         values.put(CustomerEntry.KEY_NAME, customer.getName());
@@ -127,6 +131,7 @@ public class CustomerDataSource {
      * Search A list of customer with name
      */
     public List<CustomerObject> searchCustomer(String query){
+        db = sqldb.getWritableDatabase();
         List<CustomerObject> customers = new ArrayList<CustomerObject>();
         String sql = "SELECT * FROM " + CustomerEntry.TABLE_CUSTOMER +
                 " WHERE " + CustomerEntry.KEY_SOCIETY + " LIKE " + query+'%'
@@ -161,6 +166,7 @@ public class CustomerDataSource {
      * for the Driver
      */
     public void deleteDriver(long id){
+        db = sqldb.getWritableDatabase();
         DeliveryDataSource pra = new DeliveryDataSource(context);
         //get all records of the user
         List<DeliveryObject> deliveries = pra.getDeliveriesByCustomerId(id);

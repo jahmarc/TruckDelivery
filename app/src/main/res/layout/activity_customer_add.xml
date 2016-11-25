@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_customer_add"
     android:layout_width="match_parent"
@@ -9,30 +10,6 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.marc.truckdelivery.Customer">
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="@string/soci_t"
-        android:ems="10"
-        android:layout_marginTop="22dp"
-        android:id="@+id/editTextcSociete_add"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        tools:ignore="LabelFor" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="@string/nom"
-        android:ems="10"
-        android:layout_marginTop="13dp"
-        android:id="@+id/editTextcName_add"
-        android:layout_below="@+id/editTextcSociete_add"
-        android:layout_alignStart="@+id/editTextcSociete_add"
-        tools:ignore="LabelFor" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -103,5 +80,28 @@
         android:layout_below="@+id/editTextcPhone_add"
         android:layout_alignStart="@+id/editTextcPhone_add"
         android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="@string/soci_t"
+        android:ems="10"
+        android:layout_marginTop="22dp"
+        android:id="@+id/editTextcSociete_add"
+        tools:ignore="LabelFor"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="@string/nom"
+        android:ems="10"
+        android:id="@+id/editTextcName_add"
+        tools:ignore="LabelFor"
+        android:layout_below="@+id/editTextcSociete_add"
+        android:layout_alignStart="@+id/editTextcSociete_add" />
 
 </RelativeLayout>

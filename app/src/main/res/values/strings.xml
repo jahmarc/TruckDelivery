@@ -46,6 +46,7 @@
     <string name="search_hint" />
     <string name="Results">Results</string>
     <string name="delete">Delete</string>
+    <string name="DeliveryAdd" />
     <string-array name="Delivery">
         <item>Delivery A</item>
         <item>Delivery B</item>

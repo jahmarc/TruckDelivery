@@ -104,7 +104,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.marc.truckdelivery.LoginPage" />
         </activity>
-        <activity android:name=".DeliveryAdd" />
+        <activity
+            android:name=".DeliveryAdd"
+            android:label="@string/DeliveryAdd"
+            android:parentActivityName=".LoginPage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.marc.truckdelivery.LoginPage" />
+        </activity>
         <activity
             android:name=".SearchableActivity"
             android:theme="@style/Theme.AppCompat.Light"

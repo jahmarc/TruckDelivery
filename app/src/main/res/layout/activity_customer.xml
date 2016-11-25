@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_customer"
     android:layout_width="match_parent"
@@ -9,54 +10,6 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.marc.truckdelivery.Customer">
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="@string/soci_t"
-        android:ems="10"
-        android:layout_marginTop="22dp"
-        android:id="@+id/editTextcSociete"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        tools:ignore="LabelFor" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="@string/nom"
-        android:ems="10"
-        android:layout_marginTop="13dp"
-        android:id="@+id/editTextcName"
-        android:layout_below="@+id/editTextcSociete"
-        android:layout_alignStart="@+id/editTextcSociete"
-        tools:ignore="LabelFor" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="@string/pr_nom"
-        android:ems="10"
-        android:id="@+id/editTextcPrenom"
-        android:layout_marginTop="11dp"
-        android:layout_below="@+id/editTextcName"
-        android:layout_alignStart="@+id/editTextcName"
-        tools:ignore="LabelFor" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:text="@string/t_l_phone"
-        android:ems="10"
-        android:id="@+id/editTextcPhone"
-        android:layout_below="@+id/editTextcPrenom"
-        android:layout_alignStart="@+id/editTextcPrenom"
-        android:layout_marginTop="13dp"
-        tools:ignore="LabelFor" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -93,20 +46,65 @@
         android:layout_marginTop="11dp"
         tools:ignore="LabelFor" />
 
-    <Button
-        android:text="@string/livraisons"
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="23dp"
-        android:id="@+id/buttoncLivraisonDelete"
-        android:layout_alignParentBottom="true"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTextcPrenom"
+        tools:ignore="LabelFor"
+        android:layout_below="@+id/editTextcName"
+        android:layout_alignStart="@+id/editTextcName"
+        android:layout_marginTop="11dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:text="@string/t_l_phone"
+        android:ems="10"
+        android:id="@+id/editTextcPhone"
+        android:layout_marginTop="13dp"
+        tools:ignore="LabelFor"
+        android:layout_below="@+id/editTextcPrenom"
+        android:layout_alignStart="@+id/editTextcPrenom" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTextcSociete"
+        tools:ignore="LabelFor"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_marginTop="11dp"
+        android:id="@+id/editTextcName"
+        tools:ignore="LabelFor"
+        android:layout_below="@+id/editTextcSociete"
+        android:layout_alignStart="@+id/editTextcSociete" />
 
     <Button
         android:text="@string/sauvegarder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttoncSave"
-        android:layout_above="@+id/buttoncLivraisonDelete"
+        android:layout_above="@+id/buttoncDelete"
+        android:layout_alignStart="@+id/buttoncDelete"
+        android:layout_below="@+id/editTextcLocalite" />
+
+    <Button
+        android:text="@string/livraisons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+        android:id="@+id/buttoncDelete"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

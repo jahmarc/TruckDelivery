@@ -11,9 +11,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class Customer extends AppCompatActivity {
+
+    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +72,7 @@ public class Customer extends AppCompatActivity {
         EditText editTextcAdress =(EditText)findViewById(R.id.editTextcAdress);
         EditText editTextcNPA =(EditText)findViewById(R.id.editTextcNPA);
         EditText editTextcLocalite =(EditText)findViewById(R.id.editTextcLocalite);
-        Button buttoncLivraison = (Button)findViewById(R.id.buttoncLivraisonDelete);
+        Button buttoncDelete = (Button)findViewById(R.id.buttoncDelete);
         Button buttoncSave = (Button)findViewById(R.id.buttoncSave);
 
         editTextcSociete.setText(resources.getString(R.string.soci_t));
@@ -81,9 +82,7 @@ public class Customer extends AppCompatActivity {
         editTextcAdress.setText(resources.getString(R.string.adresse));
         editTextcNPA.setText(resources.getString(R.string.npa));
         editTextcLocalite.setText(resources.getString(R.string.localit));
-        buttoncLivraison.setText(resources.getString(R.string.livraisons));
+        buttoncDelete.setText(resources.getString(R.string.livraisons));
         buttoncSave.setText(resources.getString(R.string.sauvegarder));
-
-
     }
 }

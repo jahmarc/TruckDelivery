@@ -30,8 +30,8 @@ public class search_customer extends AppCompatActivity {
     ListView lv;
     Context context;
     List<CustomerObject> customers;
-    SQLiteHelper helper;
     CustomerObject customerSelected;
+    SQLiteHelper helper ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class search_customer extends AppCompatActivity {
         setContentView(R.layout.activity_search_customer);
         context = this;
         final CustomerDataSource dts = new CustomerDataSource(this);
-
+        helper.getInstance(context);
 
         /**
          * Add additional functions to actionbar
@@ -54,9 +54,9 @@ public class search_customer extends AppCompatActivity {
 
         lv = (ListView) findViewById(R.id.search_customer);
 
-        customers = new ArrayList<CustomerObject>();
+        customers = dts.getAllCustomers();
 
-        CustomerAdapter adapter = new CustomerAdapter(context,customers);
+        CustomerAdapter adapter = new CustomerAdapter(context, customers);
         lv.setAdapter(adapter);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -65,11 +65,13 @@ public class search_customer extends AppCompatActivity {
                 customerSelected = (CustomerObject) parent.getItemAtPosition(position);
                 int customerSelectedID = customerSelected.getId();
                 Intent toCustomer = new Intent(search_customer.this,Customer.class);
-                toCustomer.putExtra("id",customerSelectedID);
+                toCustomer.putExtra("idCustomer",customerSelectedID);
                 if(LocaleHelper.getLanguage(context)=="en"){
-                    Toast.makeText(getBaseContext(),"Customer at "+customerSelected.getLocality()+" selected",Toast.LENGTH_SHORT).show();}
-                else{
+                    Toast.makeText(getBaseContext(),"Customer at "+customerSelected.getLocality()+" selected",Toast.LENGTH_SHORT).show();
+                    startActivity(toCustomer);
+                }else{
                     Toast.makeText(getBaseContext(),"Client a "+customerSelected.getLocality()+" selectionné",Toast.LENGTH_SHORT).show();}
+                    startActivity(toCustomer);
             }
         });
 

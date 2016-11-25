@@ -24,6 +24,4 @@
         app:layout_anchorGravity="bottom|right|end"
         tools:ignore="RtlHardcoded"
         android:onClick="newDriver"/>
-
-
 </LinearLayout >

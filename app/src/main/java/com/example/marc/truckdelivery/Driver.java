@@ -113,7 +113,7 @@ public class Driver extends AppCompatActivity {
         TextView TextViewPlaque=(TextView)findViewById(R.id.textViewPlaque) ;
         TextView TextViewPhone=(TextView)findViewById(R.id.textViewPhone) ;
         Button drbuttonSave =(Button)findViewById(R.id.drbuttonSave);
-        Button buttonDelivery =(Button)findViewById(R.id.buttonDelivery);
+        Button buttonDelivery =(Button)findViewById(R.id.deleteDriver);
         TextView TextViewCam=(TextView)findViewById(R.id.textViewCam) ;
         TextView TextViewPass=(TextView)findViewById(R.id.textViewPass);
         editTextdrPass=(EditText)findViewById(R.id.editTextdrPass);
@@ -145,5 +145,8 @@ public class Driver extends AppCompatActivity {
         Intent intent = new Intent(this,search_driver.class);
         startActivity(intent);
 
+    }
+
+    public void save_Driver(View view) {
     }
 }

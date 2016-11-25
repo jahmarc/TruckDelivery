@@ -28,18 +28,6 @@
         android:layout_marginTop="14dp"
         android:id="@+id/spinnerChauffeur_add"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editTextdeNumCourse_add"
-        android:layout_below="@+id/spinnerChauffeur_add"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="13dp"
-        tools:text="@string/num_ro_de_course"
-        tools:ignore="LabelFor"/>
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -95,4 +83,16 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="26dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editTextdeNumCourse_add"
+        android:layout_marginTop="12dp"
+        tools:text="@string/num_ro_de_course"
+        tools:ignore="LabelFor"
+        android:layout_below="@+id/spinnerChauffeur_add"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
