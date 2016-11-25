@@ -12,6 +12,7 @@ import java.util.List;
 import db.DBContract;
 import db.DBContract.DriverEntry;
 import db.SQLiteHelper;
+import db.object.DeliveryObject;
 import db.object.DriverObject;
 
 /**
@@ -126,8 +127,8 @@ public class DriverDataSource {
         db = sqldb.getWritableDatabase();
         List<DriverObject> drivers = new ArrayList<DriverObject>();
         String sql = "SELECT * FROM " + DriverEntry.TABLE_DRIVER +
-                " WHERE " + DriverEntry.KEY_NAME + " = " + query
-                + " OR " + DriverEntry.KEY_FIRSTNAME + " = " + query
+                " WHERE " + DriverEntry.KEY_NAME + " LIKE " + query+'%'
+                + " OR " + DriverEntry.KEY_FIRSTNAME + " LIKE " + query+'%'
                 + " ORDER BY " + DriverEntry.KEY_NAME;
 
         Cursor cursor = this.db.rawQuery(sql, null);
@@ -176,6 +177,26 @@ public class DriverDataSource {
         driver.setPassword(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_PASSWORD)));
 
         return driver;
+    }
+
+    /**
+     * Delete a Driver - this will also delete all Deliveries
+     * for the Driver
+     */
+    public void deleteDriver(long id){
+        db = sqldb.getWritableDatabase();
+        DeliveryDataSource pra = new DeliveryDataSource(context);
+        //get all records of the user
+        List<DeliveryObject> deliveries = pra.getDeliveriesByDriverId(id);
+
+        for(DeliveryObject delivery : deliveries){
+            pra.deleteDelivery(delivery.getId());
+        }
+
+        //delete the person
+        this.db.delete(DriverEntry.TABLE_DRIVER, DriverEntry.KEY_ID + " = ?",
+                new String[] { String.valueOf(id) });
+
     }
 
 }

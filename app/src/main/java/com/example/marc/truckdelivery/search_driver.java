@@ -112,6 +112,9 @@ public class search_driver extends AppCompatActivity {
                 Intent back = new Intent(this,LoginPage.class);
                 startActivity(back);
                 finish();
+                break;
+            case R.id.app_bar_search:
+
             default:
                 LocaleHelper.setLocale(this,"en");
                 updateViews();

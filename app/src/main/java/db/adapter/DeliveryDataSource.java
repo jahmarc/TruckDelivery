@@ -49,6 +49,7 @@ public class DeliveryDataSource {
      * Fin one delivery with id
      */
     public DeliveryObject getDeliveryById(long id){
+        db = sqldb.getWritableDatabase();
         String sql = "SELECT * FROM " + DeliveryEntry.TABLE_DELIVERY +
                 " WHERE " + DeliveryEntry.KEY_ID + " = " + id;
 
@@ -105,6 +106,7 @@ public class DeliveryDataSource {
      * Update a delivery
      */
     public int updateDelivery(DeliveryObject delivery){
+        db = sqldb.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DeliveryEntry.KEY_ID_DRIVER, delivery.getDriverid());
         values.put(DeliveryEntry.KEY_ID_CUSTOMER, delivery.getCustomerid());
@@ -121,6 +123,7 @@ public class DeliveryDataSource {
      * Search a DeliveryObject by date
      */
     public List<DeliveryObject> searchDeliveries(String date){
+        db = sqldb.getWritableDatabase();
         List<DeliveryObject> deliveries = new ArrayList<DeliveryObject>();
         String sql = "SELECT * FROM " + DeliveryEntry.TABLE_DELIVERY +
                 " WHERE " + DeliveryEntry.KEY_DATE + " = " + date
@@ -151,6 +154,7 @@ public class DeliveryDataSource {
      * Search deliveries by CustomerID
      */
     public List<DeliveryObject> getDeliveriesByCustomerId(long id){
+        db = sqldb.getWritableDatabase();
         List<DeliveryObject> deliveries = new ArrayList<DeliveryObject>();
         String sql = "SELECT * FROM " + DeliveryEntry.TABLE_DELIVERY +
                 " WHERE " + DeliveryEntry.KEY_ID_CUSTOMER + " = " + id
@@ -181,6 +185,7 @@ public class DeliveryDataSource {
      * Search deliveries by DriverID
      */
     public List<DeliveryObject> getDeliveriesByDriverId(long id){
+        db = sqldb.getWritableDatabase();
         List<DeliveryObject> deliveries = new ArrayList<DeliveryObject>();
         String sql = "SELECT * FROM " + DeliveryEntry.TABLE_DELIVERY +
                 " WHERE " + DeliveryEntry.KEY_ID_DRIVER + " = " + id
@@ -205,6 +210,15 @@ public class DeliveryDataSource {
         }
 
         return deliveries;
+    }
+
+    /**
+     * Delete a delivery
+     */
+    public void deleteDelivery(long id){
+        db = sqldb.getWritableDatabase();
+        this.db.delete(DeliveryEntry.TABLE_DELIVERY, DeliveryEntry.KEY_ID + " = ?",
+                new String[]{String.valueOf(id) });
     }
 
 }

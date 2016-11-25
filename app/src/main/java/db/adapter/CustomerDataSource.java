@@ -12,6 +12,7 @@ import java.util.List;
 import db.DBContract.CustomerEntry;
 import db.SQLiteHelper;
 import db.object.CustomerObject;
+import db.object.DeliveryObject;
 
 /**
  * Created by Marc on 15/11/2016.
@@ -128,9 +129,9 @@ public class CustomerDataSource {
     public List<CustomerObject> searchCustomer(String query){
         List<CustomerObject> customers = new ArrayList<CustomerObject>();
         String sql = "SELECT * FROM " + CustomerEntry.TABLE_CUSTOMER +
-                " WHERE " + CustomerEntry.KEY_SOCIETY + " = " + query
-                + " OR " + CustomerEntry.KEY_NAME + " = " + query
-                + " OR " + CustomerEntry.KEY_FIRSTNAME + " = " + query
+                " WHERE " + CustomerEntry.KEY_SOCIETY + " LIKE " + query+'%'
+                + " OR " + CustomerEntry.KEY_NAME + " LIKE " + query+'%'
+                + " OR " + CustomerEntry.KEY_FIRSTNAME + " LIKE " + query+'%'
                 + " ORDER BY " + CustomerEntry.KEY_NAME;
 
         Cursor cursor = this.db.rawQuery(sql, null);
@@ -153,5 +154,24 @@ public class CustomerDataSource {
         }
 
         return customers;
+    }
+
+    /**
+     * Delete a Customer - this will also delete all Deliveries
+     * for the Driver
+     */
+    public void deleteDriver(long id){
+        DeliveryDataSource pra = new DeliveryDataSource(context);
+        //get all records of the user
+        List<DeliveryObject> deliveries = pra.getDeliveriesByCustomerId(id);
+
+        for(DeliveryObject delivery : deliveries){
+            pra.deleteDelivery(delivery.getId());
+        }
+
+        //delete the person
+        this.db.delete(CustomerEntry.TABLE_CUSTOMER, CustomerEntry.KEY_ID + " = ?",
+                new String[] { String.valueOf(id) });
+
     }
 }
