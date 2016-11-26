@@ -146,7 +146,12 @@ public class Driver extends AppCompatActivity {
         startActivity(intent);
 
     }
+    public void delete_Driver(View view) {
+        int id = driver.getId();
 
-    public void save_Driver(View view) {
+        dts.deleteDriver(id);
+
+        Intent intent = new Intent(this,search_driver.class);
+        startActivity(intent);
     }
 }

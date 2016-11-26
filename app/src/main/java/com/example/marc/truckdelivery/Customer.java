@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -84,5 +85,12 @@ public class Customer extends AppCompatActivity {
         editTextcLocalite.setText(resources.getString(R.string.localit));
         buttoncDelete.setText(resources.getString(R.string.livraisons));
         buttoncSave.setText(resources.getString(R.string.sauvegarder));
+    }
+
+    public void delete_Customer(View view) {
+    }
+
+    public void Save_Customer(View view) {
+
     }
 }

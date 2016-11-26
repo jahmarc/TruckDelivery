@@ -15,36 +15,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPostalAddress"
-        android:text="@string/adresse"
         android:ems="10"
         android:id="@+id/editTextcAdress"
         android:layout_centerVertical="true"
         android:layout_alignStart="@+id/editTextcPhone"
-        tools:ignore="LabelFor" />
+        tools:ignore="LabelFor"
+        android:hint="@string/adresse" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:text="@string/npa"
         android:ems="10"
         android:id="@+id/editTextcNPA"
         android:layout_below="@+id/editTextcAdress"
         android:layout_alignStart="@+id/editTextcAdress"
         android:layout_marginTop="11dp"
-        tools:ignore="LabelFor" />
+        tools:ignore="LabelFor"
+        android:hint="@string/npa" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="@string/localit"
         android:ems="10"
         android:id="@+id/editTextcLocalite"
         android:layout_below="@+id/editTextcNPA"
         android:layout_alignStart="@+id/editTextcNPA"
         android:layout_marginTop="11dp"
-        tools:ignore="LabelFor" />
+        tools:ignore="LabelFor"
+        android:hint="@string/localit" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -55,19 +55,20 @@
         tools:ignore="LabelFor"
         android:layout_below="@+id/editTextcName"
         android:layout_alignStart="@+id/editTextcName"
-        android:layout_marginTop="11dp" />
+        android:layout_marginTop="11dp"
+        android:hint="@string/pr_nom" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="phone"
-        android:text="@string/t_l_phone"
         android:ems="10"
         android:id="@+id/editTextcPhone"
         android:layout_marginTop="13dp"
         tools:ignore="LabelFor"
         android:layout_below="@+id/editTextcPrenom"
-        android:layout_alignStart="@+id/editTextcPrenom" />
+        android:layout_alignStart="@+id/editTextcPrenom"
+        android:hint="@string/t_l_phone" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -77,7 +78,8 @@
         android:id="@+id/editTextcSociete"
         tools:ignore="LabelFor"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:hint="@string/soci_t" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -88,23 +90,27 @@
         android:id="@+id/editTextcName"
         tools:ignore="LabelFor"
         android:layout_below="@+id/editTextcSociete"
-        android:layout_alignStart="@+id/editTextcSociete" />
+        android:layout_alignStart="@+id/editTextcSociete"
+        android:hint="@string/nom"
+        />
 
     <Button
-        android:text="@string/sauvegarder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttoncSave"
         android:layout_above="@+id/buttoncDelete"
         android:layout_alignStart="@+id/buttoncDelete"
-        android:layout_below="@+id/editTextcLocalite" />
+        android:layout_below="@+id/editTextcLocalite"
+        tools:text="@string/sauvegarder"
+        android:onClick="Save_Customer"/>
 
     <Button
-        android:text="@string/livraisons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="14dp"
         android:id="@+id/buttoncDelete"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        tools:text="@string/delete"
+        android:onClick="delete_Customer"/>
 </RelativeLayout>

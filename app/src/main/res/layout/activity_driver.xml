@@ -124,7 +124,8 @@
         android:layout_alignParentBottom="true"
         android:layout_toStartOf="@+id/drbuttonSave"
         android:layout_marginEnd="30dp"
-        android:onClick="save_Driver"/>
+        android:onClick="delete_Driver"
+        tools:text="@string/delete" />
 
     <TextView
         android:layout_width="wrap_content"

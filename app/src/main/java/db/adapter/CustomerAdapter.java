@@ -36,10 +36,11 @@ public class CustomerAdapter extends ArrayAdapter<CustomerObject>{
         TextView textView = (TextView) rowView.findViewById(R.id.label);
         String society = customers.get(position).getSociety();
         String locality = customers.get(position).getLocality();
-        String nom_pre = customers.get(position).getName()+" "+customers.get(position).getFirstname();
+        String nom_pre_loc = customers.get(position).getName()+" "+customers.get(position).getFirstname()+" "+customers.get(position).getLocality();
 
-        if(society == null){
-            textView.setText(nom_pre +" " +locality);
+
+        if(society.equals("")){
+            textView.setText(nom_pre_loc);
         }else{
             textView.setText(society +" " +locality);
         }
