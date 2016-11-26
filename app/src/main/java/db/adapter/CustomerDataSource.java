@@ -165,7 +165,7 @@ public class CustomerDataSource {
      * Delete a Customer - this will also delete all Deliveries
      * for the Driver
      */
-    public void deleteDriver(long id){
+    public void deleteCustomer(long id){
         db = sqldb.getWritableDatabase();
         DeliveryDataSource pra = new DeliveryDataSource(context);
         //get all records of the user

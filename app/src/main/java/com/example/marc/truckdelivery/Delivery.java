@@ -147,4 +147,12 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
         // Showing selected spinner item
         Toast.makeText(adapterView.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
     }
+
+    public void UpdateDelivery(View view) {
+
+    }
+    public void delete_Delivery(View view) {
+
+    }
+
 }

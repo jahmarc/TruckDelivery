@@ -13,15 +13,33 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import db.adapter.CustomerDataSource;
+import db.object.CustomerObject;
+
+import static com.example.marc.truckdelivery.R.id.editTextcAdress;
+
 public class Customer extends AppCompatActivity {
 
     Bundle bundle;
+    Integer RCustomerId;
+    EditText editTextcAdress;
+    EditText editTextcNPA;
+    EditText editTextcLocalite;
+    EditText editTextcPrenom;
+    EditText editTextcPhone;
+    EditText editTextcSociete;
+    EditText editTextcName;
+    Button buttoncSave;
+    Button buttoncDelete;
+
+    CustomerDataSource dts;
+    CustomerObject customer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer);
-
+        dts = new CustomerDataSource(this);
         /**
          * Add additional functions to actionbar
          */
@@ -33,13 +51,26 @@ public class Customer extends AppCompatActivity {
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
 
+        /*
+         *Recuperation des valeurs en sécurité
+         */
+        if(savedInstanceState==null) {
+            bundle = getIntent().getExtras();
+            if (bundle == null) {
+                RCustomerId = null ;
+            } else {
+                RCustomerId = bundle.getInt("idCustomer") ;
+            }
+        }else{
+            RCustomerId = (int)savedInstanceState.getSerializable("idCustomer");
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
         getMenuInflater().inflate(R.menu.menu_basic, menu);
-        return true;
+        return true; //prends le style pour le menu de menu_basic
     }
     public boolean onOptionsItemSelected(MenuItem item)
     {
@@ -87,10 +118,29 @@ public class Customer extends AppCompatActivity {
         buttoncSave.setText(resources.getString(R.string.sauvegarder));
     }
 
-    public void delete_Customer(View view) {
+    public void updateCustomer(View view) {
+        int id = customer.getId();
+        String society = editTextcSociete.getText().toString();
+        String name = editTextcName.getText().toString();
+        String firstname = editTextcPrenom.getText().toString();
+        String phone = editTextcPhone.getText().toString();
+        String adress = editTextcAdress.getText().toString();
+        int postcode = Integer.parseInt(editTextcNPA.getText().toString());
+        String locality = editTextcLocalite.getText().toString();
+
+        CustomerObject customerUpdated = new CustomerObject(id, society, name, firstname, phone, adress, postcode, locality);
+        dts.updateCustomer(customerUpdated);
+
+        Intent intent = new Intent(this,search_customer.class);
+        startActivity(intent);
+    }
+    public void deleteCustomer(View view) {
+        int id = customer.getId();
+
+        dts.deleteCustomer(id);
+
+        Intent intent = new Intent(this,search_customer.class);
+        startActivity(intent);
     }
 
-    public void Save_Customer(View view) {
-
-    }
 }

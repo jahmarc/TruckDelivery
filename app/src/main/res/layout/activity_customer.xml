@@ -102,7 +102,7 @@
         android:layout_alignStart="@+id/buttoncDelete"
         android:layout_below="@+id/editTextcLocalite"
         tools:text="@string/sauvegarder"
-        android:onClick="Save_Customer"/>
+        android:onClick="updateCustomer"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -112,5 +112,5 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         tools:text="@string/delete"
-        android:onClick="delete_Customer"/>
+        android:onClick="deleteCustomer"/>
 </RelativeLayout>
