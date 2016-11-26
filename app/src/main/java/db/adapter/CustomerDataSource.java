@@ -44,7 +44,7 @@ public class CustomerDataSource {
         values.put(CustomerEntry.KEY_POSTCODE, customer.getPostcode());
         values.put(CustomerEntry.KEY_LOCALITY, customer.getLocality());
 
-        id = this.db.insert(CustomerEntry.TABLE_CUSTOMER, null, values);
+        id = db.insert(CustomerEntry.TABLE_CUSTOMER, null, values);
 
         return id;
     }

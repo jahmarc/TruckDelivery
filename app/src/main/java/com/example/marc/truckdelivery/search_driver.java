@@ -1,5 +1,6 @@
 package com.example.marc.truckdelivery;
 
+import android.app.DatePickerDialog;
 import android.app.SearchManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -9,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v4.widget.SearchViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
@@ -17,6 +19,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -25,9 +29,12 @@ import db.adapter.DriverDataSource;
 import db.object.DriverObject;
 import db.SQLiteHelper;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
-    
+
 public class search_driver extends AppCompatActivity {
 
     ListView lv;
@@ -100,11 +107,11 @@ public class search_driver extends AppCompatActivity {
         inflater.inflate(R.menu.menu_search, menu);
 
         //Get the SearchView  and set the searchable configuration
-       // SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        //SearchView searchView = (SearchView) menu.findItem(R.id.app_bar_search).getActionView();
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.app_bar_search).getActionView();
         // Assumes current activity is the searchable activity
-        //searchView.setSearchableInfo(searchManager.getSearchableInfo(new ComponentName(getApplicationContext(), SearchableActivity.class)));
-        //searchView.setIconifiedByDefault(true); // Do not iconify the widget; expand it by default
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(new ComponentName(getApplicationContext(), SearchableActivity.class)));
+        searchView.setIconifiedByDefault(true); // Do not iconify the widget; expand it by default
 
 
         return true; //prends le style pour le menu de menu_search
@@ -129,8 +136,8 @@ public class search_driver extends AppCompatActivity {
                 finish();
                 break;
         case R.id.app_bar_search:
-  //              onSearchRequested();
-    //            return true;
+              onSearchRequested();
+              return true;
             default:
                 LocaleHelper.setLocale(this,"en");
                 updateViews();

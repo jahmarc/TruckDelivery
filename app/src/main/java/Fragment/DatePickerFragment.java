@@ -2,7 +2,7 @@ package Fragment;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.app.DialogFragment;
+import android.support.v4.app.DialogFragment;
 import java.util.Calendar;
 import android.os.Bundle;
 import android.widget.Button;
@@ -14,7 +14,11 @@ import com.example.marc.truckdelivery.R;
  * Created by Marc on 23/11/2016.
  */
 
-public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener{
+public class DatePickerFragment extends DialogFragment{
+
+//} implements DatePickerDialog.OnDateSetListener{
+
+
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState){
@@ -24,11 +28,11 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         int month = c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);
 
-        return new DatePickerDialog(getActivity(), this, year, month, day);
+        return new DatePickerDialog(getActivity(),(DatePickerDialog.OnDateSetListener)getActivity(), year, month, day);
     }
 
-    public void onDateSet(DatePicker view, int year, int month, int day) {
-        Button bt1 = (Button) getActivity().findViewById(R.id.buttonDate);
-        bt1.setText("Year: " + view.getYear() + " Month: " + view.getMonth() + " Day: " + view.getDayOfMonth());
-    }
+  //  public void onDateSet(DatePicker view, int year, int month, int day) {
+    //    Button bt1 = (Button) getActivity().findViewById(R.id.buttonDate);
+      //  bt1.setText("Year: " + view.getYear() + " Month: " + view.getMonth() + " Day: " + view.getDayOfMonth());
+    //}
 }

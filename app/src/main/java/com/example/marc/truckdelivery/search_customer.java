@@ -41,6 +41,13 @@ public class search_customer extends AppCompatActivity {
         final CustomerDataSource dts = new CustomerDataSource(this);
         helper.getInstance(context);
 
+
+        //TEST
+        dts.createCustomer(new CustomerObject("","Nicolier","Marc","027777777","Rue de la rue 8",1955,"Chamoson"));
+        dts.createCustomer(new CustomerObject("SecuPoca","Pocas","Helder","027777777","Rue de la tour 10",1920,"Martigny"));
+        dts.createCustomer(new CustomerObject("Nestlé","","","02788987777","Avenue saint pierre",1000,"Chamoson"));
+
+
         /**
          * Add additional functions to actionbar
          */

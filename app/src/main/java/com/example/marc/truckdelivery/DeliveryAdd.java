@@ -1,5 +1,6 @@
 package com.example.marc.truckdelivery;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -9,13 +10,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+import Fragment.DatePickerFragment;
 import db.adapter.DeliveryDataSource;
 
-public class DeliveryAdd extends AppCompatActivity {
+public class DeliveryAdd extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
     Spinner spinnerClient_add;
     Spinner spinnerChauffeur_add;
@@ -87,4 +95,23 @@ public class DeliveryAdd extends AppCompatActivity {
         buttonSave_add = (Button)findViewById(R.id.buttonSave_add);
 
     }
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int day) {
+        Calendar cal = new GregorianCalendar(year, month, day);
+        setDate(cal);
+    }
+
+    /**
+      * To set date on EditText
+      * @param calendar
+      */
+    private void setDate(final Calendar calendar) {
+        final DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
+        ((EditText) findViewById(R.id.editTextdeDate)).setText(dateFormat.format(calendar.getTime()));
+    }
+
+    public void showDatePickerDialog(View view){
+        DatePickerFragment fragment = new DatePickerFragment();
+        fragment.show(getSupportFragmentManager(),"date");
+        }
 }

@@ -12,68 +12,12 @@
     tools:context="com.example.marc.truckdelivery.DeliveryAdd">
 
     <Spinner
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
         android:text="@string/client"
         android:id="@+id/spinnerClient_add"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"/>
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/spinnerClient_add"
-        android:text="@string/chauffeur"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="14dp"
-        android:id="@+id/spinnerChauffeur_add"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:id="@+id/buttonDate_add"
-        android:hint="@string/choisir_une_date"
-        android:layout_below="@+id/editTextdeNumCourse_add"
-        android:layout_centerHorizontal="true"
-        android:onClick="showDatePickerDialog"
-        android:text="@string/choisir_une_date"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editTextdeQte_add"
-        android:layout_below="@id/buttonDate_add"
-        android:layout_alignStart="@+id/editTextdeNumCourse_add"
-        android:layout_marginTop="11dp"
-        tools:text="@string/quantit"
-        tools:ignore="LabelFor"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_below="@+id/editTextdeQte_add"
-        android:layout_alignEnd="@+id/editTextdeQte_add"
-        android:layout_marginTop="11dp"
-        android:id="@+id/editTextdeCondi_add"
-        tools:text="@string/conditionnement"
-        tools:ignore="LabelFor" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_below="@+id/editTextdeCondi_add"
-        android:layout_alignStart="@+id/editTextdeCondi_add"
-        android:layout_marginTop="11dp"
-        android:id="@+id/editTextdeMar_add"
-        tools:text="@string/marchandise"
-        tools:ignore="LabelFor" />
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -84,15 +28,82 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="26dp" />
 
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/chauffeur"
+        android:layout_marginTop="17dp"
+        android:id="@+id/spinnerChauffeur_add"
+        android:layout_below="@+id/spinnerClient_add"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTextdeMar_add"
+        tools:text="@string/marchandise"
+        tools:ignore="LabelFor"
+        android:layout_above="@+id/buttonSave_add"
+        android:layout_alignStart="@+id/editTextdeCondi_add"
+        android:layout_marginBottom="27dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTextdeCondi_add"
+        tools:text="@string/conditionnement"
+        tools:ignore="LabelFor"
+        android:layout_above="@+id/editTextdeMar_add"
+        android:layout_alignStart="@+id/editTextdeQte_add" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editTextdeQte_add"
+        tools:text="@string/quantit"
+        tools:ignore="LabelFor"
+        android:layout_above="@+id/editTextdeCondi_add"
+        android:layout_alignStart="@+id/editTextdeNumCourse_add" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
         android:id="@+id/editTextdeNumCourse_add"
-        android:layout_marginTop="12dp"
         tools:text="@string/num_ro_de_course"
         tools:ignore="LabelFor"
         android:layout_below="@+id/spinnerChauffeur_add"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/editTextdeDate"
+        tools:text="@string/date"
+        tools:ignore="LabelFor"
+        android:layout_marginBottom="11dp"
+        android:layout_above="@+id/editTextdeQte_add"
+        android:layout_alignEnd="@+id/buttonDate_add"
+        android:layout_alignStart="@+id/buttonDate_add"
+        android:inputType="date" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonDate_add"
+        android:hint="@string/choisir_une_date"
+        android:onClick="showDatePickerDialog"
+        android:text="@string/choisir_une_date"
+        android:layout_above="@+id/editTextdeDate"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="13dp" />
 </RelativeLayout>
