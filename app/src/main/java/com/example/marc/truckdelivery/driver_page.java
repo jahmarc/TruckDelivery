@@ -13,7 +13,15 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import db.adapter.DriverDataSource;
+import db.object.DriverObject;
+
 public class driver_page extends AppCompatActivity {
+    Bundle bundle;
+    Integer RDriverId;
+    DriverDataSource dts;
+    DriverObject driver;
+    TextView driver_page_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +38,25 @@ public class driver_page extends AppCompatActivity {
         actionBar.setLogo(R.drawable.ic_launcher);
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
+
+        dts = new DriverDataSource(this);
+        /*
+         *Recuperation des valeurs en sécurité
+         */
+        if(savedInstanceState==null) {
+            bundle = getIntent().getExtras();
+            if (bundle == null) {
+                RDriverId = null ;
+            } else {
+                RDriverId = bundle.getInt("id_chauffeur") ;
+            }
+        }else{
+            RDriverId = (int)savedInstanceState.getSerializable("id_chauffeur");
+        }
+
+        driver = dts.getDriverById(RDriverId);
+        driver_page_name = (TextView)findViewById(R.id.driver_page_name);
+        driver_page_name.setText(driver.getFirstname() + " "+ driver.getName());
     }
     public boolean onOptionsItemSelected(MenuItem item)
     {

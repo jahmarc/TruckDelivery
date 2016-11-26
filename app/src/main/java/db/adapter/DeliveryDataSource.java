@@ -151,6 +151,39 @@ public class DeliveryDataSource {
     }
 
     /**
+     * Get a DeliveryObject List by date and by Driver ID
+     */
+    public List<DeliveryObject> getDeliveriesbyDate(int id, String date){
+        db = sqldb.getWritableDatabase();
+        List<DeliveryObject> deliveries = new ArrayList<DeliveryObject>();
+        String sql = "SELECT * FROM " + DeliveryEntry.TABLE_DELIVERY +
+                " WHERE " + DeliveryEntry.KEY_DATE + " = " + date +
+                " AND " + DeliveryEntry.KEY_ID_DRIVER + " = " + id +
+                " ORDER BY " + DeliveryEntry.KEY_DATE;
+
+        Cursor cursor = this.db.rawQuery(sql, null);
+
+        if(cursor.moveToFirst()){
+            do{
+                DeliveryObject delivery = new DeliveryObject();
+
+                delivery.setId(cursor.getInt(cursor.getColumnIndex(DeliveryEntry.KEY_ID)));
+                delivery.setDriverid(cursor.getInt(cursor.getColumnIndex(DeliveryEntry.KEY_ID_DRIVER)));
+                delivery.setCustomerid(cursor.getInt(cursor.getColumnIndex(DeliveryEntry.KEY_ID_CUSTOMER)));
+                delivery.setDate(cursor.getString(cursor.getColumnIndex(DeliveryEntry.KEY_DATE)));
+                delivery.setQuantity(cursor.getInt(cursor.getColumnIndex(DeliveryEntry.KEY_QUANTITY)));
+                delivery.setConditioning(cursor.getString(cursor.getColumnIndex(DeliveryEntry.KEY_CONDITIONING)));
+                delivery.setArticle(cursor.getString(cursor.getColumnIndex(DeliveryEntry.KEY_ARTICLE)));
+
+                deliveries.add(delivery);
+            } while(cursor.moveToNext());
+        }
+
+        return deliveries;
+    }
+
+
+    /**
      * Search deliveries by CustomerID
      */
     public List<DeliveryObject> getDeliveriesByCustomerId(long id){

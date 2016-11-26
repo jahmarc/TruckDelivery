@@ -21,9 +21,12 @@ import android.app.Activity;
 
 import com.example.marc.truckdelivery.LocaleHelper.*;
 
+import db.adapter.DriverDataSource;
+
 
 public class LoginPage extends AppCompatActivity {
     Context context;
+
 
 
     @Override
@@ -45,33 +48,85 @@ public class LoginPage extends AppCompatActivity {
         LocaleHelper.OnCreate(this,"en");
         LocaleHelper.setLocale(this,"en");
         context = this;
+
     }
     public void login(View view) {
         String admin1="helder";
+        String pass1="1234";
         String admin2="marc";
-        String driver="driver";
+        String pass2="9876";
         EditText login  =(EditText)findViewById(R.id.Log_on);
-        String log=login.getText().toString();
+        EditText pass = (EditText)findViewById(R.id.Log_pass);
+        String loguser = login.getText().toString();
+        String logpass = pass.getText().toString();
+        DriverDataSource dts = new DriverDataSource(context);
 
-        if(log.equals(admin1)||log.equals(admin2)){
-            Intent intentAdmin = new Intent(this,admin_page.class);
-            startActivity(intentAdmin);
-            if(LocaleHelper.getLanguage(context)!="fr"){
-                Toast.makeText(getApplicationContext(),"Welcome "+log+" to the Admin Page.",Toast.LENGTH_SHORT).show();}
-            else{Toast.makeText(getApplicationContext(),"Bienvenue "+log+" a la page administrative.",Toast.LENGTH_SHORT).show();}
-        }else if(log.equals(driver)){
-            Intent intentDriver = new Intent(this,driver_page.class);
-            startActivity(intentDriver);
-            if(LocaleHelper.getLanguage(context)!="fr"){
-                Toast.makeText(getApplicationContext(),"Welcome "+log+" to your DriverObject Page.",Toast.LENGTH_SHORT).show();
+        //Test on the login
+
+            //Test if it's user 1
+        if(loguser.equals(admin1)){
+            //Test if password is correct
+            if(logpass.equals(pass1)) {
+                Intent intentAdmin = new Intent(this, admin_page.class);
+                startActivity(intentAdmin);
+                if (LocaleHelper.getLanguage(context) != "fr") {
+                    Toast.makeText(getApplicationContext(), "Welcome " + loguser + " to the Admin Page.", Toast.LENGTH_SHORT).show();
                 }
-            else{Toast.makeText(getApplicationContext(),"Bienvenue "+log+" a votre page chauffeur.",Toast.LENGTH_SHORT).show();}
-        }else{
+                else{
+                    Toast.makeText(getApplicationContext(),"Bienvenue "+ loguser +" a la page administrative.",Toast.LENGTH_SHORT).show();
+                }
+            }
+            else{
+                if(LocaleHelper.getLanguage(context)!="fr"){
+                    Toast.makeText(getApplicationContext(), "Your Username or Password is not correct!", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Votre nom et/ou votre mot de passe n'est pas correct!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+        //Test if it's user 2
+        else if(loguser.equals(admin2)){
+            //Test if password is correct
+            if(logpass.equals(pass2)) {
+                Intent intentAdmin = new Intent(this, admin_page.class);
+                startActivity(intentAdmin);
+                if (LocaleHelper.getLanguage(context) != "fr") {
+                    Toast.makeText(getApplicationContext(), "Welcome " + loguser + " to the Admin Page.", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Bienvenue "+ loguser +" a la page administrative.",Toast.LENGTH_SHORT).show();
+                }
+            }
+            else{
+                if(LocaleHelper.getLanguage(context)!="fr"){
+                    Toast.makeText(getApplicationContext(), "Your Username or Password is not correct!", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Votre nom et/ou votre mot de passe n'est pas correct!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+        //Test si c'est un chauffeur
+        else if(dts.getUser(loguser, logpass) != null){
+            int id = dts.getUser(loguser, logpass).getId();
+            Intent intentDriver = new Intent(this, driver_page.class);
+            intentDriver.putExtra("id_chauffeur", id);
+            startActivity(intentDriver);
+            if (LocaleHelper.getLanguage(context) != "fr") {
+                Toast.makeText(getApplicationContext(), "Welcome " + loguser + " to the Driver Page.", Toast.LENGTH_SHORT).show();
+            }
+            else{
+                Toast.makeText(getApplicationContext(),"Bienvenue "+ loguser +" a la page des chauffeurs.",Toast.LENGTH_SHORT).show();
+            }
+        }
+        else{
             if(LocaleHelper.getLanguage(context)!="fr"){
                 Toast.makeText(getApplicationContext(), "Your Username or Password is not correct!", Toast.LENGTH_SHORT).show();
-
-            }else{Toast.makeText(getApplicationContext(), "Votre nom et/ou votre mot de passe n'est pas correct!", Toast.LENGTH_SHORT).show();
-                }
+            }
+            else{
+                Toast.makeText(getApplicationContext(), "Votre nom et/ou votre mot de passe n'est pas correct!", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
