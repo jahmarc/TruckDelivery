@@ -38,8 +38,8 @@
         android:layout_below="@+id/spinnerChauffeur"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="13dp"
-        tools:text="@string/num_ro_de_course"
-        tools:ignore="LabelFor" />
+        tools:ignore="LabelFor"
+        android:hint="@string/num_ro_de_course" />
 
     <Button
         android:layout_width="wrap_content"
@@ -61,8 +61,8 @@
         android:layout_below="@+id/buttonDate"
         android:layout_alignStart="@+id/editTextdeNumCourse"
         android:layout_marginTop="11dp"
-        tools:text="@string/quantit"
-        tools:ignore="LabelFor" />
+        tools:ignore="LabelFor"
+        android:hint="@string/quantit" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -73,8 +73,8 @@
         android:layout_alignEnd="@+id/editTextdeQte"
         android:layout_marginTop="11dp"
         android:id="@+id/editTextdeCondi"
-        tools:text="@string/conditionnement"
-        tools:ignore="LabelFor" />
+        tools:ignore="LabelFor"
+        android:hint="@string/conditionnement" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -85,8 +85,8 @@
         android:layout_alignStart="@+id/editTextdeCondi"
         android:layout_marginTop="11dp"
         android:id="@+id/editTextdeMar"
-        tools:text="@string/marchandise"
-        tools:ignore="LabelFor" />
+        tools:ignore="LabelFor"
+        android:hint="@string/marchandise" />
 
     <Button
         android:layout_width="wrap_content"
@@ -100,7 +100,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/buttondDelete"
+        android:id="@+id/buttondDelDelete"
         tools:text="@string/delete"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/buttondSave"

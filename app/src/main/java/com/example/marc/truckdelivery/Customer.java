@@ -97,15 +97,15 @@ public class Customer extends AppCompatActivity {
     }
     private void updateViews() {
         Resources resources = getResources();
-        EditText editTextcSociete =(EditText)findViewById(R.id.editTextcSociete);
-        EditText editTextcName =(EditText)findViewById(R.id.editTextcName);
-        EditText editTextcPrenom =(EditText)findViewById(R.id.editTextcPrenom);
-        EditText editTextcPhone =(EditText)findViewById(R.id.editTextcPhone);
-        EditText editTextcAdress =(EditText)findViewById(R.id.editTextcAdress);
-        EditText editTextcNPA =(EditText)findViewById(R.id.editTextcNPA);
-        EditText editTextcLocalite =(EditText)findViewById(R.id.editTextcLocalite);
-        Button buttoncDelete = (Button)findViewById(R.id.buttoncDelete);
-        Button buttoncSave = (Button)findViewById(R.id.buttoncSave);
+         editTextcSociete =(EditText)findViewById(R.id.editTextcSociete);
+         editTextcName =(EditText)findViewById(R.id.editTextcName);
+         editTextcPrenom =(EditText)findViewById(R.id.editTextcPrenom);
+         editTextcPhone =(EditText)findViewById(R.id.editTextcPhone);
+         editTextcAdress =(EditText)findViewById(R.id.editTextcAdress);
+         editTextcNPA =(EditText)findViewById(R.id.editTextcNPA);
+         editTextcLocalite =(EditText)findViewById(R.id.editTextcLocalite);
+         buttoncDelete = (Button)findViewById(R.id.buttoncDelete);
+         buttoncSave = (Button)findViewById(R.id.buttoncSave);
 
         editTextcSociete.setText(resources.getString(R.string.soci_t));
         editTextcName.setText(resources.getString(R.string.nom));

@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,16 +21,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 import db.adapter.CustomerDataSource;
+import db.adapter.DeliveryDataSource;
 import db.adapter.DriverDataSource;
 import db.object.CustomerObject;
+import db.object.DeliveryObject;
 import db.object.DriverObject;
 
+import static com.example.marc.truckdelivery.R.id.buttondDelete;
+
 public class Delivery extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
+    Bundle bundle;
+    Integer RDeliveryId;
+    DeliveryDataSource dets;
+    DeliveryObject delivery;
+    Spinner spinnerClient;
+    Spinner spinnerChauffeur;
+    EditText editTextdeNumCourse;
+    Button buttonDate;
+    EditText editTextdeQte;
+    EditText editTextdeCondi;
+    EditText editTextdeMar;
+    Button buttondSave;
+    Button buttondDelDelete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery);
+
+        dets = new DeliveryDataSource(this);
 
         // Spinner element
         Spinner spinnerd = (Spinner) findViewById(R.id.spinnerChauffeur);
@@ -84,6 +105,26 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
         actionBar.setLogo(R.drawable.ic_launcher);
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
+
+        /*
+         *Recuperation des valeurs en sécurité
+         */
+        if(savedInstanceState==null) {
+            bundle = getIntent().getExtras();
+            if (bundle == null) {
+                RDeliveryId = null ;
+            } else {
+                RDeliveryId = bundle.getInt("idDelivery") ;
+            }
+        }else{
+            RDeliveryId = (int)savedInstanceState.getSerializable("idDelivery");
+        }
+
+        delivery = dets.getDeliveryById(RDeliveryId);
+    }
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_search,menu);
+        return true;
     }
     public boolean onOptionsItemSelected(MenuItem item)
     {
@@ -111,15 +152,15 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
     private void updateViews() {
         Resources resources = getResources();
 
-        Spinner spinnerClient =(Spinner)findViewById(R.id.spinnerClient);
-        Spinner spinnerChauffeur =(Spinner)findViewById(R.id.spinnerChauffeur);
-        EditText editTextdeNumCourse=(EditText)findViewById(R.id.editTextdeNumCourse);
-        Button buttonDate = (Button)findViewById(R.id.buttonDate);
-        EditText editTextdeQte=(EditText)findViewById(R.id.editTextdeQte);
-        EditText editTextdeCondi=(EditText)findViewById(R.id.editTextdeCondi);
-        EditText editTextdeMar=(EditText)findViewById(R.id.editTextdeMar);
-        Button buttondSave = (Button)findViewById(R.id.buttondSave);
-        Button buttondDelete = (Button)findViewById(R.id.buttondDelete);
+         spinnerClient =(Spinner)findViewById(R.id.spinnerClient);
+         spinnerChauffeur =(Spinner)findViewById(R.id.spinnerChauffeur);
+         editTextdeNumCourse=(EditText)findViewById(R.id.editTextdeNumCourse);
+         buttonDate = (Button)findViewById(R.id.buttonDate);
+         editTextdeQte=(EditText)findViewById(R.id.editTextdeQte);
+         editTextdeCondi=(EditText)findViewById(R.id.editTextdeCondi);
+         editTextdeMar=(EditText)findViewById(R.id.editTextdeMar);
+         buttondSave = (Button)findViewById(R.id.buttondSave);
+        buttondDelDelete = (Button)findViewById(buttondDelete);
 
         editTextdeNumCourse.setText(resources.getString(R.string.num_ro_de_course));
         buttonDate.setText(resources.getString(R.string.choisir_une_date));
@@ -128,7 +169,7 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
         editTextdeCondi.setText(resources.getString(R.string.conditionnement));
         editTextdeMar.setText(resources.getString(R.string.marchandise));
         buttondSave.setText(resources.getString(R.string.sauvegarder));
-        buttondDelete.setText(resources.getString(R.string.delete));
+        buttondDelDelete.setText(resources.getString(R.string.delete));
 
     }
 
