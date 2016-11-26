@@ -134,9 +134,9 @@ public class CustomerDataSource {
         db = sqldb.getWritableDatabase();
         List<CustomerObject> customers = new ArrayList<CustomerObject>();
         String sql = "SELECT * FROM " + CustomerEntry.TABLE_CUSTOMER +
-                " WHERE " + CustomerEntry.KEY_SOCIETY + " LIKE " + query+'%'
-                + " OR " + CustomerEntry.KEY_NAME + " LIKE " + query+'%'
-                + " OR " + CustomerEntry.KEY_FIRSTNAME + " LIKE " + query+'%'
+                " WHERE " + CustomerEntry.KEY_SOCIETY + " LIKE '" + query+"%'"
+                + " OR " + CustomerEntry.KEY_NAME + " LIKE '" + query+"%'"
+                + " OR " + CustomerEntry.KEY_FIRSTNAME + " LIKE '" + query+"%'"
                 + " ORDER BY " + CustomerEntry.KEY_NAME;
 
         Cursor cursor = this.db.rawQuery(sql, null);

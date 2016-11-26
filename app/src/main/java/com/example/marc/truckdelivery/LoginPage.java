@@ -22,6 +22,7 @@ import android.app.Activity;
 import com.example.marc.truckdelivery.LocaleHelper.*;
 
 import db.adapter.DriverDataSource;
+import db.object.DriverObject;
 
 
 public class LoginPage extends AppCompatActivity {
@@ -60,6 +61,9 @@ public class LoginPage extends AppCompatActivity {
         String loguser = login.getText().toString();
         String logpass = pass.getText().toString();
         DriverDataSource dts = new DriverDataSource(context);
+
+        DriverObject driver =null;
+        driver = dts.getUser(loguser);
 
         //Test on the login
 
@@ -108,19 +112,26 @@ public class LoginPage extends AppCompatActivity {
             }
         }
         //Test si c'est un chauffeur
-        else if(dts.getUser(loguser, logpass) != null){
-            int id = dts.getUser(loguser, logpass).getId();
-            Intent intentDriver = new Intent(this, driver_page.class);
-            intentDriver.putExtra("id_chauffeur", id);
-            startActivity(intentDriver);
-            if (LocaleHelper.getLanguage(context) != "fr") {
-                Toast.makeText(getApplicationContext(), "Welcome " + loguser + " to the Driver Page.", Toast.LENGTH_SHORT).show();
-            }
-            else{
-                Toast.makeText(getApplicationContext(),"Bienvenue "+ loguser +" a la page des chauffeurs.",Toast.LENGTH_SHORT).show();
+        else if(driver != null) {
+            if (loguser.equals(driver.getNumTruck().toString()) && logpass.equals(driver.getPassword().toString())) {
+                int id = driver.getId();
+                Intent intentDriver = new Intent(this, driver_page.class);
+                intentDriver.putExtra("id_chauffeur", id);
+                startActivity(intentDriver);
+                if (LocaleHelper.getLanguage(context) != "fr") {
+                    Toast.makeText(getApplicationContext(), "Welcome " + loguser + " to the Driver Page.", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Bienvenue " + loguser + " a la page des chauffeurs.", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                if (LocaleHelper.getLanguage(context) != "fr") {
+                    Toast.makeText(getApplicationContext(), "Your Username or Password is not correct!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Votre nom et/ou votre mot de passe n'est pas correct!", Toast.LENGTH_SHORT).show();
+                }
             }
         }
-        else{
+            else{
             if(LocaleHelper.getLanguage(context)!="fr"){
                 Toast.makeText(getApplicationContext(), "Your Username or Password is not correct!", Toast.LENGTH_SHORT).show();
             }
