@@ -152,7 +152,7 @@ public class DriverDataSource {
     }
 
     /**
-     * return a driver by his username and password
+     * return a driver by his username
      */
     public DriverObject getUser(String user)
     {

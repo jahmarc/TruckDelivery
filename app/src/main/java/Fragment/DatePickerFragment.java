@@ -30,9 +30,4 @@ public class DatePickerFragment extends DialogFragment{
 
         return new DatePickerDialog(getActivity(),(DatePickerDialog.OnDateSetListener)getActivity(), year, month, day);
     }
-
-  //  public void onDateSet(DatePicker view, int year, int month, int day) {
-    //    Button bt1 = (Button) getActivity().findViewById(R.id.buttonDate);
-      //  bt1.setText("Year: " + view.getYear() + " Month: " + view.getMonth() + " Day: " + view.getDayOfMonth());
-    //}
 }
