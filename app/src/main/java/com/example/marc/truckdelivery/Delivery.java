@@ -190,10 +190,21 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
     }
 
     public void UpdateDelivery(View view) {
-
+        int id = delivery.getId();
+       // int driverid = ;
+        //int customerid = ;
+        // date = ;
+        int quantity = Integer.parseInt(editTextdeQte.getText().toString());
+        String conditioning = editTextdeCondi.getText().toString();
+        String article = editTextdeMar.getText().toString();
     }
     public void delete_Delivery(View view) {
+        int id = delivery.getId();
 
+        dets.deleteDelivery(id);
+
+        Intent intent = new Intent(this,search_delivery.class);
+        startActivity(intent);
     }
 
 }
