@@ -42,6 +42,11 @@ public class search_delivery extends AppCompatActivity {
         final DeliveryDataSource dts = new DeliveryDataSource(this);
         helper.getInstance(context);
 
+
+        //TEST
+        //dts.createDelivery(new DeliveryObject(1, 1, "25.11.2016", 5, "pal", "tomates"));
+        //dts.createDelivery(new DeliveryObject(2, 2, "26.11.2016", 2, "pal", "choux"));
+
         /**
          * Add additional functions to actionbar
          */
@@ -54,8 +59,6 @@ public class search_delivery extends AppCompatActivity {
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
 
         lv = (ListView) findViewById(R.id.search_delivery);
-
-        deliveries = new ArrayList<DeliveryObject>();
 
         deliveries = dts.getAllDeliveries();
 

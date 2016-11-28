@@ -30,6 +30,7 @@ import db.adapter.CustomerDataSource;
 import db.adapter.DeliveryDataSource;
 import db.adapter.DriverDataSource;
 import db.object.CustomerObject;
+import db.object.DeliveryObject;
 import db.object.DriverObject;
 
 public class DeliveryAdd extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, AdapterView.OnItemSelectedListener {
@@ -37,6 +38,7 @@ public class DeliveryAdd extends AppCompatActivity implements DatePickerDialog.O
     Spinner spinnerClient_add;
     Spinner spinnerChauffeur_add;
     EditText editTextdeNumCourse_add;
+    EditText editTextdeDate;
     Button buttonDate_add;
     EditText editTextdeQte_add;
     EditText editTextdeCondi_add;
@@ -141,10 +143,19 @@ public class DeliveryAdd extends AppCompatActivity implements DatePickerDialog.O
         spinnerChauffeur_add = (Spinner)findViewById(R.id.spinnerChauffeur_add);
         editTextdeNumCourse_add = (EditText)findViewById(R.id.editTextdeNumCourse_add);
         buttonDate_add = (Button)findViewById(R.id.buttonDate_add);
+        editTextdeDate = (EditText)findViewById(R.id.editTextdeDate);
         editTextdeQte_add = (EditText)findViewById(R.id.editTextdeQte_add);
         editTextdeCondi_add = (EditText)findViewById(R.id.editTextdeCondi_add);
         editTextdeMar_add = (EditText)findViewById(R.id.editTextdeMar_add);
         buttonSave_add = (Button)findViewById(R.id.buttonSave_add);
+
+        editTextdeNumCourse_add.setText(resources.getString(R.string.num_ro_de_course));
+        buttonDate_add.setText(resources.getString(R.string.choisir_une_date));
+        buttonDate_add.setHint(resources.getString(R.string.choisir_une_date));
+        editTextdeQte_add.setText(resources.getString(R.string.quantit));
+        editTextdeCondi_add.setText(resources.getString(R.string.conditionnement));
+        editTextdeMar_add.setText(resources.getString(R.string.marchandise));
+        buttonSave_add.setText(resources.getString(R.string.sauvegarder));
 
     }
 
@@ -183,4 +194,26 @@ public class DeliveryAdd extends AppCompatActivity implements DatePickerDialog.O
         DatePickerFragment fragment = new DatePickerFragment();
         fragment.show(getSupportFragmentManager(),"date");
         }
+
+    public void Save_Delivery(View view) {
+        spinnerClient_add = (Spinner)findViewById(R.id.spinnerClient_add);
+        spinnerChauffeur_add = (Spinner)findViewById(R.id.spinnerChauffeur_add);
+        editTextdeNumCourse_add = (EditText)findViewById(R.id.editTextdeNumCourse_add);
+        buttonDate_add = (Button)findViewById(R.id.buttonDate_add);
+        editTextdeQte_add = (EditText)findViewById(R.id.editTextdeQte_add);
+        editTextdeCondi_add = (EditText)findViewById(R.id.editTextdeCondi_add);
+        editTextdeMar_add = (EditText)findViewById(R.id.editTextdeMar_add);
+        buttonSave_add = (Button)findViewById(R.id.buttonSave_add);
+
+        //int driverid = spinnerChauffeur_add;
+        //int customerid = spinnerClient_add;
+        String date = editTextdeDate.getText().toString();
+        int quantity = Integer.parseInt(editTextdeQte_add.getText().toString());
+        String conditioning = editTextdeCondi_add.getText().toString();
+        String article = editTextdeMar_add.getText().toString();
+
+        //dts.createDelivery(new DeliveryObject(driverid, customerid, date, quantity, conditioning, article));
+        Intent toS_Delivery = new Intent(this, search_delivery.class);
+        startActivity(toS_Delivery);
+    }
 }

@@ -39,6 +39,7 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
     Spinner spinnerChauffeur;
     EditText editTextdeNumCourse;
     Button buttonDate;
+    EditText editTextdeDate;
     EditText editTextdeQte;
     EditText editTextdeCondi;
     EditText editTextdeMar;
@@ -156,6 +157,7 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
          spinnerChauffeur =(Spinner)findViewById(R.id.spinnerChauffeur);
          editTextdeNumCourse=(EditText)findViewById(R.id.editTextdeNumCourse);
          buttonDate = (Button)findViewById(R.id.button);
+        editTextdeDate = (EditText)findViewById(R.id.editTextdeDate);
          editTextdeQte=(EditText)findViewById(R.id.editTextdeQte);
          editTextdeCondi=(EditText)findViewById(R.id.editTextdeCondi);
          editTextdeMar=(EditText)findViewById(R.id.editTextdeMar);
@@ -193,10 +195,17 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
         int id = delivery.getId();
        // int driverid = ;
         //int customerid = ;
-        // date = ;
+        String date = editTextdeDate.getText().toString();
         int quantity = Integer.parseInt(editTextdeQte.getText().toString());
         String conditioning = editTextdeCondi.getText().toString();
         String article = editTextdeMar.getText().toString();
+
+        //DeliveryObject deliveryUpdated = new DeliveryObject(id, driverid, customerid, date, quantity, conditioning, article);
+        //dets.updateDelivery(deliveryUpdated);
+
+        Intent intent = new Intent(this,search_delivery.class);
+        startActivity(intent);
+
     }
     public void delete_Delivery(View view) {
         int id = delivery.getId();
