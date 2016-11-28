@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import db.DBContract.DeliveryEntry;
@@ -122,13 +123,14 @@ int test = cursor.getInt(cursor.getColumnIndex(DeliveryEntry.KEY_ID));
     }
 
     /**
-     * Search a DeliveryObject by date
+     * Search a DeliveryObject by date and by Driver id
      */
-    public List<DeliveryObject> searchDeliveries(String date){
+    public List<DeliveryObject> searchDeliveries(long id,String date){
         db = sqldb.getWritableDatabase();
         List<DeliveryObject> deliveries = new ArrayList<DeliveryObject>();
         String sql = "SELECT * FROM " + DeliveryEntry.TABLE_DELIVERY +
-                " WHERE " + DeliveryEntry.KEY_DATE + " = " + date
+                " WHERE " + DeliveryEntry.KEY_DATE + " = " + date +
+                " AND " +DeliveryEntry.KEY_ID_DRIVER + " = " + id
                 + " ORDER BY " + DeliveryEntry.KEY_DATE;
 
         Cursor cursor = this.db.rawQuery(sql, null);
@@ -155,7 +157,7 @@ int test = cursor.getInt(cursor.getColumnIndex(DeliveryEntry.KEY_ID));
     /**
      * Get a DeliveryObject List by date and by Driver ID
      */
-    public List<DeliveryObject> getDeliveriesbyDate(int id, String date){
+    public List<DeliveryObject> getDeliveriesbyDate(int id, Date date){
         db = sqldb.getWritableDatabase();
         List<DeliveryObject> deliveries = new ArrayList<DeliveryObject>();
         String sql = "SELECT * FROM " + DeliveryEntry.TABLE_DELIVERY +

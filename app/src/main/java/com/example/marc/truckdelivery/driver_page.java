@@ -26,6 +26,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -53,16 +55,17 @@ public class driver_page extends AppCompatActivity implements DatePickerDialog.O
     DriverDataSource dts;
     DriverObject driver;
     TextView driver_page_name;
+    String currentDate;
+    DeliveryDataSource dets = new DeliveryDataSource(context);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_page);
         context = this;
-        final DeliveryDataSource dets = new DeliveryDataSource(context);
         helper.getInstance(context);
         dts = new DriverDataSource(this);
-
+        currentDate = DateFormat.getDateInstance().format(new Date());
         /**
          * Add additional functions to actionbar
          */
@@ -93,15 +96,27 @@ public class driver_page extends AppCompatActivity implements DatePickerDialog.O
          */
         driver = dts.getDriverById(RDriverId);
         driver_page_name = (TextView)findViewById(R.id.driver_page_name);
+        driver_page_EditTextDate = (EditText)findViewById(R.id.driver_page_EditTextDate);
         driver_page_name.setText(driver.getFirstname() + " "+ driver.getName());
+
+        String test = currentDate;
+        String marc = test;
+
+        driver_page_EditTextDate.setText(currentDate.toString());
 
         /**
          * Add listview & functions
          */
         lv = (ListView) findViewById(R.id.driver_page_livraisons);
 
+        DateFormat f = new SimpleDateFormat("MMM dd, yyyy");
+        try {
+            Date date  = f.parse(currentDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         deliveries = new ArrayList<DeliveryObject>();
-        deliveries = dets.getDeliveriesByDriverId(RDriverId);
+        deliveries = dets.searchDeliveries(RDriverId, currentDate);
 
         DeliveryAdapter adapter = new DeliveryAdapter(context, deliveries);
         lv.setAdapter(adapter);
@@ -126,15 +141,7 @@ public class driver_page extends AppCompatActivity implements DatePickerDialog.O
     public boolean onCreateOptionsMenu(Menu menu)
     {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_search, menu);
-
-        //Get the SearchView  and set the searchable configuration
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView = (SearchView) menu.findItem(R.id.app_bar_search).getActionView();
-        // Assumes current activity is the searchable activity
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(new ComponentName(getApplicationContext(), Searchable_driver_Activity.class)));
-        searchView.setIconifiedByDefault(true); // Do not iconify the widget; expand it by default
-
+        inflater.inflate(R.menu.menu_basic, menu);
 
         return true; //prends le style pour le menu de menu_search
     }
@@ -171,12 +178,17 @@ public class driver_page extends AppCompatActivity implements DatePickerDialog.O
         driver_page_name = (TextView) findViewById(R.id.driver_page_name);
         driver_page_chooseDate = (Button)findViewById(R.id.driver_page_chooseDate);
         driver_page_EditTextDate = (EditText)findViewById(R.id.driver_page_EditTextDate);
-        String currentDate = DateFormat.getDateInstance().format(new Date());
 
 
         driver_page_name.setHint(resources.getString(R.string.nom));
+        driver_page_name.setText(driver.getFirstname() + " "+ driver.getName());
         driver_page_chooseDate.setHint(resources.getString(R.string.choisir_une_date));
         driver_page_EditTextDate.setText(currentDate);
+
+        deliveries = dets.searchDeliveries(RDriverId, driver_page_EditTextDate.getText().toString());
+
+        DeliveryAdapter adapter = new DeliveryAdapter(context, deliveries);
+        lv.setAdapter(adapter);
     }
     /**
      * Date picker
@@ -198,6 +210,7 @@ public class driver_page extends AppCompatActivity implements DatePickerDialog.O
     private void setDate(final Calendar calendar) {
         final DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
         ((EditText) findViewById(R.id.driver_page_EditTextDate)).setText(dateFormat.format(calendar.getTime()));
+        updateViews();
     }
 
 
