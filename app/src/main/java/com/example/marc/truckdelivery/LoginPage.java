@@ -51,9 +51,13 @@ public class LoginPage extends AppCompatActivity {
         context = this;
 
     }
+
+    //Method when we click on button Login
     public void login(View view) {
+        //admin 1
         String admin1="helder";
         String pass1="1234";
+        //admin 2
         String admin2="marc";
         String pass2="9876";
         EditText login  =(EditText)findViewById(R.id.Log_on);

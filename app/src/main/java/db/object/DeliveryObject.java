@@ -13,7 +13,10 @@ public class DeliveryObject {
     private String conditioning;
     private String article;
 
+    //Empty constructor
     public DeliveryObject(){}
+
+    //Constructor of a delivery
     public DeliveryObject(int id, int driverid, int customerid, String date, int quantity, String conditioning, String article){
         this.id = id;
         this.driverid = driverid;
@@ -23,6 +26,8 @@ public class DeliveryObject {
         this.conditioning = conditioning;
         this.article = article;
     }
+
+    //Constructor of a delivery without id
     public DeliveryObject(int driverid, int customerid, String date, int quantity, String conditioning, String article){
         this.driverid = driverid;
         this.customerid = customerid;
@@ -32,6 +37,7 @@ public class DeliveryObject {
         this.article = article;
     }
 
+    //getters and setters
     public int getId(){return id;}
     public void setId(int id){this.id = id;}
 

@@ -14,7 +14,8 @@ public class DBContract {
     }
 
     public static abstract class DriverEntry implements BaseColumns{
-        //Table name
+
+        //Table name driver
         public static final String TABLE_DRIVER = "driver";
 
         //DriverObject Column names
@@ -40,7 +41,8 @@ public class DBContract {
     }
 
     public static abstract class CustomerEntry implements BaseColumns{
-        //Table name
+
+        //Table name customer
         public static final  String TABLE_CUSTOMER = "customer";
 
         //CustomerObject Column names
@@ -70,10 +72,11 @@ public class DBContract {
     }
 
     public static abstract class DeliveryEntry implements BaseColumns{
-        //Table name
+
+        //Table name delivery
         public static final  String TABLE_DELIVERY = "delivery";
 
-        //CustomerObject Column names
+        //DeliveryObject Column names
         public static final String KEY_ID = "id";
         public static final String KEY_ID_DRIVER = "driverid";
         public static final String KEY_ID_CUSTOMER = "customerid";

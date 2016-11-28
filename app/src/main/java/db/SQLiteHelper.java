@@ -36,6 +36,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         return instance;
     }
 
+    //Creation of tables
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(DriverEntry.CREATE_TABLE_DRIVER);
@@ -43,6 +44,8 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         db.execSQL(DeliveryEntry.CREATE_TABLE_DELIVERY);
     }
 
+
+    //Upgardes of tables
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         //drop old tables
