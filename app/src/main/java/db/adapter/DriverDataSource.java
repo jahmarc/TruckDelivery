@@ -164,7 +164,6 @@ public class DriverDataSource {
         Cursor cursor = db.rawQuery(sql, null);
 
         DriverObject driver = new DriverObject();
-        driver = null;
 
        if((cursor != null) && (cursor.getCount() > 0)){
             cursor.moveToFirst();
@@ -175,11 +174,12 @@ public class DriverDataSource {
            driver.setPlate(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_PLATE)));
            driver.setNumTruck(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_USER)));
            driver.setPassword(cursor.getString(cursor.getColumnIndex(DriverEntry.KEY_PASSWORD)));
+           return driver;
        }
 
 
 
-        return driver;
+        return null;
     }
 
     /**
