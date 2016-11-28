@@ -60,7 +60,7 @@ public class DeliveryDataSource {
         }
 
         DeliveryObject delivery = new DeliveryObject();
-
+int test = cursor.getInt(cursor.getColumnIndex(DeliveryEntry.KEY_ID));
         delivery.setId(cursor.getInt(cursor.getColumnIndex(DeliveryEntry.KEY_ID)));
         delivery.setDriverid(cursor.getInt(cursor.getColumnIndex(DeliveryEntry.KEY_ID_DRIVER)));
         delivery.setCustomerid(cursor.getInt(cursor.getColumnIndex(DeliveryEntry.KEY_ID_CUSTOMER)));

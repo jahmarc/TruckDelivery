@@ -34,7 +34,7 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
     Bundle bundle;
     Integer RDeliveryId;
     DeliveryDataSource dets;
-    DeliveryObject delivery;
+    DeliveryObject delivery = new DeliveryObject();
     Spinner spinnerClient;
     Spinner spinnerChauffeur;
     EditText editTextdeNumCourse;
@@ -62,9 +62,37 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
         setContentView(R.layout.activity_delivery);
         test1=false;
         test2=false;
-        delivery = dets.getDeliveryById(RDeliveryId);
+
+
+        /**
+         * Add additional functions to actionbar
+         */
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayUseLogoEnabled(true);
+        actionBar.setLogo(R.drawable.ic_launcher);
+        actionBar.setDisplayShowTitleEnabled(true);
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
+        updateViews();
+ /*
+         *Recuperation des valeurs en sécurité
+         */
+        if(savedInstanceState==null) {
+            bundle = getIntent().getExtras();
+            if (bundle == null) {
+                RDeliveryId = null ;
+            } else {
+                RDeliveryId = bundle.getInt("idDelivery") ;
+            }
+        }else{
+            RDeliveryId = (int)savedInstanceState.getSerializable("idDelivery");
+        }
 
         dets = new DeliveryDataSource(this);
+
+        delivery = dets.getDeliveryById((long)RDeliveryId);
+
 
         // Spinner element
         Spinner spinnerd = (Spinner) findViewById(R.id.spinnerChauffeur);
@@ -75,7 +103,7 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
         spinnerc.setOnItemSelectedListener(new CustomerSpinnerClass());
 
         //Fill the Spinners
-            //Spinner Driver
+        //Spinner Driver
         DriverDataSource dts = new DriverDataSource(this);
         List<DriverObject> drivers = new ArrayList<DriverObject>();
 
@@ -86,13 +114,14 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
         //I fill the actual objects
         DriverObject driverprov = dts.getDriverById(delivery.getDriverid());
         spinnerdriver.add(driverprov.getFirstname()+ " " + driverprov.getName());
+        DriverIDs.add(driverprov.getId());
 
         for(DriverObject driver : drivers){
             spinnerdriver.add(driver.getFirstname()+ " " + driver.getName());
             DriverIDs.add(driver.getId());
         }
 
-            //Spinner Customer
+        //Spinner Customer
         CustomerDataSource cds = new CustomerDataSource(this);
         List<CustomerObject> customers = new ArrayList<CustomerObject>();
 
@@ -106,6 +135,7 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
         CustomerDataSource cts = new CustomerDataSource(this);
         CustomerObject customerprov = cts.getCustomerById(delivery.getCustomerid());
         spinnercustomer.add(customerprov.getSociety().toString() + " " + customerprov.getFirstname().toString()+ " " + customerprov.getName().toString());
+        CustomerIDs.add(customerprov.getId());
 
         for(CustomerObject customer : customers){
             spinnercustomer.add(customer.getSociety() + " " + customer.getFirstname()+ " " + customer.getName());
@@ -124,34 +154,18 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
         spinnerd.setAdapter(dataAdapter);
         spinnerc.setAdapter(dataAdapter2);
 
-        spinnerd.setSelection(2);
+        editTextdeNumCourse = (EditText)findViewById(R.id.editTextdeNumCourse);
+        editTextdeDate= (EditText)findViewById(R.id.editTextdeDate);
+        editTextdeQte= (EditText)findViewById(R.id.editTextdeQte);
+        editTextdeCondi= (EditText)findViewById(R.id.editTextdeCondi);
+        editTextdeMar= (EditText)findViewById(R.id.editTextdeMar);
 
-
-        /**
-         * Add additional functions to actionbar
-         */
-        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setDisplayUseLogoEnabled(true);
-        actionBar.setLogo(R.drawable.ic_launcher);
-        actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
-
-        /*
-         *Recuperation des valeurs en sécurité
-         */
-        if(savedInstanceState==null) {
-            bundle = getIntent().getExtras();
-            if (bundle == null) {
-                RDeliveryId = null ;
-            } else {
-                RDeliveryId = bundle.getInt("idDelivery") ;
-            }
-        }else{
-            RDeliveryId = (int)savedInstanceState.getSerializable("idDelivery");
-        }
-
+        int test = delivery.getId();
+        editTextdeNumCourse.setText(""+delivery.getId());
+        editTextdeDate.setText(delivery.getDate());
+        editTextdeQte.setText(""+delivery.getQuantity());
+        editTextdeCondi.setText(""+delivery.getConditioning());
+        editTextdeMar.setText(delivery.getArticle());
 
     }
     public boolean onCreateOptionsMenu(Menu menu){
@@ -266,7 +280,6 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
     }
 
     public void UpdateDelivery(View view) {
-        if((noclickcustomer ==true)&&(noclickdriver == true)) {
             int id = delivery.getId();
             int driverid = DriverIDs.get(driverID);
             int customerid = CustomerIDs.get(customerID);
@@ -274,38 +287,9 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
             int quantity = Integer.parseInt(editTextdeQte.getText().toString());
             String conditioning = editTextdeCondi.getText().toString();
             String article = editTextdeMar.getText().toString();
-        }
-        else if(noclickdriver == true){
-            int id = delivery.getId();
-            int driverid = DriverIDs.get(driverID);
-            int customerid = delivery.getCustomerid();
-            String date = editTextdeDate.getText().toString();
-            int quantity = Integer.parseInt(editTextdeQte.getText().toString());
-            String conditioning = editTextdeCondi.getText().toString();
-            String article = editTextdeMar.getText().toString();
-        }
-        else if(noclickcustomer == true)
-        {
-            int id = delivery.getId();
-            int driverid = delivery.getDriverid();
-            int customerid = CustomerIDs.get(customerID);
-            String date = editTextdeDate.getText().toString();
-            int quantity = Integer.parseInt(editTextdeQte.getText().toString());
-            String conditioning = editTextdeCondi.getText().toString();
-            String article = editTextdeMar.getText().toString();
-        }
-        else
-        {
-            int id = delivery.getId();
-            int driverid = delivery.getDriverid();
-            int customerid = delivery.getCustomerid();
-            String date = editTextdeDate.getText().toString();
-            int quantity = Integer.parseInt(editTextdeQte.getText().toString());
-            String conditioning = editTextdeCondi.getText().toString();
-            String article = editTextdeMar.getText().toString();
-        }
-        //DeliveryObject deliveryUpdated = new DeliveryObject(id, driverid, customerid, date, quantity, conditioning, article);
-        //dets.updateDelivery(deliveryUpdated);
+
+        DeliveryObject deliveryUpdated = new DeliveryObject(id, driverid, customerid, date, quantity, conditioning, article);
+        dets.updateDelivery(deliveryUpdated);
 
         Intent intent = new Intent(this,search_delivery.class);
         startActivity(intent);

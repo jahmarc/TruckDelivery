@@ -37,8 +37,7 @@
         tools:ignore="LabelFor"
         android:layout_above="@+id/buttonSave"
         android:layout_alignStart="@+id/editTextdeCondi"
-        android:layout_marginBottom="27dp"
-        android:hint="@string/marchandise" />
+        android:layout_marginBottom="27dp"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -48,8 +47,7 @@
         android:id="@+id/editTextdeQte"
         tools:ignore="LabelFor"
         android:layout_above="@+id/editTextdeCondi"
-        android:layout_alignStart="@+id/editTextdeNumCourse"
-        android:hint="@string/quantit" />
+        android:layout_alignStart="@+id/editTextdeNumCourse"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -60,8 +58,7 @@
         tools:ignore="LabelFor"
         android:layout_marginTop="11dp"
         android:layout_below="@+id/spinnerChauffeur"
-        android:layout_centerHorizontal="true"
-        android:hint="@string/num_ro_de_course" />
+        android:layout_centerHorizontal="true"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -77,6 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttonSave"
+        android:onClick="UpdateDelivery"
         tools:text="@string/sauvegarder"
         android:layout_alignBaseline="@+id/buttondDelDelete"
         android:layout_alignBottom="@+id/buttondDelDelete"
@@ -103,8 +101,7 @@
         android:layout_below="@+id/button"
         android:layout_alignStart="@+id/button"
         android:layout_marginTop="17dp"
-        android:layout_alignEnd="@+id/button"
-        android:hint="@string/date" />
+        android:layout_alignEnd="@+id/button"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -114,7 +111,6 @@
         android:id="@+id/editTextdeCondi"
         tools:ignore="LabelFor"
         android:layout_above="@+id/editTextdeMar"
-        android:layout_alignStart="@+id/editTextdeQte"
-        android:hint="@string/conditionnement" />
+        android:layout_alignStart="@+id/editTextdeQte"/>
 
 </RelativeLayout>
