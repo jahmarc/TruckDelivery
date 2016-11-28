@@ -9,7 +9,7 @@
     <TextView
         android:text="@string/livr"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:id="@+id/dr_delivery" />
 
@@ -28,8 +28,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/dr_delivery_course"
-                android:text="@string/to_do" />
+                android:id="@+id/dr_delivery_course" />
         </TableRow>
 
         <TableRow
@@ -42,8 +41,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/dr_delivery_date"
-                android:text="@string/to_do" />
+                android:id="@+id/dr_delivery_date" />
         </TableRow>
 
         <TableRow
@@ -61,14 +59,12 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:id="@+id/dr_delivery_quantity"
-                    android:text="@string/to_do"
                     android:layout_weight="1" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/dr_delivery_conditioning"
-                    android:text="@string/to_do"
                     android:layout_weight="1" />
 
             </LinearLayout>
@@ -84,24 +80,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/dr_delivery_commodity"
-                android:text="@string/lorem_ipsum"
-                tools:text="@string/lorem_ipsum" />
+                android:id="@+id/dr_delivery_commodity" />
         </TableRow>
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_margin="10dp">
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:ignore="UselessParent">
-
-            </LinearLayout>
-
-        </TableRow>
     </TableLayout>
 </LinearLayout>
