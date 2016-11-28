@@ -135,8 +135,23 @@
                 android:label="@string/app_name"
                 android:value=".activities.SearchableActivity" />
         </activity>
-        <activity android:name=".Searchable_customer_Activity" />
-        <activity android:name=".Searchable_delivery_Activity"></activity>
+        <activity
+            android:name=".Searchable_customer_Activity"
+            android:label="@string/app_name"
+            android:parentActivityName=".LoginPage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.marc.truckdelivery.LoginPage" />
+        </activity>
+        <activity
+            android:name=".Searchable_delivery_Activity"
+            android:label="@string/app_name"
+            android:parentActivityName=".LoginPage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.marc.truckdelivery.LoginPage" />
+        </activity>
+
     </application>
 
 </manifest>

@@ -37,7 +37,7 @@ public class DeliveryAdd extends AppCompatActivity implements DatePickerDialog.O
 
     Spinner spinnerClient_add;
     Spinner spinnerChauffeur_add;
-    EditText editTextdeNumCourse_add;
+    //EditText editTextdeNumCourse_add;
     EditText editTextdeDate;
     Button buttonDate_add;
     EditText editTextdeQte_add;
@@ -152,7 +152,7 @@ public class DeliveryAdd extends AppCompatActivity implements DatePickerDialog.O
 
         spinnerClient_add = (Spinner)findViewById(R.id.spinnerClient_add);
         spinnerChauffeur_add = (Spinner)findViewById(R.id.spinnerChauffeur_add);
-        editTextdeNumCourse_add = (EditText)findViewById(R.id.editTextdeNumCourse_add);
+        //editTextdeNumCourse_add = (EditText)findViewById(R.id.editTextdeNumCourse_add);
         buttonDate_add = (Button)findViewById(R.id.buttonDate_add);
         editTextdeDate = (EditText)findViewById(R.id.editTextdeDate);
         editTextdeQte_add = (EditText)findViewById(R.id.editTextdeQte_add);
@@ -160,7 +160,7 @@ public class DeliveryAdd extends AppCompatActivity implements DatePickerDialog.O
         editTextdeMar_add = (EditText)findViewById(R.id.editTextdeMar_add);
         buttonSave_add = (Button)findViewById(R.id.buttonSave_add);
 
-        editTextdeNumCourse_add.setHint(resources.getString(R.string.num_ro_de_course));
+        //editTextdeNumCourse_add.setHint(resources.getString(R.string.num_ro_de_course));
         buttonDate_add.setText(resources.getString(R.string.choisir_une_date));
         buttonDate_add.setHint(resources.getString(R.string.choisir_une_date));
         editTextdeQte_add.setHint(resources.getString(R.string.quantit));
@@ -190,7 +190,7 @@ public class DeliveryAdd extends AppCompatActivity implements DatePickerDialog.O
             String item = parent.getItemAtPosition(position).toString();
 
             // Showing selected spinner item
-            Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+            Toast.makeText(parent.getContext(), " " + item, Toast.LENGTH_LONG).show();
 
             //Saving id to save the Delivery
             driverpos = position;
@@ -213,7 +213,7 @@ public class DeliveryAdd extends AppCompatActivity implements DatePickerDialog.O
             String item = parent.getItemAtPosition(position).toString();
 
             // Showing selected spinner item
-            Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+            Toast.makeText(parent.getContext(), " " + item, Toast.LENGTH_LONG).show();
 
             //Saving id to save the Delivery
 
@@ -250,7 +250,7 @@ public class DeliveryAdd extends AppCompatActivity implements DatePickerDialog.O
     public void Save_Delivery(View view) {
         spinnerClient_add = (Spinner)findViewById(R.id.spinnerClient_add);
         spinnerChauffeur_add = (Spinner)findViewById(R.id.spinnerChauffeur_add);
-        editTextdeNumCourse_add = (EditText)findViewById(R.id.editTextdeNumCourse_add);
+        //editTextdeNumCourse_add = (EditText)findViewById(R.id.editTextdeNumCourse_add);
         buttonDate_add = (Button)findViewById(R.id.buttonDate_add);
         editTextdeQte_add = (EditText)findViewById(R.id.editTextdeQte_add);
         editTextdeCondi_add = (EditText)findViewById(R.id.editTextdeCondi_add);

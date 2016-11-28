@@ -34,7 +34,7 @@ public class DeliveryAdapter extends ArrayAdapter<DeliveryObject> {
 
         View rowView = inflater.inflate(R.layout._row,parent,false);
         TextView textView = (TextView)rowView.findViewById(R.id.label);
-        textView.setText(deliveries.get(position).getId() +"/" + deliveries.get(position).getQuantity()+" "+ deliveries.get(position).getConditioning());
+        textView.setText("N°: "+deliveries.get(position).getId() +" | "+deliveries.get(position).getDate()+" / " + deliveries.get(position).getQuantity()+" "+ deliveries.get(position).getConditioning());
 
         return rowView;
     }

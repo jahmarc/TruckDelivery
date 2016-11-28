@@ -50,52 +50,16 @@
         android:layout_marginBottom="27dp"
         android:hint="@string/marchandise" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/editTextdeCondi_add"
-        tools:ignore="LabelFor"
-        android:layout_above="@+id/editTextdeMar_add"
-        android:layout_alignStart="@+id/editTextdeQte_add"
-        android:hint="@string/conditionnement" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editTextdeNumCourse_add"
-        tools:ignore="LabelFor"
-        android:layout_below="@+id/spinnerChauffeur_add"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:hint="@string/num_ro_de_course" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/editTextdeDate"
-        tools:ignore="LabelFor"
-        android:layout_marginBottom="11dp"
-        android:layout_above="@+id/editTextdeQte_add"
-        android:layout_alignEnd="@+id/buttonDate_add"
-        android:layout_alignStart="@+id/buttonDate_add"
-        android:inputType="date"
-        android:hint="@string/date" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttonDate_add"
         android:hint="@string/choisir_une_date"
         android:onClick="showDatePickerDialog"
-        android:layout_above="@+id/editTextdeDate"
+        tools:text="@string/choisir_une_date"
+        android:layout_below="@+id/spinnerChauffeur_add"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="13dp"
-        tools:text="@string/choisir_une_date" />
+        android:layout_marginTop="41dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -105,6 +69,31 @@
         android:id="@+id/editTextdeQte_add"
         tools:ignore="LabelFor"
         android:hint="@string/quantit"
-        android:layout_above="@+id/editTextdeCondi_add"
-        android:layout_alignStart="@+id/editTextdeNumCourse_add" />
+        android:layout_below="@+id/editTextdeDate"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/editTextdeDate"
+        tools:ignore="LabelFor"
+        android:inputType="date"
+        android:hint="@string/date"
+        android:layout_below="@+id/buttonDate_add"
+        android:layout_alignStart="@+id/editTextdeQte_add"
+        android:layout_marginStart="10dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTextdeCondi_add"
+        tools:ignore="LabelFor"
+        android:hint="@string/conditionnement"
+        android:layout_above="@+id/editTextdeMar_add"
+        android:layout_alignStart="@+id/editTextdeQte_add"
+        android:layout_marginBottom="21dp" />
 </RelativeLayout>

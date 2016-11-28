@@ -37,7 +37,7 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
     DeliveryObject delivery = new DeliveryObject();
     Spinner spinnerClient;
     Spinner spinnerChauffeur;
-    EditText editTextdeNumCourse;
+    //EditText editTextdeNumCourse;
     Button buttonDate;
     EditText editTextdeDate;
     EditText editTextdeQte;
@@ -154,18 +154,20 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
         spinnerd.setAdapter(dataAdapter);
         spinnerc.setAdapter(dataAdapter2);
 
-        editTextdeNumCourse = (EditText)findViewById(R.id.editTextdeNumCourse);
+        //editTextdeNumCourse = (EditText)findViewById(R.id.editTextdeNumCourse);
         editTextdeDate= (EditText)findViewById(R.id.editTextdeDate);
         editTextdeQte= (EditText)findViewById(R.id.editTextdeQte);
         editTextdeCondi= (EditText)findViewById(R.id.editTextdeCondi);
         editTextdeMar= (EditText)findViewById(R.id.editTextdeMar);
+        buttondSave = (Button)findViewById(R.id.buttonSave);
+        buttondDelDelete = (Button)findViewById(R.id.buttondDelDelete);
 
         int test2 = delivery.getId();
-        editTextdeNumCourse.setText(""+delivery.getId());
-        editTextdeDate.setText(delivery.getDate());
-        editTextdeQte.setText(""+delivery.getQuantity());
-        editTextdeCondi.setText(""+delivery.getConditioning());
-        editTextdeMar.setText(delivery.getArticle());
+        //editTextdeNumCourse.setHint(""+delivery.getId());
+        editTextdeDate.setHint(delivery.getDate());
+        editTextdeQte.setHint(""+delivery.getQuantity());
+        editTextdeCondi.setHint(""+delivery.getConditioning());
+        editTextdeMar.setHint(delivery.getArticle());
 
     }
     public boolean onCreateOptionsMenu(Menu menu){
@@ -197,7 +199,7 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
     }
     private void updateViews() {
         Resources resources = getResources();
-
+/*
          spinnerClient =(Spinner)findViewById(R.id.spinnerClient);
          spinnerChauffeur =(Spinner)findViewById(R.id.spinnerChauffeur);
          editTextdeNumCourse=(EditText)findViewById(R.id.editTextdeNumCourse);
@@ -214,7 +216,7 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
         buttonDate.setHint(resources.getString(R.string.choisir_une_date));
         editTextdeQte.setText(resources.getString(R.string.quantit));
         editTextdeCondi.setText(resources.getString(R.string.conditionnement));
-        editTextdeMar.setText(resources.getString(R.string.marchandise));
+        editTextdeMar.setText(resources.getString(R.string.marchandise));*/
         buttondSave.setText(resources.getString(R.string.sauvegarder));
         buttondDelDelete.setText(resources.getString(R.string.delete));
 
