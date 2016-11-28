@@ -35,7 +35,7 @@
         </activity>
         <activity
             android:name=".search_delivery"
-            android:label="@string/search_delivery"
+            android:label="@string/app_name"
             android:parentActivityName=".LoginPage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -43,6 +43,7 @@
         </activity>
         <activity
             android:name=".search_customer"
+            android:label="@string/app_name"
             android:parentActivityName=".LoginPage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -50,7 +51,7 @@
         </activity>
         <activity
             android:name=".search_driver"
-            android:label="@string/search_driver"
+            android:label="@string/app_name"
             android:parentActivityName=".LoginPage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -58,31 +59,31 @@
         </activity>
         <activity
             android:name=".Customer"
-            android:label="@string/client"
-            android:parentActivityName=".LoginPage">
+            android:label="@string/app_name"
+            android:parentActivityName=".search_customer">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.marc.truckdelivery.LoginPage" />
+                android:value="com.example.marc.truckdelivery.search_customer" />
         </activity>
         <activity
             android:name=".Delivery"
-            android:label="@string/livraisons"
-            android:parentActivityName=".LoginPage">
+            android:label="@string/app_name"
+            android:parentActivityName=".search_delivery">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.marc.truckdelivery.LoginPage" />
+                android:value="com.example.marc.truckdelivery.search_delivery" />
         </activity>
         <activity
             android:name=".Driver"
-            android:label="@string/Driver"
-            android:parentActivityName=".LoginPage">
+            android:label="@string/app_name"
+            android:parentActivityName=".search_driver">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.marc.truckdelivery.LoginPage" />
+                android:value="com.example.marc.truckdelivery.search_driver" />
         </activity>
         <activity
             android:name=".driver_page"
-            android:label="@string/driver_page"
+            android:label="@string/app_name"
             android:parentActivityName=".LoginPage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -90,7 +91,7 @@
         </activity>
         <activity
             android:name=".dr_delivery"
-            android:label="@string/dr_delivery"
+            android:label="@string/app_name"
             android:parentActivityName=".LoginPage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -98,31 +99,31 @@
         </activity>
         <activity
             android:name=".DriverAdd"
-            android:label="@string/DriverAdd"
-            android:parentActivityName=".LoginPage">
+            android:label="@string/app_name"
+            android:parentActivityName=".search_driver">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.marc.truckdelivery.LoginPage" />
+                android:value="com.example.marc.truckdelivery.search_driver" />
         </activity>
         <activity
             android:name=".CustomerAdd"
-            android:label="@string/CustomerAdd"
-            android:parentActivityName=".LoginPage">
+            android:label="@string/app_name"
+            android:parentActivityName=".search_customer">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.marc.truckdelivery.LoginPage" />
+                android:value="com.example.marc.truckdelivery.search_customer" />
         </activity>
         <activity
             android:name=".DeliveryAdd"
-            android:label="@string/DeliveryAdd"
-            android:parentActivityName=".LoginPage">
+            android:label="@string/app_name"
+            android:parentActivityName=".search_delivery">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.marc.truckdelivery.LoginPage" />
+                android:value="com.example.marc.truckdelivery.search_delivery" />
         </activity>
         <activity
             android:name=".Searchable_driver_Activity"
-            android:label="@string/search"
+            android:label="@string/app_name"
             android:launchMode="singleTop"
             android:theme="@style/Theme.AppCompat.Light">
             <intent-filter>
@@ -131,7 +132,7 @@
 
             <meta-data
                 android:name="android.app.searchable"
-                android:resource="@xml/searchable"
+                android:label="@string/app_name"
                 android:value=".activities.SearchableActivity" />
         </activity>
         <activity android:name=".Searchable_customer_Activity" />
