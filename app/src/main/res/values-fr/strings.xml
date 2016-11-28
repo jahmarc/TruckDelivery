@@ -36,10 +36,18 @@
     <string name="ibdelivery">Bouton qui permet d\'accéder aux livraisons</string>
     <string name="ibcustomer">Bouton qui permet d\'accéder aux Clients</string>
     <string name="enter_a_newPass">Entrez un nouveau mot de passe</string>
-    <string name="search_driver" />
-    <string name="Driver" />
-    <string name="driver_page" />
-    <string name="dr_delivery" />
-    <string name="DriverAdd" />
-    <string name="admin_page" />
+    <string name="search_driver" >Rechercher chauffeurs</string>
+    <string name="Driver" >Chauffeur</string>
+    <string name="driver_page" >Page Chauffeur</string>
+    <string name="dr_delivery" >Livraison Chauffeur</string>
+    <string name="DriverAdd" >Nouveau chauffeur</string>
+    <string name="admin_page" >Page administrative</string>
+    <string name="CustomerAdd">Nouveau client</string>
+    <string name="DeliveryAdd">Nouvelle livraison</string>
+    <string name="Results">Resultats</string>
+    <string name="app_label">Label de l\'appli</string>
+    <string name="date">Date</string>
+    <string name="delete">Effacer</string>
+    <string name="search_delivery">Rechercher livraisons</string>
+    <string name="search_hint">Recherche cachée</string>
 </resources>

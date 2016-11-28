@@ -36,10 +36,18 @@
     <string name="t_l_phone">Phone</string>
     <string name="to_do">TO-DO</string>
     <string name="enter_a_newPass">Enter a new Password</string>
-    <string name="search_driver" />
-    <string name="Driver" />
-    <string name="driver_page" />
-    <string name="dr_delivery" />
-    <string name="DriverAdd" />
-    <string name="admin_page" />
+    <string name="search_driver" >Search Drivers</string>
+    <string name="Driver" >Driver</string>
+    <string name="driver_page" >Driver Page</string>
+    <string name="dr_delivery" >Driver Delivery</string>
+    <string name="DriverAdd" >Driver add</string>
+    <string name="admin_page" >Admin Page</string>
+    <string name="CustomerAdd">Customer add</string>
+    <string name="DeliveryAdd">Delivery add</string>
+    <string name="Results">Results</string>
+    <string name="app_label">App label</string>
+    <string name="date">Date</string>
+    <string name="delete">Delete</string>
+    <string name="search_delivery">Search Deliveries</string>
+    <string name="search_hint">Search hint</string>
 </resources>
