@@ -103,7 +103,7 @@ public class DriverAdd extends AppCompatActivity {
         String Password = editTextdr_sPassword.getText().toString();
 
         dts.createDriver(new DriverObject(Nom,Prenom,Phone,Plaque,Truck,Password));
-        Intent toS_Driver = new Intent(this,search_driver.class);
+        Intent toS_Driver = new Intent(this,admin_page.class);
         startActivity(toS_Driver);
     }
 }

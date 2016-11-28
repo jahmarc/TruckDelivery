@@ -288,7 +288,7 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
         DeliveryObject deliveryUpdated = new DeliveryObject(id, driverid, customerid, date, quantity, conditioning, article);
         dets.updateDelivery(deliveryUpdated);
 
-        Intent intent = new Intent(this,search_delivery.class);
+        Intent intent = new Intent(this,admin_page.class);
         startActivity(intent);
 
     }
@@ -297,7 +297,7 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
 
         dets.deleteDelivery(id);
 
-        Intent intent = new Intent(this,search_delivery.class);
+        Intent intent = new Intent(this,admin_page.class);
         startActivity(intent);
     }
 

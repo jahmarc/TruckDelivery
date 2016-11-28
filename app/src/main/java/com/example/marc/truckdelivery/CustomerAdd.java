@@ -109,7 +109,7 @@ public class CustomerAdd extends AppCompatActivity {
         String locality = editTextcLocalite_add.getText().toString();
 
         dts.createCustomer(new CustomerObject(society,name,firstname,phone,adress,postcode,locality));
-        Intent toS_Customer = new Intent(this,search_customer.class);
+        Intent toS_Customer = new Intent(this,admin_page.class);
         startActivity(toS_Customer);
     }
 }

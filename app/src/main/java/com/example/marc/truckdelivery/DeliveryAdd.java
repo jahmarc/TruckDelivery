@@ -160,12 +160,12 @@ public class DeliveryAdd extends AppCompatActivity implements DatePickerDialog.O
         editTextdeMar_add = (EditText)findViewById(R.id.editTextdeMar_add);
         buttonSave_add = (Button)findViewById(R.id.buttonSave_add);
 
-        editTextdeNumCourse_add.setText(resources.getString(R.string.num_ro_de_course));
+        editTextdeNumCourse_add.setHint(resources.getString(R.string.num_ro_de_course));
         buttonDate_add.setText(resources.getString(R.string.choisir_une_date));
         buttonDate_add.setHint(resources.getString(R.string.choisir_une_date));
-        editTextdeQte_add.setText(resources.getString(R.string.quantit));
-        editTextdeCondi_add.setText(resources.getString(R.string.conditionnement));
-        editTextdeMar_add.setText(resources.getString(R.string.marchandise));
+        editTextdeQte_add.setHint(resources.getString(R.string.quantit));
+        editTextdeCondi_add.setHint(resources.getString(R.string.conditionnement));
+        editTextdeMar_add.setHint(resources.getString(R.string.marchandise));
         buttonSave_add.setText(resources.getString(R.string.sauvegarder));
 
     }
@@ -265,7 +265,7 @@ public class DeliveryAdd extends AppCompatActivity implements DatePickerDialog.O
         String article = editTextdeMar_add.getText().toString();
 
         dts.createDelivery(new DeliveryObject(driverid, customerid, date, quantity, conditioning, article));
-        Intent toS_Delivery = new Intent(this, search_delivery.class);
+        Intent toS_Delivery = new Intent(this, admin_page.class);
         startActivity(toS_Delivery);
     }
 }

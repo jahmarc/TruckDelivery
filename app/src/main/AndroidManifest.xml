@@ -60,26 +60,26 @@
         <activity
             android:name=".Customer"
             android:label="@string/app_name"
-            android:parentActivityName=".search_customer">
+            android:parentActivityName=".LoginPage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.marc.truckdelivery.search_customer" />
+                android:value="com.example.marc.truckdelivery.LoginPage" />
         </activity>
         <activity
             android:name=".Delivery"
             android:label="@string/app_name"
-            android:parentActivityName=".search_delivery">
+            android:parentActivityName=".LoginPage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.marc.truckdelivery.search_delivery" />
+                android:value="com.example.marc.truckdelivery.LoginPage" />
         </activity>
         <activity
             android:name=".Driver"
             android:label="@string/app_name"
-            android:parentActivityName=".search_driver">
+            android:parentActivityName=".LoginPage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.marc.truckdelivery.search_driver" />
+                android:value="com.example.marc.truckdelivery.LoginPage" />
         </activity>
         <activity
             android:name=".driver_page"
@@ -100,26 +100,26 @@
         <activity
             android:name=".DriverAdd"
             android:label="@string/app_name"
-            android:parentActivityName=".search_driver">
+            android:parentActivityName=".LoginPage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.marc.truckdelivery.search_driver" />
+                android:value="com.example.marc.truckdelivery.LoginPage" />
         </activity>
         <activity
             android:name=".CustomerAdd"
             android:label="@string/app_name"
-            android:parentActivityName=".search_customer">
+            android:parentActivityName=".LoginPage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.marc.truckdelivery.search_customer" />
+                android:value="com.example.marc.truckdelivery.LoginPage" />
         </activity>
         <activity
             android:name=".DeliveryAdd"
             android:label="@string/app_name"
-            android:parentActivityName=".search_delivery">
+            android:parentActivityName=".LoginPage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.marc.truckdelivery.search_delivery" />
+                android:value="com.example.marc.truckdelivery.LoginPage" />
         </activity>
         <activity
             android:name=".Searchable_driver_Activity"

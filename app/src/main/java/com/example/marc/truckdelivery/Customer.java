@@ -64,6 +64,29 @@ public class Customer extends AppCompatActivity {
         }else{
             RCustomerId = (int)savedInstanceState.getSerializable("idCustomer");
         }
+
+        editTextcAdress = (EditText)findViewById(R.id.editTextcAdress);
+        editTextcNPA = (EditText)findViewById(R.id.editTextcNPA);
+        editTextcLocalite = (EditText)findViewById(R.id.editTextcLocalite);
+        editTextcPrenom = (EditText)findViewById(R.id.editTextcPrenom);
+        editTextcPhone = (EditText)findViewById(R.id.editTextcPhone);
+        editTextcSociete = (EditText)findViewById(R.id.editTextcSociete);
+        editTextcName = (EditText)findViewById(R.id.editTextcName);
+        buttoncDelete = (Button)findViewById(R.id.buttoncDelete);
+        buttoncSave = (Button)findViewById(R.id.buttoncSave);
+
+        customer = dts.getCustomerById(RCustomerId);
+        editTextcAdress.setText(""+customer.getAdress()) ;
+        editTextcLocalite.setText(""+customer.getLocality())  ;
+        editTextcPrenom.setText(""+customer.getFirstname())   ;
+        editTextcPhone.setText(""+customer.getPhone())  ;
+        editTextcSociete.setText(""+customer.getSociety())  ;
+        editTextcName.setText(""+customer.getName())  ;
+        editTextcNPA.setText(""+customer.getPostcode())  ;
+        buttoncDelete.setText(getString(R.string.delete));
+        buttoncSave.setText(getString(R.string.sauvegarder));
+
+
     }
 
     @Override
@@ -97,23 +120,22 @@ public class Customer extends AppCompatActivity {
     }
     private void updateViews() {
         Resources resources = getResources();
-         editTextcSociete =(EditText)findViewById(R.id.editTextcSociete);
+        /* editTextcSociete =(EditText)findViewById(R.id.editTextcSociete);
          editTextcName =(EditText)findViewById(R.id.editTextcName);
          editTextcPrenom =(EditText)findViewById(R.id.editTextcPrenom);
          editTextcPhone =(EditText)findViewById(R.id.editTextcPhone);
          editTextcAdress =(EditText)findViewById(R.id.editTextcAdress);
          editTextcNPA =(EditText)findViewById(R.id.editTextcNPA);
          editTextcLocalite =(EditText)findViewById(R.id.editTextcLocalite);
-         buttoncDelete = (Button)findViewById(R.id.buttoncDelete);
-         buttoncSave = (Button)findViewById(R.id.buttoncSave);
+         */
 
-        editTextcSociete.setText(resources.getString(R.string.soci_t));
-        editTextcName.setText(resources.getString(R.string.nom));
-        editTextcPrenom.setText(resources.getString(R.string.pr_nom));
-        editTextcPhone.setText(resources.getString(R.string.t_l_phone));
-        editTextcAdress.setText(resources.getString(R.string.adresse));
-        editTextcNPA.setText(resources.getString(R.string.npa));
-        editTextcLocalite.setText(resources.getString(R.string.localit));
+        editTextcSociete.setHint(resources.getString(R.string.soci_t));
+        editTextcName.setHint(resources.getString(R.string.nom));
+        editTextcPrenom.setHint(resources.getString(R.string.pr_nom));
+        editTextcPhone.setHint(resources.getString(R.string.t_l_phone));
+        editTextcAdress.setHint(resources.getString(R.string.adresse));
+        editTextcNPA.setHint(resources.getString(R.string.npa));
+        editTextcLocalite.setHint(resources.getString(R.string.localit));
         buttoncDelete.setText(resources.getString(R.string.livraisons));
         buttoncSave.setText(resources.getString(R.string.sauvegarder));
     }
@@ -131,7 +153,7 @@ public class Customer extends AppCompatActivity {
         CustomerObject customerUpdated = new CustomerObject(id, society, name, firstname, phone, adress, postcode, locality);
         dts.updateCustomer(customerUpdated);
 
-        Intent intent = new Intent(this,search_customer.class);
+        Intent intent = new Intent(this,admin_page.class);
         startActivity(intent);
     }
     public void deleteCustomer(View view) {
@@ -139,7 +161,7 @@ public class Customer extends AppCompatActivity {
 
         dts.deleteCustomer(id);
 
-        Intent intent = new Intent(this,search_customer.class);
+        Intent intent = new Intent(this,admin_page.class);
         startActivity(intent);
     }
 

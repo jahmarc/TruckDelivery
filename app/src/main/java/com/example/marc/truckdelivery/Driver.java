@@ -77,7 +77,7 @@ public class Driver extends AppCompatActivity {
         editTextdrPhone.setText(driver.getPhone());
         editTextdrPlaque.setText(driver.getPlate());
         editTextdrPass.setHint("****");
-        //editTextdrPass.setText(driver.getPassword());
+
 
     }
     public boolean onCreateOptionsMenu(Menu menu)
