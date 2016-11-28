@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="fill_parent"
@@ -9,14 +10,42 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="69dp"
         android:id="@+id/driver_page_name"
         tools:text="@string/nom"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="23dp"
+        android:layout_alignStart="@+id/driver_page_chooseDate"
+        android:layout_alignEnd="@+id/driver_page_chooseDate" />
+
+    <Button
+        android:layout_width="193dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/driver_page_chooseDate"
+        android:hint="@string/choisir_une_date"
+        android:onClick="showDatePickerDialog_driver_page"
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/driver_page_name"
+        android:layout_centerHorizontal="true"
+        tools:text="@string/choisir_une_date" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/driver_page_EditTextDate"
+        tools:ignore="LabelFor"
+        android:inputType="date"
+        android:hint="@string/date"
+        android:layout_below="@+id/driver_page_chooseDate"
+        android:layout_alignStart="@+id/driver_page_chooseDate"
+        android:layout_alignEnd="@+id/driver_page_chooseDate" />
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/driver_page_livraisons" />
+        android:id="@+id/driver_page_livraisons"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/driver_page_EditTextDate" />
 
-</LinearLayout>
+</RelativeLayout>
