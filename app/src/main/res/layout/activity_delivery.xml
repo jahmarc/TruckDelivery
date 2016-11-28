@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/client"
-        android:id="@+id/spinnerClient"
+        android:id="@+id/spinnerChauffeur"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
 
@@ -24,8 +24,8 @@
         android:layout_height="wrap_content"
         android:text="@string/chauffeur"
         android:layout_marginTop="17dp"
-        android:id="@+id/spinnerChauffeur"
-        android:layout_below="@+id/spinnerClient"
+        android:id="@+id/spinnerClient"
+        android:layout_below="@+id/spinnerChauffeur"
         android:layout_alignParentStart="true" />
 
     <EditText

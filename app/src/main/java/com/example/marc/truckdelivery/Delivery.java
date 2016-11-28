@@ -51,17 +51,11 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
     int driverpos;
     List<Integer> DriverIDs;
     List<Integer> CustomerIDs;
-    boolean noclickdriver = false;
-    boolean noclickcustomer = false;
-    boolean test1;
-    boolean test2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery);
-        test1=false;
-        test2=false;
 
 
         /**
@@ -92,6 +86,7 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
         dets = new DeliveryDataSource(this);
 
         delivery = dets.getDeliveryById((long)RDeliveryId);
+        int marc = delivery.getDriverid();
 
 
         // Spinner element
@@ -109,15 +104,17 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
 
         drivers = dts.getAllDrivers();
         List<String> spinnerdriver =new ArrayList<String>();
-        DriverIDs = new ArrayList<Integer>(drivers.size());
+        DriverIDs = new ArrayList<Integer>(drivers.size()+1);
 
         //I fill the actual objects
-        DriverObject driverprov = dts.getDriverById(delivery.getDriverid());
-        spinnerdriver.add(driverprov.getFirstname()+ " " + driverprov.getName());
+        DriverObject driverprov = dts.getDriverById(marc);
+        String temp = driverprov.getFirstname().toString()+ " " + driverprov.getName().toString();
+        spinnerdriver.add(temp);
         DriverIDs.add(driverprov.getId());
 
         for(DriverObject driver : drivers){
-            spinnerdriver.add(driver.getFirstname()+ " " + driver.getName());
+            spinnerdriver.add(driver.getFirstname().toString()+ " " + driver.getName().toString());
+            temp = driverprov.getFirstname()+ " " + driverprov.getName();
             DriverIDs.add(driver.getId());
         }
 
@@ -127,18 +124,21 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
 
         customers = cds.getAllCustomers();
         List<String> spinnercustomer =new ArrayList<String>();
-        CustomerIDs = new ArrayList<Integer>(customers.size());
+        CustomerIDs = new ArrayList<Integer>(customers.size()+1);
 
 
         //Fill the actual object
 
         CustomerDataSource cts = new CustomerDataSource(this);
         CustomerObject customerprov = cts.getCustomerById(delivery.getCustomerid());
-        spinnercustomer.add(customerprov.getSociety().toString() + " " + customerprov.getFirstname().toString()+ " " + customerprov.getName().toString());
+        String temp10 = customerprov.getSociety().toString() + " " + customerprov.getFirstname().toString()+ " " + customerprov.getName().toString();
+        spinnercustomer.add(temp10);
         CustomerIDs.add(customerprov.getId());
+        int test = customerprov.getId();
 
         for(CustomerObject customer : customers){
             spinnercustomer.add(customer.getSociety() + " " + customer.getFirstname()+ " " + customer.getName());
+            temp = customer.getSociety() + " " + customer.getFirstname()+ " " + customer.getName();
             CustomerIDs.add(customer.getId());
         }
 
@@ -160,7 +160,7 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
         editTextdeCondi= (EditText)findViewById(R.id.editTextdeCondi);
         editTextdeMar= (EditText)findViewById(R.id.editTextdeMar);
 
-        int test = delivery.getId();
+        int test2 = delivery.getId();
         editTextdeNumCourse.setText(""+delivery.getId());
         editTextdeDate.setText(delivery.getDate());
         editTextdeQte.setText(""+delivery.getQuantity());
@@ -244,8 +244,6 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
 
             //Saving id to save the Delivery
             driverpos = position;
-            noclickdriver = true;
-            test1=true;
 
         }
 
@@ -270,7 +268,6 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
             //Saving id to save the Delivery
 
             customerpos = position;
-            noclickcustomer = true;
         }
 
         @Override
@@ -281,8 +278,8 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
 
     public void UpdateDelivery(View view) {
             int id = delivery.getId();
-            int driverid = DriverIDs.get(driverID);
-            int customerid = CustomerIDs.get(customerID);
+            int driverid = DriverIDs.get(driverpos);
+            int customerid = CustomerIDs.get(customerpos);
             String date = editTextdeDate.getText().toString();
             int quantity = Integer.parseInt(editTextdeQte.getText().toString());
             String conditioning = editTextdeCondi.getText().toString();

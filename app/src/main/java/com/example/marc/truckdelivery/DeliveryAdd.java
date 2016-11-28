@@ -91,7 +91,7 @@ public class DeliveryAdd extends AppCompatActivity implements DatePickerDialog.O
         CustomerIDs = new ArrayList<Integer>(customers.size());
 
         for(CustomerObject customer : customers){
-            spinnercustomer.add(customer.getSociety() + " " + customer.getFirstname()+ " " + customer.getName());
+            spinnercustomer.add(customer.getId() + " " + customer.getSociety() + " " + customer.getFirstname()+ " " + customer.getName());
             CustomerIDs.add(customer.getId());
         }
 
@@ -257,8 +257,8 @@ public class DeliveryAdd extends AppCompatActivity implements DatePickerDialog.O
         editTextdeMar_add = (EditText)findViewById(R.id.editTextdeMar_add);
         buttonSave_add = (Button)findViewById(R.id.buttonSave_add);
 
-        int driverid =  DriverIDs.get(driverID);
-        int customerid = CustomerIDs.get(customerID);
+        int driverid =  DriverIDs.get(driverpos);
+        int customerid = CustomerIDs.get(customerpos);
         String date = editTextdeDate.getText().toString();
         int quantity = Integer.parseInt(editTextdeQte_add.getText().toString());
         String conditioning = editTextdeCondi_add.getText().toString();

@@ -32,6 +32,8 @@ public class DeliveryDataSource {
     public long createDelivery(DeliveryObject delivery){
         long id;
         db = sqldb.getWritableDatabase();
+        int test = delivery.getCustomerid();
+        int test2 = delivery.getDriverid();
         ContentValues values = new ContentValues();
         values.put(DeliveryEntry.KEY_ID_DRIVER, delivery.getDriverid());
         values.put(DeliveryEntry.KEY_ID_CUSTOMER, delivery.getCustomerid());
