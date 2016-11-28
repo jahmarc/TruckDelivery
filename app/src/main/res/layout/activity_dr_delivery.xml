@@ -100,12 +100,6 @@
                     android:layout_weight="1"
                     android:id="@+id/dr_delivery" />
 
-                <CheckBox
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/dr_delivery_checkbox" />
-
             </LinearLayout>
 
         </TableRow>

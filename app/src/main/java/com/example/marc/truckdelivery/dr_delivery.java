@@ -102,7 +102,16 @@ public class dr_delivery extends AppCompatActivity {
     }
     private void updateViews() {
         Resources resources = getResources();
-
+        dr_delivery_course = (TextView)findViewById(R.id.dr_delivery_course);
+        dr_delivery_course.setText(delivery.getId());
+        dr_delivery_date = (TextView)findViewById(R.id.dr_delivery_date);
+        dr_delivery_date.setText(delivery.getDate());
+        dr_delivery_quantity = (TextView)findViewById(R.id.dr_delivery_quantity);
+        dr_delivery_quantity.setText(delivery.getQuantity());
+        dr_delivery_conditioning = (TextView)findViewById(R.id.dr_delivery_conditioning);
+        dr_delivery_conditioning.setText(delivery.getConditioning());
+        dr_delivery_commodity = (TextView)findViewById(R.id.dr_delivery_commodity);
+        dr_delivery_commodity.setText(delivery.getArticle());
 
     }
 }
