@@ -27,7 +27,7 @@ import db.object.CustomerObject;
 import db.object.DeliveryObject;
 import db.object.DriverObject;
 
-import static com.example.marc.truckdelivery.R.id.buttondDelete;
+import static com.example.marc.truckdelivery.R.id.buttondDelDelete;
 
 public class Delivery extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -155,12 +155,12 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
          spinnerClient =(Spinner)findViewById(R.id.spinnerClient);
          spinnerChauffeur =(Spinner)findViewById(R.id.spinnerChauffeur);
          editTextdeNumCourse=(EditText)findViewById(R.id.editTextdeNumCourse);
-         buttonDate = (Button)findViewById(R.id.buttonDate);
+         buttonDate = (Button)findViewById(R.id.button);
          editTextdeQte=(EditText)findViewById(R.id.editTextdeQte);
          editTextdeCondi=(EditText)findViewById(R.id.editTextdeCondi);
          editTextdeMar=(EditText)findViewById(R.id.editTextdeMar);
-         buttondSave = (Button)findViewById(R.id.buttondSave);
-        buttondDelDelete = (Button)findViewById(buttondDelete);
+         buttondSave = (Button)findViewById(R.id.buttonSave);
+        buttondDelDelete = (Button)findViewById(R.id.buttondDelDelete);
 
         editTextdeNumCourse.setText(resources.getString(R.string.num_ro_de_course));
         buttonDate.setText(resources.getString(R.string.choisir_une_date));
