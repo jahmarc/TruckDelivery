@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -69,12 +70,14 @@ public class Driver extends AppCompatActivity {
         editTextdrCam=(EditText)findViewById(R.id.editTextdrCam) ;
         editTextdrPass=(EditText)findViewById(R.id.editTextdrPass);
 
-        driver= dts.getDriverById(RDriverId);
+        driver = dts.getDriverById(RDriverId);
         editTextdrCam.setText(driver.getNumTruck());
         editTextdrNom.setText(driver.getName());
         editTextdrPrenom.setText(driver.getFirstname());
         editTextdrPhone.setText(driver.getPhone());
         editTextdrPlaque.setText(driver.getPlate());
+        editTextdrPass.setHint("****");
+        //editTextdrPass.setText(driver.getPassword());
 
     }
     public boolean onCreateOptionsMenu(Menu menu)
@@ -113,7 +116,7 @@ public class Driver extends AppCompatActivity {
         TextView TextViewPlaque=(TextView)findViewById(R.id.textViewPlaque) ;
         TextView TextViewPhone=(TextView)findViewById(R.id.textViewPhone) ;
         Button drbuttonSave =(Button)findViewById(R.id.drbuttonSave);
-        Button buttonDelivery =(Button)findViewById(R.id.deleteDriver);
+        Button deleteDriver =(Button)findViewById(R.id.deleteDriver);
         TextView TextViewCam=(TextView)findViewById(R.id.textViewCam) ;
         TextView TextViewPass=(TextView)findViewById(R.id.textViewPass);
         editTextdrPass=(EditText)findViewById(R.id.editTextdrPass);
@@ -123,10 +126,9 @@ public class Driver extends AppCompatActivity {
         TextViewPlaque.setText(resources.getString(R.string.plaque));
         TextViewPhone.setText(resources.getString(R.string.t_l_phone));
         drbuttonSave.setHint(resources.getString(R.string.sauvegarder));
-        buttonDelivery.setHint(resources.getString(R.string.livraisons));
+        deleteDriver.setHint(resources.getString(R.string.delete));
         TextViewCam.setText(resources.getString(R.string.n_camion));
         TextViewPass.setHint(resources.getString(R.string.password));
-        editTextdrPass.setHint(resources.getString(R.string.enter_a_newPass));
 
     }
 
