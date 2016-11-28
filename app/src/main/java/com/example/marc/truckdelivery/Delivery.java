@@ -45,11 +45,24 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
     EditText editTextdeMar;
     Button buttondSave;
     Button buttondDelDelete;
+    int customerID;
+    int driverID;
+    int customerpos;
+    int driverpos;
+    List<Integer> DriverIDs;
+    List<Integer> CustomerIDs;
+    boolean noclickdriver = false;
+    boolean noclickcustomer = false;
+    boolean test1;
+    boolean test2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery);
+        test1=false;
+        test2=false;
+        delivery = dets.getDeliveryById(RDeliveryId);
 
         dets = new DeliveryDataSource(this);
 
@@ -58,8 +71,8 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
         Spinner spinnerc = (Spinner) findViewById(R.id.spinnerClient);
 
         // Spinner click listener
-        spinnerd.setOnItemSelectedListener(this);
-        spinnerc.setOnItemSelectedListener(this);
+        spinnerd.setOnItemSelectedListener(new DriverSpinnerClass());
+        spinnerc.setOnItemSelectedListener(new CustomerSpinnerClass());
 
         //Fill the Spinners
             //Spinner Driver
@@ -68,9 +81,15 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
 
         drivers = dts.getAllDrivers();
         List<String> spinnerdriver =new ArrayList<String>();
+        DriverIDs = new ArrayList<Integer>(drivers.size());
+
+        //I fill the actual objects
+        DriverObject driverprov = dts.getDriverById(delivery.getDriverid());
+        spinnerdriver.add(driverprov.getFirstname()+ " " + driverprov.getName());
 
         for(DriverObject driver : drivers){
             spinnerdriver.add(driver.getFirstname()+ " " + driver.getName());
+            DriverIDs.add(driver.getId());
         }
 
             //Spinner Customer
@@ -79,9 +98,18 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
 
         customers = cds.getAllCustomers();
         List<String> spinnercustomer =new ArrayList<String>();
+        CustomerIDs = new ArrayList<Integer>(customers.size());
+
+
+        //Fill the actual object
+
+        CustomerDataSource cts = new CustomerDataSource(this);
+        CustomerObject customerprov = cts.getCustomerById(delivery.getCustomerid());
+        spinnercustomer.add(customerprov.getSociety().toString() + " " + customerprov.getFirstname().toString()+ " " + customerprov.getName().toString());
 
         for(CustomerObject customer : customers){
             spinnercustomer.add(customer.getSociety() + " " + customer.getFirstname()+ " " + customer.getName());
+            CustomerIDs.add(customer.getId());
         }
 
         // Creating adapter for spinner
@@ -95,6 +123,9 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
         // attaching data adapter to spinner
         spinnerd.setAdapter(dataAdapter);
         spinnerc.setAdapter(dataAdapter2);
+
+        spinnerd.setSelection(2);
+
 
         /**
          * Add additional functions to actionbar
@@ -121,7 +152,7 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
             RDeliveryId = (int)savedInstanceState.getSerializable("idDelivery");
         }
 
-        delivery = dets.getDeliveryById(RDeliveryId);
+
     }
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_search,menu);
@@ -184,22 +215,95 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-        // On selecting a spinner item
-        String item = adapterView.getItemAtPosition(i).toString();
+    }
 
-        // Showing selected spinner item
-        Toast.makeText(adapterView.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+    class DriverSpinnerClass implements AdapterView.OnItemSelectedListener
+    {
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View v, int position, long id)
+        {
+            // On selecting a spinner item
+            String item = parent.getItemAtPosition(position).toString();
+
+            // Showing selected spinner item
+            Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+
+            //Saving id to save the Delivery
+            driverpos = position;
+            noclickdriver = true;
+            test1=true;
+
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> adapterView) {
+
+        }
+
+    }
+
+    class CustomerSpinnerClass implements AdapterView.OnItemSelectedListener
+    {
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View v, int position, long id)
+        {
+            // On selecting a spinner item
+            String item = parent.getItemAtPosition(position).toString();
+
+            // Showing selected spinner item
+            Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+
+            //Saving id to save the Delivery
+
+            customerpos = position;
+            noclickcustomer = true;
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> adapterView) {
+
+        }
     }
 
     public void UpdateDelivery(View view) {
-        int id = delivery.getId();
-       // int driverid = ;
-        //int customerid = ;
-        String date = editTextdeDate.getText().toString();
-        int quantity = Integer.parseInt(editTextdeQte.getText().toString());
-        String conditioning = editTextdeCondi.getText().toString();
-        String article = editTextdeMar.getText().toString();
-
+        if((noclickcustomer ==true)&&(noclickdriver == true)) {
+            int id = delivery.getId();
+            int driverid = DriverIDs.get(driverID);
+            int customerid = CustomerIDs.get(customerID);
+            String date = editTextdeDate.getText().toString();
+            int quantity = Integer.parseInt(editTextdeQte.getText().toString());
+            String conditioning = editTextdeCondi.getText().toString();
+            String article = editTextdeMar.getText().toString();
+        }
+        else if(noclickdriver == true){
+            int id = delivery.getId();
+            int driverid = DriverIDs.get(driverID);
+            int customerid = delivery.getCustomerid();
+            String date = editTextdeDate.getText().toString();
+            int quantity = Integer.parseInt(editTextdeQte.getText().toString());
+            String conditioning = editTextdeCondi.getText().toString();
+            String article = editTextdeMar.getText().toString();
+        }
+        else if(noclickcustomer == true)
+        {
+            int id = delivery.getId();
+            int driverid = delivery.getDriverid();
+            int customerid = CustomerIDs.get(customerID);
+            String date = editTextdeDate.getText().toString();
+            int quantity = Integer.parseInt(editTextdeQte.getText().toString());
+            String conditioning = editTextdeCondi.getText().toString();
+            String article = editTextdeMar.getText().toString();
+        }
+        else
+        {
+            int id = delivery.getId();
+            int driverid = delivery.getDriverid();
+            int customerid = delivery.getCustomerid();
+            String date = editTextdeDate.getText().toString();
+            int quantity = Integer.parseInt(editTextdeQte.getText().toString());
+            String conditioning = editTextdeCondi.getText().toString();
+            String article = editTextdeMar.getText().toString();
+        }
         //DeliveryObject deliveryUpdated = new DeliveryObject(id, driverid, customerid, date, quantity, conditioning, article);
         //dets.updateDelivery(deliveryUpdated);
 

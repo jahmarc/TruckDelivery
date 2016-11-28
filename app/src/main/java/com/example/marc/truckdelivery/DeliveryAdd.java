@@ -45,6 +45,12 @@ public class DeliveryAdd extends AppCompatActivity implements DatePickerDialog.O
     EditText editTextdeMar_add;
     Button buttonSave_add;
     DeliveryDataSource dts;
+    int customerID;
+    int driverID;
+    int customerpos;
+    int driverpos;
+    List<Integer> DriverIDs;
+    List<Integer> CustomerIDs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +64,8 @@ public class DeliveryAdd extends AppCompatActivity implements DatePickerDialog.O
         spinnerChauffeur_add = (Spinner)findViewById(R.id.spinnerClient_add);
 
         // Spinner click listener
-        spinnerClient_add.setOnItemSelectedListener(this);
-        spinnerChauffeur_add.setOnItemSelectedListener(this);
+        spinnerClient_add.setOnItemSelectedListener(new CustomerSpinnerClass());
+        spinnerChauffeur_add.setOnItemSelectedListener(new DriverSpinnerClass());
 
         //Fill the Spinners
         //Spinner Driver
@@ -68,9 +74,12 @@ public class DeliveryAdd extends AppCompatActivity implements DatePickerDialog.O
 
         drivers = dts.getAllDrivers();
         List<String> spinnerdriver =new ArrayList<String>(drivers.size());
+        DriverIDs = new ArrayList<Integer>(drivers.size());
 
         for(DriverObject driver : drivers){
             spinnerdriver.add(driver.getFirstname()+ " " + driver.getName());
+            DriverIDs.add(driver.getId());
+
         }
 
         //Spinner Customer
@@ -79,9 +88,11 @@ public class DeliveryAdd extends AppCompatActivity implements DatePickerDialog.O
 
         customers = cds.getAllCustomers();
         List<String> spinnercustomer =new ArrayList<String>();
+        CustomerIDs = new ArrayList<Integer>(customers.size());
 
         for(CustomerObject customer : customers){
             spinnercustomer.add(customer.getSociety() + " " + customer.getFirstname()+ " " + customer.getName());
+            CustomerIDs.add(customer.getId());
         }
 
         // Creating adapter for spinner
@@ -160,20 +171,61 @@ public class DeliveryAdd extends AppCompatActivity implements DatePickerDialog.O
     }
 
     @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+    }
+
+    @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
 
 
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+    class DriverSpinnerClass implements AdapterView.OnItemSelectedListener
+    {
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View v, int position, long id)
+        {
+            // On selecting a spinner item
+            String item = parent.getItemAtPosition(position).toString();
 
-        // On selecting a spinner item
-        String item = adapterView.getItemAtPosition(i).toString();
+            // Showing selected spinner item
+            Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
 
-        // Showing selected spinner item
-        Toast.makeText(adapterView.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+            //Saving id to save the Delivery
+            driverpos = position;
+
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> adapterView) {
+
+        }
+
     }
+
+    class CustomerSpinnerClass implements AdapterView.OnItemSelectedListener
+    {
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View v, int position, long id)
+        {
+            // On selecting a spinner item
+            String item = parent.getItemAtPosition(position).toString();
+
+            // Showing selected spinner item
+            Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+
+            //Saving id to save the Delivery
+
+            customerpos = position;
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> adapterView) {
+
+        }
+    }
+
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int day) {
@@ -205,14 +257,14 @@ public class DeliveryAdd extends AppCompatActivity implements DatePickerDialog.O
         editTextdeMar_add = (EditText)findViewById(R.id.editTextdeMar_add);
         buttonSave_add = (Button)findViewById(R.id.buttonSave_add);
 
-        //int driverid = spinnerChauffeur_add;
-        //int customerid = spinnerClient_add;
+        int driverid =  DriverIDs.get(driverID);
+        int customerid = CustomerIDs.get(customerID);
         String date = editTextdeDate.getText().toString();
         int quantity = Integer.parseInt(editTextdeQte_add.getText().toString());
         String conditioning = editTextdeCondi_add.getText().toString();
         String article = editTextdeMar_add.getText().toString();
 
-        //dts.createDelivery(new DeliveryObject(driverid, customerid, date, quantity, conditioning, article));
+        dts.createDelivery(new DeliveryObject(driverid, customerid, date, quantity, conditioning, article));
         Intent toS_Delivery = new Intent(this, search_delivery.class);
         startActivity(toS_Delivery);
     }
