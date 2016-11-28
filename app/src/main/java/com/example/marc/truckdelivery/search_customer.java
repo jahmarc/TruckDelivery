@@ -1,5 +1,7 @@
 package com.example.marc.truckdelivery;
 
+import android.app.SearchManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -8,22 +10,20 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import db.SQLiteHelper;
 import db.adapter.CustomerAdapter;
 import db.adapter.CustomerDataSource;
 import db.object.CustomerObject;
-import db.object.DriverObject;
 
 public class search_customer extends AppCompatActivity {
 
@@ -86,6 +86,12 @@ public class search_customer extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu)
     {
         getMenuInflater().inflate(R.menu.menu_search, menu);
+        //Get the SearchView  and set the searchable configuration
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.app_bar_search).getActionView();
+        // Assumes current activity is the searchable activity
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(new ComponentName(getApplicationContext(), Searchable_driver_Activity.class)));
+        searchView.setIconifiedByDefault(true); // Do not iconify the widget; expand it by default
         return true; //prends le style pour le menu de menu_basic
     }
 
@@ -106,6 +112,10 @@ public class search_customer extends AppCompatActivity {
                 Intent back = new Intent(this,LoginPage.class);
                 startActivity(back);
                 finish();
+                break;
+            case R.id.app_bar_search:
+                onSearchRequested();
+                return true;
             default:
                 LocaleHelper.setLocale(this,"en");
                 updateViews();

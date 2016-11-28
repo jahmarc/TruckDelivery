@@ -1,6 +1,5 @@
 package com.example.marc.truckdelivery;
 
-import android.app.DownloadManager;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -8,10 +7,8 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.NavUtils;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,32 +17,34 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import db.SQLiteHelper;
+import db.adapter.CustomerAdapter;
+import db.adapter.CustomerDataSource;
 import db.adapter.DriverAdapter;
 import db.adapter.DriverDataSource;
+import db.object.CustomerObject;
 import db.object.DriverObject;
 
-public class SearchableActivity extends AppCompatActivity {
+public class Searchable_customer_Activity extends AppCompatActivity {
 
     ListView lv;
-    List<DriverObject> drivers ;
+    List<CustomerObject> customers ;
     SQLiteHelper helper ;
-    DriverObject driverSelected;
-    DriverObject[] list;
+    CustomerObject customerSelected;
+    CustomerObject[] list;
     Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_searchable);
+        setContentView(R.layout.activity_searchable_customer);
         context = this;
         helper.getInstance(context);
 
         //Get the intent, verify the action and get the query
-        DriverDataSource dts = new DriverDataSource(context);
+        CustomerDataSource dts = new CustomerDataSource(context);
         Intent intent = getIntent();
         if(Intent.ACTION_SEARCH.equals(intent.getAction())){
             String query = intent.getStringExtra(SearchManager.QUERY);
@@ -60,24 +59,24 @@ public class SearchableActivity extends AppCompatActivity {
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
 
-        lv = (ListView) findViewById(R.id.result_driver);
+        lv = (ListView) findViewById(R.id.result_customer);
 
-        DriverAdapter adapter = new DriverAdapter(context,drivers);
+        CustomerAdapter adapter = new CustomerAdapter(context,customers);
         lv.setAdapter(adapter);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                driverSelected = (DriverObject) parent.getItemAtPosition(position);
-                int driverSelectedId=driverSelected.getId();
-                Intent toDriver = new Intent(SearchableActivity.this,Driver.class);
-                toDriver.putExtra("idDriver",driverSelectedId);
+                customerSelected = (CustomerObject) parent.getItemAtPosition(position);
+                int customerSelectedId=customerSelected.getId();
+                Intent toCustomer = new Intent(Searchable_customer_Activity.this,Customer.class);
+                toCustomer.putExtra("idCustomer",customerSelectedId);
                 if (LocaleHelper.getLanguage(context) == "en") {
-                    Toast.makeText(getBaseContext(), driverSelected.getName() + " selected", Toast.LENGTH_SHORT).show();
-                    startActivity(toDriver);
+                    Toast.makeText(getBaseContext(), customerSelected.getName() + " selected", Toast.LENGTH_SHORT).show();
+                    startActivity(toCustomer);
                 } else {
-                    Toast.makeText(getBaseContext(), driverSelected.getName() + " selectionné", Toast.LENGTH_SHORT).show();
-                    startActivity(toDriver);
+                    Toast.makeText(getBaseContext(), customerSelected.getName() + " selectionné", Toast.LENGTH_SHORT).show();
+                    startActivity(toCustomer);
                 }
             }
         });
@@ -124,7 +123,7 @@ public class SearchableActivity extends AppCompatActivity {
     }
 
     private void doSearchQuery(String query) {
-        DriverDataSource dts = new DriverDataSource(context);
-        drivers = dts.searchDriver(query);
+        CustomerDataSource dts = new CustomerDataSource(context);
+        customers = dts.searchCustomer(query);
     }
 }
