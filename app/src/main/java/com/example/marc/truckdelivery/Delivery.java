@@ -69,7 +69,7 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
         List<String> spinnerdriver =new ArrayList<String>();
 
         for(DriverObject driver : drivers){
-            spinnerdriver.add(driver.getId(), driver.getFirstname()+ " " + driver.getName());
+            spinnerdriver.add(driver.getFirstname()+ " " + driver.getName());
         }
 
             //Spinner Customer
@@ -80,7 +80,7 @@ public class Delivery extends AppCompatActivity implements AdapterView.OnItemSel
         List<String> spinnercustomer =new ArrayList<String>();
 
         for(CustomerObject customer : customers){
-            spinnercustomer.add(customer.getId(),customer.getSociety() + " " + customer.getFirstname()+ " " + customer.getName());
+            spinnercustomer.add(customer.getSociety() + " " + customer.getFirstname()+ " " + customer.getName());
         }
 
         // Creating adapter for spinner
