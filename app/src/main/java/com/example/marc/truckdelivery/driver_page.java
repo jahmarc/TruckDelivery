@@ -99,8 +99,6 @@ public class driver_page extends AppCompatActivity implements DatePickerDialog.O
         driver_page_EditTextDate = (EditText)findViewById(R.id.driver_page_EditTextDate);
         driver_page_name.setText(driver.getFirstname() + " "+ driver.getName());
 
-        String test = currentDate;
-        String marc = test;
 
         driver_page_EditTextDate.setText(currentDate.toString());
 
@@ -109,14 +107,14 @@ public class driver_page extends AppCompatActivity implements DatePickerDialog.O
          */
         lv = (ListView) findViewById(R.id.driver_page_livraisons);
 
-        DateFormat f = new SimpleDateFormat("MMM dd, yyyy");
-        try {
-            Date date  = f.parse(currentDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+//        DateFormat f = new SimpleDateFormat("MMM dd, yyyy");
+  //      try {
+    //        Date date  = f.parse(currentDate);
+      //  } catch (ParseException e) {
+        //    e.printStackTrace();
+        //}
         deliveries = new ArrayList<DeliveryObject>();
-        deliveries = dets.searchDeliveries(RDriverId, currentDate);
+        deliveries = dets.getDeliveriesByDriverId(RDriverId);
 
         DeliveryAdapter adapter = new DeliveryAdapter(context, deliveries);
         lv.setAdapter(adapter);
@@ -185,7 +183,7 @@ public class driver_page extends AppCompatActivity implements DatePickerDialog.O
         driver_page_chooseDate.setHint(resources.getString(R.string.choisir_une_date));
         driver_page_EditTextDate.setText(currentDate);
 
-        deliveries = dets.searchDeliveries(RDriverId, driver_page_EditTextDate.getText().toString());
+        deliveries = dets.getDeliveriesByDriverId(RDriverId);
 
         DeliveryAdapter adapter = new DeliveryAdapter(context, deliveries);
         lv.setAdapter(adapter);
