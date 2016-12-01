@@ -96,9 +96,12 @@ public class search_driver extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_basic, menu);
-
+        getMenuInflater().inflate(R.menu.menu_search, menu);
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.app_bar_search).getActionView();
+        // Assumes current activity is the searchable activity
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(new ComponentName(getApplicationContext(), Searchable_driver_Activity.class)));
+        searchView.setIconifiedByDefault(true); // Do not iconify the widget; expand it by default
 
         return true; //prends le style pour le menu de menu_search
     }
@@ -121,6 +124,9 @@ public class search_driver extends AppCompatActivity {
                 startActivity(back);
                 finish();
                 break;
+            case R.id.app_bar_search:
+              //  OnSearchRequested();
+                return true;
             default:
                 LocaleHelper.setLocale(this,"en");
                 updateViews();
