@@ -62,7 +62,7 @@ public class Driver extends AppCompatActivity {
             RDriverId = (int)savedInstanceState.getSerializable("idDriver");
            }
 
-
+            //Get the driver and set the textViews
         editTextdrNom=(EditText)findViewById(R.id.editTextdrNom) ;
         editTextdrPrenom=(EditText)findViewById(R.id.editTextdrPrenom) ;
         editTextdrPlaque=(EditText)findViewById(R.id.editTextdrPlaque) ;

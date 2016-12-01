@@ -120,14 +120,7 @@ public class Customer extends AppCompatActivity {
     }
     private void updateViews() {
         Resources resources = getResources();
-        /* editTextcSociete =(EditText)findViewById(R.id.editTextcSociete);
-         editTextcName =(EditText)findViewById(R.id.editTextcName);
-         editTextcPrenom =(EditText)findViewById(R.id.editTextcPrenom);
-         editTextcPhone =(EditText)findViewById(R.id.editTextcPhone);
-         editTextcAdress =(EditText)findViewById(R.id.editTextcAdress);
-         editTextcNPA =(EditText)findViewById(R.id.editTextcNPA);
-         editTextcLocalite =(EditText)findViewById(R.id.editTextcLocalite);
-         */
+
 
         editTextcSociete.setHint(resources.getString(R.string.soci_t));
         editTextcName.setHint(resources.getString(R.string.nom));

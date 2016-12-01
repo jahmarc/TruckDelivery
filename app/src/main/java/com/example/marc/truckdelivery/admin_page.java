@@ -69,7 +69,9 @@ public class admin_page extends AppCompatActivity {
         }
         return true;
     }
-
+    /*
+    * Intents
+     */
     public void toDelivery(View view) {
         Intent toDelivery = new Intent(this,search_delivery.class);
         startActivity(toDelivery);
